@@ -1,0 +1,48 @@
+import { LabExperiment } from "@/types";
+
+export const labData: LabExperiment[] = [
+  {
+    id: "lab-1",
+    slug: "sql-cost-optimizer",
+    title: "SQL Indexing & Query Cost Estimator",
+    category: "Database",
+    description: "Interactive visual tool demonstrating how B-Tree indexes, composite keys, and index-only scans reduce disk I/O in PostgreSQL and MySQL.",
+    componentIdentifier: "SqlOptimizer",
+    tags: ["PostgreSQL", "MySQL", "Indexing", "B-Tree"],
+    date: "2026.11",
+    demoUrl: "/lab",
+  },
+  {
+    id: "lab-2",
+    slug: "go-concurrency-visualizer",
+    title: "Go Goroutine & Channel Simulator",
+    category: "System",
+    description: "Real-time interactive canvas showing how buffered channels, worker pools, and mutexes prevent deadlocks and race conditions.",
+    componentIdentifier: "GoConcurrency",
+    tags: ["Go", "Concurrency", "Goroutines", "Simulation"],
+    date: "2026.10",
+    demoUrl: "/lab",
+  },
+  {
+    id: "lab-3",
+    slug: "docker-compose-generator",
+    title: "Full-Stack Docker Compose Architect",
+    category: "Interactive",
+    description: "Interactive tool to generate clean, production-ready multi-container Docker Compose manifests with PostgreSQL, MongoDB, and Node.js.",
+    componentIdentifier: "DockerArchitect",
+    tags: ["Docker", "DevOps", "Microservices", "YAML"],
+    date: "2026.09",
+    demoUrl: "/lab",
+  },
+  {
+    id: "lab-4",
+    slug: "api-rate-limiter-sandbox",
+    title: "Token Bucket Rate Limiter Tester",
+    category: "Algorithm",
+    description: "Visual test bench simulating burst HTTP traffic against a token bucket rate limiter to observe capacity replenishment and 429 throttling.",
+    componentIdentifier: "RateLimiter",
+    tags: ["REST APIs", "Algorithms", "Redis", "Security"],
+    date: "2026.08",
+    demoUrl: "/lab",
+  },
+];

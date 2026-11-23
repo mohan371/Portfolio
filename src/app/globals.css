@@ -1,26 +1,256 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core Architectural Monochrome Palette */
+  --void: #050505;
+  --obsidian: #0a0a0a;
+  --carbon: #111113;
+  --surface-1: #18181b;
+  --surface-2: #27272a;
+  --surface-3: #3f3f46;
+
+  /* Hairlines & Technical Separators */
+  --hairline: rgba(255, 255, 255, 0.07);
+  --hairline-hover: rgba(255, 255, 255, 0.18);
+  --hairline-active: rgba(255, 255, 255, 0.32);
+
+  /* Silver Metallic Gradient Stops */
+  --silver-bright: #ffffff;
+  --silver-light: #e4e4e7;
+  --silver-mid: #a1a1aa;
+  --silver-dark: #71717a;
+
+  /* Restrained Electric Accents (Used only for state & focus) */
+  --accent-cyan: #00f5ff;
+  --accent-cyan-dim: rgba(0, 245, 255, 0.15);
+  --accent-violet: #8b5cf6;
+  --accent-violet-dim: rgba(139, 92, 246, 0.15);
+  --accent-emerald: #10b981;
+  --accent-emerald-dim: rgba(16, 185, 129, 0.15);
+
+  /* Typography Stacks */
+  --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Fluid Editorial Type Scales */
+  --type-hero: clamp(2.75rem, 6.5vw + 1rem, 7.5rem);
+  --type-display: clamp(2rem, 3.8vw + 0.5rem, 4.25rem);
+  --type-heading: clamp(1.5rem, 2vw + 0.5rem, 2.5rem);
+  --type-subhead: clamp(1.125rem, 1.2vw + 0.4rem, 1.5rem);
+
+  /* Radix UI & Component Variables */
+  --background: var(--void);
+  --foreground: #ffffff;
+  --card: var(--obsidian);
+  --card-foreground: #ffffff;
+  --popover: var(--obsidian);
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: var(--void);
+  --secondary: var(--surface-1);
+  --secondary-foreground: #ffffff;
+  --muted: var(--surface-1);
+  --muted-foreground: var(--silver-mid);
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--accent-cyan);
+  --radius: 0.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Light / Studio High-Contrast Mode */
+[data-theme="studio-light"] {
+  --void: #f4f4f5;
+  --obsidian: #ffffff;
+  --carbon: #e4e4e7;
+  --surface-1: #e4e4e7;
+  --surface-2: #d4d4d8;
+  --surface-3: #a1a1aa;
+  --hairline: rgba(0, 0, 0, 0.08);
+  --hairline-hover: rgba(0, 0, 0, 0.2);
+  --hairline-active: rgba(0, 0, 0, 0.4);
+  --background: var(--void);
+  --foreground: #09090b;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+  --silver-bright: #09090b;
+  --silver-light: #27272a;
+  --silver-mid: #52525b;
+  --silver-dark: #71717a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Base Body Styles */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--void);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  color-scheme: dark;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-cyan);
+  color: #050505;
+}
+
+/* Custom Minimalist Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+/* Semantic Utility Classes */
+.bg-void { background-color: var(--void); }
+.bg-obsidian { background-color: var(--obsidian); }
+.bg-carbon { background-color: var(--carbon); }
+.bg-surface-1 { background-color: var(--surface-1); }
+.bg-surface-2 { background-color: var(--surface-2); }
+
+.border-hairline { border-color: var(--hairline); }
+.border-hairline-hover:hover { border-color: var(--hairline-hover); }
+
+.text-silver-bright { color: var(--silver-bright); }
+.text-silver-light { color: var(--silver-light); }
+.text-silver-mid { color: var(--silver-mid); }
+.text-silver-dark { color: var(--silver-dark); }
+
+.text-cyan-accent { color: var(--accent-cyan); }
+.text-violet-accent { color: var(--accent-violet); }
+.text-emerald-accent { color: var(--accent-emerald); }
+
+.font-display { font-family: var(--font-display); }
+.font-sans { font-family: var(--font-sans); }
+.font-mono { font-family: var(--font-mono); }
+
+/* Typography Classes */
+.type-hero {
+  font-family: var(--font-display);
+  font-size: var(--type-hero);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+}
+
+.type-display {
+  font-family: var(--font-display);
+  font-size: var(--type-display);
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+}
+
+.type-heading {
+  font-family: var(--font-display);
+  font-size: var(--type-heading);
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+}
+
+.type-subhead {
+  font-family: var(--font-sans);
+  font-size: var(--type-subhead);
+  line-height: 1.4;
+}
+
+/* Subtle Silver Gradient Text */
+.text-gradient-silver {
+  background: linear-gradient(180deg, #ffffff 20%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-chrome {
+  background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 45%, #71717a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Technical Datum Markers & Crosshairs */
+.corner-datum {
+  position: relative;
+}
+
+.corner-datum::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+.corner-datum::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 6px;
+  height: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+}
+
+/* Architectural Hairline Divider with Label */
+.datum-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.datum-divider::before,
+.datum-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: var(--hairline);
+}
+
+/* Subtle Technical Grid Background (Laboratory Aesthetic) */
+.bg-tech-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+.bg-dot-matrix {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Studio Architectural Card */
+.studio-card {
+  background-color: var(--obsidian);
+  border: 1px solid var(--hairline);
+  position: relative;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.studio-card:hover {
+  border-color: var(--hairline-hover);
+}
+
+/* Focus States */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
 }
