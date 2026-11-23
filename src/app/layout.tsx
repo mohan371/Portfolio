@@ -128,7 +128,7 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem("nv-theme");if(s==="light"){document.documentElement.setAttribute("data-theme","light");document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}else{document.documentElement.setAttribute("data-theme","dark");document.documentElement.classList.remove("light");document.documentElement.classList.add("dark");}}catch(e){document.documentElement.setAttribute("data-theme","dark");document.documentElement.classList.remove("light");document.documentElement.classList.add("dark");}})();`,
+            __html: `(function(){try{if(localStorage.getItem("nv-theme")!==null){localStorage.removeItem("nv-theme");}var s=localStorage.getItem("mohan-theme-v2");if(s==="light"){document.documentElement.setAttribute("data-theme","light");document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}else{document.documentElement.setAttribute("data-theme","dark");document.documentElement.classList.remove("light");document.documentElement.classList.add("dark");}}catch(e){document.documentElement.setAttribute("data-theme","dark");document.documentElement.classList.remove("light");document.documentElement.classList.add("dark");}})();`,
           }}
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

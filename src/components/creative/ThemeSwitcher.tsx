@@ -5,6 +5,8 @@ import { useAppStore } from "@/store/use-app-store";
 import { playTactileClick } from "@/lib/sound";
 import { Moon, Sun } from "lucide-react";
 
+export const THEME_STORAGE_KEY = "mohan-theme-v2";
+
 export function ThemeSwitcher() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const { soundEnabled } = useAppStore();
@@ -22,12 +24,22 @@ export function ThemeSwitcher() {
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem("nv-theme");
-    if (saved === "light") {
-      setTheme("light");
-      applyTheme("light");
-    } else {
-      // Default to Original Dark Obsidian for first-time visitors or saved dark
+    try {
+      // Safely migrate legacy key if present
+      if (localStorage.getItem("nv-theme") !== null) {
+        localStorage.removeItem("nv-theme");
+      }
+
+      const saved = localStorage.getItem(THEME_STORAGE_KEY);
+      if (saved === "light") {
+        setTheme("light");
+        applyTheme("light");
+      } else {
+        // Default to Original Dark Obsidian for first-time visitors, unconfigured, or saved dark
+        setTheme("dark");
+        applyTheme("dark");
+      }
+    } catch {
       setTheme("dark");
       applyTheme("dark");
     }
@@ -37,7 +49,11 @@ export function ThemeSwitcher() {
     if (soundEnabled) playTactileClick();
     const next = theme === "light" ? "dark" : "light";
     setTheme(next);
-    localStorage.setItem("nv-theme", next);
+    try {
+      localStorage.setItem(THEME_STORAGE_KEY, next);
+    } catch {
+      // Ignore quota errors
+    }
     applyTheme(next);
   };
 

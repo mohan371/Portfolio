@@ -34,7 +34,7 @@ export function InteractiveHeroCenterpiece() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeNode, setActiveNode] = useState<string>("Go");
   const [activeCategory, setActiveCategory] = useState<string>("Systems & Concurrency");
-  const [isDark, setIsDark] = useState<boolean>(false);
+  const [isDark, setIsDark] = useState<boolean>(true);
 
   useEffect(() => {
     const checkTheme = () => {
