@@ -6,7 +6,7 @@ import { playTactileClick } from "@/lib/sound";
 import { Moon, Sun } from "lucide-react";
 
 export function ThemeSwitcher() {
-  const [theme, setTheme] = useState<"dark" | "light">("light");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const { soundEnabled } = useAppStore();
 
   const applyTheme = (targetTheme: "dark" | "light") => {
@@ -23,13 +23,13 @@ export function ThemeSwitcher() {
 
   useEffect(() => {
     const saved = localStorage.getItem("nv-theme");
-    if (saved === "obsidian" || saved === "dark") {
-      setTheme("dark");
-      applyTheme("dark");
-    } else {
-      // Default to Corporate Light for first-time visitors
+    if (saved === "light") {
       setTheme("light");
       applyTheme("light");
+    } else {
+      // Default to Original Dark Obsidian for first-time visitors or saved dark
+      setTheme("dark");
+      applyTheme("dark");
     }
   }, []);
 
