@@ -60,11 +60,11 @@ const INITIAL_ASSETS: MediaAsset[] = [
   },
   {
     id: "asset-4",
-    name: "Mohan_NV_Resume.pdf",
-    path: "/resume/Mohan_NV_Resume.pdf",
-    size: "142 KB",
+    name: "Mohan_N_V_Resume.pdf",
+    path: "/resume/Mohan_N_V_Resume.pdf",
+    size: "202.6 KB",
     type: "application/pdf",
-    uploadedAt: "2026-11-23",
+    uploadedAt: "2026-11-24",
   },
 ];
 

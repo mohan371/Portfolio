@@ -79,14 +79,19 @@ export default function AboutPage() {
           </p>
 
           <div className="pt-4 flex flex-wrap gap-4">
-            <a href={siteConfig.resumeUrl} download="Mohan_NV_Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a href={siteConfig.resumeUrl} download="Mohan_N_V_Resume.pdf" target="_blank" rel="noopener noreferrer">
               <Button variant="primary">
                 <Download className="w-4 h-4 mr-1 text-primary-foreground" />
                 Download Complete Resume
               </Button>
             </a>
-            <Link href="/contact">
+            <Link href="/resume">
               <Button variant="secondary">
+                View Resume Page
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button variant="outline">
                 Contact Directly
               </Button>
             </Link>

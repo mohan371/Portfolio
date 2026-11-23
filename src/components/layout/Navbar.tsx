@@ -28,6 +28,7 @@ export function Navbar() {
   const primaryNavItems = [
     { label: "About", href: "/about" },
     { label: "Projects", href: "/projects" },
+    { label: "Resume", href: "/resume" },
     { label: "Lab", href: "/lab" },
     { label: "Studio", href: "/studio" },
     { label: "Skills", href: "/skills" },

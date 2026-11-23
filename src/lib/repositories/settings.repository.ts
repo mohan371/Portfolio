@@ -23,8 +23,8 @@ export async function getPublicSettings(): Promise<Record<string, unknown>> {
 
   return {
     resume_config: {
-      downloadUrl: "/resume/Mohan_NV_Resume.pdf",
-      fileName: "Mohan_NV_Resume.pdf",
+      downloadUrl: "/resume/Mohan_N_V_Resume.pdf",
+      fileName: "Mohan_N_V_Resume.pdf",
     },
     availability_status: {
       openToWork: true,

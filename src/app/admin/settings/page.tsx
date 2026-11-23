@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,9 @@ import {
   Globe,
   Save,
   CheckCircle2,
+  Upload,
+  ExternalLink,
+  Download,
 } from "lucide-react";
 
 export default function AdminSettingsPage() {
@@ -41,7 +45,7 @@ export default function AdminSettingsPage() {
 
   const [resumeConfig, setResumeConfig] = useState({
     downloadUrl: siteConfig.resumeUrl,
-    fileName: "Mohan_NV_Resume.pdf",
+    fileName: "Mohan_N_V_Resume.pdf",
     version: "2026.11",
   });
 
@@ -52,6 +56,54 @@ export default function AdminSettingsPage() {
   });
 
   const [isSaving, setIsSaving] = useState(false);
+  const [isUploadingResume, setIsUploadingResume] = useState(false);
+  const resumeFileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleResumeFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (!files || files.length === 0) return;
+    const file = files[0];
+
+    if (file.size > 10 * 1024 * 1024) {
+      toast.error("File Too Large", "Maximum resume PDF size is 10 MB.");
+      return;
+    }
+
+    if (!file.name.toLowerCase().endsWith(".pdf")) {
+      toast.error("Invalid Format", "Only .pdf files are supported.");
+      return;
+    }
+
+    setIsUploadingResume(true);
+    playTactileClick();
+
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+
+      const res = await fetch("/api/admin/resume-upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        setResumeConfig((prev) => ({
+          ...prev,
+          downloadUrl: data.path,
+          fileName: data.fileName,
+        }));
+        toast.success("Resume Replaced", `Saved ${data.fileName} (${data.size}) to production public directory.`);
+      } else {
+        toast.error("Upload Failed", data.error || "Unable to save resume PDF.");
+      }
+    } catch (err: any) {
+      toast.error("Upload Error", err.message);
+    } finally {
+      setIsUploadingResume(false);
+      if (resumeFileInputRef.current) resumeFileInputRef.current.value = "";
+    }
+  };
 
   const handleSaveAll = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -196,10 +248,15 @@ export default function AdminSettingsPage() {
         {/* Resume & Availability */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card hasDatumCorners className="p-6 bg-obsidian border-hairline space-y-4 font-mono text-xs">
-            <h3 className="font-display font-bold text-base text-white flex items-center gap-2">
-              <FileText className="w-4 h-4 text-emerald-accent" />
-              Resume Download Configuration
-            </h3>
+            <div className="flex items-center justify-between">
+              <h3 className="font-display font-bold text-base text-white flex items-center gap-2">
+                <FileText className="w-4 h-4 text-emerald-accent" />
+                Resume Document Configuration
+              </h3>
+              <Badge variant="cyan" dot className="text-[9px]">
+                PRODUCTION PDF
+              </Badge>
+            </div>
 
             <div>
               <label className="block text-silver-dark uppercase mb-1">Download URL Path</label>
@@ -219,6 +276,50 @@ export default function AdminSettingsPage() {
                 onChange={(e) => setResumeConfig({ ...resumeConfig, fileName: e.target.value })}
                 className="w-full bg-carbon border border-hairline rounded-xl px-3 py-2 text-white outline-none focus:border-cyan-500"
               />
+            </div>
+
+            {/* Direct Upload & Replace PDF */}
+            <div className="pt-2 border-t border-hairline space-y-3">
+              <div className="text-[11px] text-silver-mid font-sans">
+                Replace production PDF without modifying code (validates size &lt; 10MB and PDF header):
+              </div>
+
+              <input
+                type="file"
+                ref={resumeFileInputRef}
+                accept="application/pdf"
+                onChange={handleResumeFileUpload}
+                className="hidden"
+                id="admin-resume-upload-input"
+              />
+
+              <div className="flex flex-wrap items-center gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  disabled={isUploadingResume}
+                  onClick={() => resumeFileInputRef.current?.click()}
+                  className="gap-1.5 text-xs font-mono border-cyan-500/30 hover:border-cyan-500 text-cyan-400"
+                >
+                  <Upload className="w-3.5 h-3.5" />
+                  <span>{isUploadingResume ? "UPLOADING..." : "UPLOAD NEW RESUME PDF"}</span>
+                </Button>
+
+                <Link href="/resume" target="_blank">
+                  <Button type="button" variant="ghost" size="sm" className="gap-1.5 text-xs font-mono text-silver-light">
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span>PREVIEW PAGE</span>
+                  </Button>
+                </Link>
+
+                <a href={resumeConfig.downloadUrl} download={resumeConfig.fileName}>
+                  <Button type="button" variant="ghost" size="sm" className="gap-1.5 text-xs font-mono text-silver-light">
+                    <Download className="w-3.5 h-3.5" />
+                    <span>DIRECT FILE</span>
+                  </Button>
+                </a>
+              </div>
             </div>
           </Card>
 

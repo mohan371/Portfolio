@@ -116,7 +116,7 @@ export default function Home() {
               <MagneticButton strength={0.25}>
                 <a
                   href={siteConfig.resumeUrl}
-                  download="Mohan_NV_Resume.pdf"
+                  download="Mohan_N_V_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -641,7 +641,7 @@ export default function Home() {
 
             <a
               href={siteConfig.resumeUrl}
-              download="Mohan_NV_Resume.pdf"
+              download="Mohan_N_V_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-full border border-border bg-card text-xs font-mono text-muted-foreground hover:text-foreground hover:border-slate-400 shadow-xs transition-colors flex items-center gap-2"

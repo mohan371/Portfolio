@@ -8,7 +8,7 @@ export const siteConfig: SiteConfig = {
   tagline: "Software Engineer focused on building practical, scalable digital products through full-stack development, modern web architecture, and continuous learning.",
   bio: "I am an early-career Software Engineer passionate about building practical digital products. I continuously strengthen my programming fundamentals, explore modern technologies and learn by developing real-world applications. I believe in continuous improvement, thoughtful engineering and building solutions that create value.",
   phone: "+91-9597459495",
-  resumeUrl: "/resume/Mohan_NV_Resume.pdf",
+  resumeUrl: "/resume/Mohan_N_V_Resume.pdf",
   studio: {
     name: "NV LABS",
     tagline: "Engineering Practical Digital Products",
