@@ -45,40 +45,63 @@ export default function Home() {
       <div className="fixed bottom-10 right-10 w-[500px] h-[400px] bg-purple-500/[0.03] blur-[140px] pointer-events-none rounded-full" />
 
       {/* =========================================================================
-          SECTION 1: HERO (CINEMATIC TYPOGRAPHY, 3D CENTERPIECE, TOPOLOGY)
+          SECTION 1: HERO (CINEMATIC EDITORIAL TYPOGRAPHY, 3D CENTERPIECE)
           ========================================================================= */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-24 md:pt-16 md:pb-32 flex flex-col items-start">
-        {/* Availability Status Pill */}
-        <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-hairline bg-obsidian/90 backdrop-blur-md mb-8">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-accent shadow-[0_0_8px_#10b981]" />
-          <span className="text-[11px] font-mono uppercase tracking-wider text-silver-mid">
-            {siteConfig.availability.notice}
-          </span>
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 md:pt-14 md:pb-28 flex flex-col items-start">
+        {/* Top Telemetry & Status Bar */}
+        <div className="w-full flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-hairline text-xs font-mono">
+          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-hairline bg-carbon/80 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-emerald-accent shadow-[0_0_8px_#10b981] animate-pulse" />
+            <span className="text-[11px] uppercase tracking-wider text-white font-medium">
+              {siteConfig.availability.status}
+            </span>
+            <span className="text-silver-dark">//</span>
+            <span className="text-[11px] text-silver-mid hidden sm:inline">
+              Available for Full-Stack Roles & High-Impact Contracts
+            </span>
+          </div>
+
+          <div className="hidden lg:flex items-center gap-3 text-silver-dark text-[11px] tracking-wider uppercase">
+            <span>{siteConfig.location.coordinates}</span>
+            <span>•</span>
+            <span>{siteConfig.location.city}, {siteConfig.location.country}</span>
+            <span>•</span>
+            <span className="text-cyan-accent">{siteConfig.location.timezone}</span>
+          </div>
         </div>
 
-        {/* Hero Grid: Left Typography + Right 3D Gyroscopic Engineering Solid */}
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
-          <div className="lg:col-span-7 flex flex-col gap-2">
-            <div className="flex items-center gap-2 text-xs font-mono text-cyan-accent uppercase tracking-widest mb-1">
+        {/* Hero Asymmetric Grid: Left Editorial Typography + Right 3D Centerpiece */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-10">
+          <div className="lg:col-span-7 flex flex-col">
+            {/* Engineering Sub-Badge */}
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-cyan-accent uppercase tracking-widest mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-accent" />
-              <span>MOHAN N.V. // {siteConfig.role.toUpperCase()}</span>
+              <span>Full-Stack Developer & Software Engineer</span>
             </div>
 
+            {/* Massive Editorial MOHAN. Title */}
+            <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-display font-extrabold tracking-tight text-white uppercase leading-[0.88] select-none">
+              MOHAN<span className="text-cyan-accent">.</span>
+            </h1>
+
+            {/* Position Headline with Staggered Entrance Animation */}
             <TextReveal
-              text="BUILDING SCALABLE DIGITAL PRODUCTS. TURNING IDEAS INTO WORKING SOFTWARE."
-              as="h1"
-              className="type-hero uppercase font-bold text-white tracking-tight leading-[0.92]"
+              text="Building scalable digital products. Turning ideas into working software."
+              as="h2"
+              delay={0.15}
+              className="text-xl sm:text-2xl lg:text-3xl font-display font-semibold tracking-tight text-silver-bright mt-4 leading-tight"
             />
 
-            <p className="mt-6 text-base sm:text-lg text-silver-mid font-light leading-relaxed">
-              {siteConfig.bio}
+            {/* Authentic Narrative Bio */}
+            <p className="mt-5 text-base sm:text-lg text-silver-mid font-sans font-normal leading-relaxed max-w-xl">
+              Specialized in high-concurrency backend services in <strong>Go</strong> &amp; <strong>Java</strong>, modern reactive web platforms in <strong>React 19</strong> &amp; <strong>Next.js</strong>, and relational database query optimization across PostgreSQL and MySQL. Equipped with 2 years of enterprise financial ledger precision from tenure at <strong>Gabriel India Ltd</strong>.
             </p>
 
             {/* Action Controls & Magnetic CTAs */}
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
               <MagneticButton strength={0.25}>
                 <Link href="/projects">
-                  <Button variant="primary" size="lg">
+                  <Button variant="primary" size="lg" className="shadow-lg">
                     Explore Projects
                     <ArrowUpRight className="w-4 h-4 ml-1" />
                   </Button>
@@ -100,10 +123,10 @@ export default function Home() {
               </MagneticButton>
 
               <MagneticButton strength={0.2}>
-                <Link href="/contact">
-                  <Button variant="outline" size="lg">
-                    <Mail className="w-4 h-4 mr-1 text-silver-mid" />
-                    Contact Me
+                <Link href="/lab">
+                  <Button variant="outline" size="lg" className="border-hairline hover:border-cyan-accent hover:text-cyan-accent">
+                    <Terminal className="w-4 h-4 mr-1 text-cyan-accent" />
+                    Engineering Lab
                   </Button>
                 </Link>
               </MagneticButton>
@@ -111,33 +134,58 @@ export default function Home() {
           </div>
 
           {/* 3D Engineering Interactive Object Centerpiece */}
-          <div className="lg:col-span-5 h-[320px] sm:h-[380px] w-full flex items-center justify-center p-2 rounded-2xl border border-hairline bg-obsidian/60 corner-datum">
-            <SceneContainer />
+          <div className="lg:col-span-5 w-full flex flex-col rounded-2xl border border-hairline bg-carbon/60 backdrop-blur-xl p-3 sm:p-4 corner-datum shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
+            {/* Top HUD Frame Header */}
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-hairline text-[10px] font-mono text-silver-dark uppercase tracking-wider">
+              <span className="flex items-center gap-1.5 text-silver-mid">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-accent animate-pulse" />
+                Gyroscopic Lattice 3D
+              </span>
+              <span className="text-silver-dark">WebGL • R3F • Three.js</span>
+            </div>
+
+            {/* 3D Canvas Container */}
+            <div className="h-[280px] sm:h-[340px] w-full flex items-center justify-center relative">
+              <SceneContainer />
+            </div>
+
+            {/* Bottom HUD Frame Footer */}
+            <div className="flex items-center justify-between pt-2 mt-2 border-t border-hairline text-[10px] font-mono text-silver-dark">
+              <span>INTERACTIVE // MOVE CURSOR</span>
+              <span className="text-cyan-accent">DAMPED LERP (0.05)</span>
+            </div>
           </div>
         </div>
 
         {/* Interactive Visual Centerpiece: Software Topology Matrix */}
-        <div className="mt-10 w-full">
+        <div className="mt-8 w-full">
           <InteractiveHeroCenterpiece />
         </div>
 
-        {/* Telemetry Datum Grid */}
-        <div className="mt-14 w-full grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-hairline font-mono text-xs">
-          <div>
-            <div className="text-silver-dark uppercase text-[10px] tracking-wider">Coordinates</div>
-            <div className="text-white mt-1">{siteConfig.location.city}, {siteConfig.location.country}</div>
+        {/* Engineering Metrics Datum Bar */}
+        <div className="mt-12 w-full grid grid-cols-2 md:grid-cols-4 gap-4 p-5 rounded-xl border border-hairline bg-carbon/40 backdrop-blur-md">
+          <div className="flex flex-col border-r border-hairline/60 pr-4 last:border-r-0">
+            <span className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">02+ <span className="text-xs font-mono font-normal text-silver-dark">Yrs</span></span>
+            <span className="text-xs font-sans font-medium text-silver-mid mt-0.5">Corporate Tenure</span>
+            <span className="text-[11px] font-mono text-silver-dark mt-1">Gabriel India Ltd (Auditing)</span>
           </div>
-          <div>
-            <div className="text-silver-dark uppercase text-[10px] tracking-wider">Education</div>
-            <div className="text-white mt-1">MCA 2026 / BCA 2022</div>
+
+          <div className="flex flex-col sm:border-r border-hairline/60 sm:pr-4 last:border-r-0 pl-2 sm:pl-0">
+            <span className="text-2xl sm:text-3xl font-display font-bold text-cyan-accent tracking-tight">10k+ <span className="text-xs font-mono font-normal text-silver-dark">QPS</span></span>
+            <span className="text-xs font-sans font-medium text-silver-mid mt-0.5">Ingest Capacity</span>
+            <span className="text-[11px] font-mono text-silver-dark mt-1">MapUp Go Spatial Pipeline</span>
           </div>
-          <div>
-            <div className="text-silver-dark uppercase text-[10px] tracking-wider">Prior Corporate Tenure</div>
-            <div className="text-white mt-1">Gabriel India Ltd (2 Yrs)</div>
+
+          <div className="flex flex-col border-r border-hairline/60 pr-4 last:border-r-0 pt-4 sm:pt-0">
+            <span className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">MCA <span className="text-xs font-mono font-normal text-silver-dark">&apos;26</span></span>
+            <span className="text-xs font-sans font-medium text-silver-mid mt-0.5">Advanced CS</span>
+            <span className="text-[11px] font-mono text-silver-dark mt-1">Adhiyamaan College of Eng</span>
           </div>
-          <div>
-            <div className="text-silver-dark uppercase text-[10px] tracking-wider">Core Engine</div>
-            <div className="text-white mt-1">Java / Go / React / SQL</div>
+
+          <div className="flex flex-col pl-2 sm:pl-0 pt-4 sm:pt-0">
+            <span className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">100%</span>
+            <span className="text-xs font-sans font-medium text-silver-mid mt-0.5">Production Tested</span>
+            <span className="text-[11px] font-mono text-silver-dark mt-1">TypeScript, Go, PostgreSQL</span>
           </div>
         </div>
       </section>

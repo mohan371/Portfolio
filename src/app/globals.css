@@ -1,5 +1,34 @@
 @import "tailwindcss";
 
+@theme {
+  --color-void: #050505;
+  --color-obsidian: #0a0a0a;
+  --color-carbon: #111113;
+  --color-surface-1: #18181b;
+  --color-surface-2: #27272a;
+  --color-surface-3: #3f3f46;
+
+  --color-hairline: rgba(255, 255, 255, 0.08);
+  --color-hairline-hover: rgba(255, 255, 255, 0.22);
+  --color-hairline-active: rgba(255, 255, 255, 0.4);
+
+  --color-silver-bright: #ffffff;
+  --color-silver-light: #e4e4e7;
+  --color-silver-mid: #a1a1aa;
+  --color-silver-dark: #71717a;
+
+  --color-cyan-accent: #00f5ff;
+  --color-cyan-accent-dim: rgba(0, 245, 255, 0.15);
+  --color-violet-accent: #8b5cf6;
+  --color-violet-accent-dim: rgba(139, 92, 246, 0.15);
+  --color-emerald-accent: #10b981;
+  --color-emerald-accent-dim: rgba(16, 185, 129, 0.15);
+
+  --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Inter", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Geist Mono", monospace;
+}
+
 :root {
   /* Core Architectural Monochrome Palette */
   --void: #050505;
@@ -10,9 +39,9 @@
   --surface-3: #3f3f46;
 
   /* Hairlines & Technical Separators */
-  --hairline: rgba(255, 255, 255, 0.07);
-  --hairline-hover: rgba(255, 255, 255, 0.18);
-  --hairline-active: rgba(255, 255, 255, 0.32);
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-hover: rgba(255, 255, 255, 0.22);
+  --hairline-active: rgba(255, 255, 255, 0.4);
 
   /* Silver Metallic Gradient Stops */
   --silver-bright: #ffffff;
@@ -30,14 +59,14 @@
 
   /* Typography Stacks */
   --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "Geist Mono", "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans: "Inter", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Geist Mono", monospace;
 
   /* Fluid Editorial Type Scales */
-  --type-hero: clamp(2.75rem, 6.5vw + 1rem, 7.5rem);
-  --type-display: clamp(2rem, 3.8vw + 0.5rem, 4.25rem);
-  --type-heading: clamp(1.5rem, 2vw + 0.5rem, 2.5rem);
-  --type-subhead: clamp(1.125rem, 1.2vw + 0.4rem, 1.5rem);
+  --type-hero: clamp(3rem, 7.5vw + 1rem, 7.5rem);
+  --type-display: clamp(2.25rem, 4.5vw + 0.5rem, 4.5rem);
+  --type-heading: clamp(1.5rem, 2.5vw + 0.5rem, 2.75rem);
+  --type-subhead: clamp(1.125rem, 1.3vw + 0.4rem, 1.625rem);
 
   /* Radix UI & Component Variables */
   --background: var(--void);
@@ -66,9 +95,9 @@
   --surface-1: #e4e4e7;
   --surface-2: #d4d4d8;
   --surface-3: #a1a1aa;
-  --hairline: rgba(0, 0, 0, 0.08);
-  --hairline-hover: rgba(0, 0, 0, 0.2);
-  --hairline-active: rgba(0, 0, 0, 0.4);
+  --hairline: rgba(0, 0, 0, 0.1);
+  --hairline-hover: rgba(0, 0, 0, 0.25);
+  --hairline-active: rgba(0, 0, 0, 0.45);
   --background: var(--void);
   --foreground: #09090b;
   --card: #ffffff;
@@ -98,8 +127,8 @@ body {
 
 /* Custom Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -108,14 +137,14 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #27272a;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
 }
 
-/* Semantic Utility Classes */
+/* Semantic Utility Fallbacks */
 .bg-void { background-color: var(--void); }
 .bg-obsidian { background-color: var(--obsidian); }
 .bg-carbon { background-color: var(--carbon); }
@@ -138,37 +167,41 @@ body {
 .font-sans { font-family: var(--font-sans); }
 .font-mono { font-family: var(--font-mono); }
 
-/* Typography Classes */
+/* Editorial Typography Classes */
 .type-hero {
   font-family: var(--font-display);
   font-size: var(--type-hero);
-  line-height: 0.92;
+  line-height: 0.9;
   letter-spacing: -0.04em;
+  font-weight: 800;
 }
 
 .type-display {
   font-family: var(--font-display);
   font-size: var(--type-display);
-  line-height: 0.96;
-  letter-spacing: -0.03em;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  font-weight: 700;
 }
 
 .type-heading {
   font-family: var(--font-display);
   font-size: var(--type-heading);
-  line-height: 1.08;
+  line-height: 1.05;
   letter-spacing: -0.025em;
+  font-weight: 600;
 }
 
 .type-subhead {
   font-family: var(--font-sans);
   font-size: var(--type-subhead);
-  line-height: 1.4;
+  line-height: 1.45;
+  font-weight: 400;
 }
 
-/* Subtle Silver Gradient Text */
+/* Metallic & Chrome Gradient Text */
 .text-gradient-silver {
-  background: linear-gradient(180deg, #ffffff 20%, #a1a1aa 100%);
+  background: linear-gradient(180deg, #ffffff 15%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -189,10 +222,10 @@ body {
   position: absolute;
   top: -1px;
   left: -1px;
-  width: 6px;
-  height: 6px;
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  width: 7px;
+  height: 7px;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.45);
   pointer-events: none;
 }
 
@@ -201,10 +234,10 @@ body {
   position: absolute;
   bottom: -1px;
   right: -1px;
-  width: 6px;
-  height: 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  width: 7px;
+  height: 7px;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-right: 1.5px solid rgba(255, 255, 255, 0.45);
   pointer-events: none;
 }
 
@@ -226,15 +259,15 @@ body {
 
 /* Subtle Technical Grid Background (Laboratory Aesthetic) */
 .bg-tech-grid {
-  background-size: 48px 48px;
+  background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
 }
 
 .bg-dot-matrix {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Studio Architectural Card */

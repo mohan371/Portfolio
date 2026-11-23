@@ -65,7 +65,7 @@ export function CustomCursor() {
         animate={{
           scale: isHovered ? 1.8 : 1,
           borderColor: isHovered ? "rgba(0, 245, 255, 0.8)" : "rgba(255, 255, 255, 0.3)",
-          backgroundColor: isHovered ? "rgba(0, 245, 255, 0.08)" : "transparent",
+          backgroundColor: isHovered ? "rgba(0, 245, 255, 0.08)" : "rgba(0, 245, 255, 0)",
         }}
         transition={{ duration: 0.18, ease: "easeOut" }}
         className="w-8 h-8 rounded-full border border-white/30 backdrop-blur-[1px]"
