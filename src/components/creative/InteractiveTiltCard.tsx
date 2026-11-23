@@ -69,7 +69,7 @@ export function InteractiveTiltCard({
       className={cn(
         "relative rounded-2xl bg-card border border-border shadow-subtle transition-all duration-300 overflow-hidden",
         hasDatumCorners && "corner-datum",
-        isHovered && "border-slate-300 dark:border-white/20 shadow-card-hover",
+        isHovered && "border-champagne/60 dark:border-champagne/40 shadow-card-hover",
         className
       )}
     >
@@ -79,7 +79,7 @@ export function InteractiveTiltCard({
           aria-hidden="true"
           className="pointer-events-none absolute -inset-px transition-opacity duration-300 opacity-100 z-10"
           style={{
-            background: `radial-gradient(350px circle at ${spotlightPos.x}px ${spotlightPos.y}px, var(--spotlight-color, rgba(37, 99, 235, 0.06)), transparent 80%)`,
+            background: `radial-gradient(350px circle at ${spotlightPos.x}px ${spotlightPos.y}px, var(--spotlight-color, rgba(135, 61, 73, 0.05)), transparent 80%)`,
           }}
         />
       )}

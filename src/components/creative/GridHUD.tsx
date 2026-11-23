@@ -30,23 +30,23 @@ export function GridHUD() {
   if (!hudVisible) return null;
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-40 hidden lg:block overflow-hidden">
-      {/* Corner Coordinates */}
-      <div className="absolute top-4 left-4 text-[10px] font-mono text-muted-foreground select-none">
-        + 12.9716°N / 77.5946°E
+    <div className="pointer-events-none fixed inset-0 z-40 hidden xl:block overflow-hidden opacity-75">
+      {/* Subtle Location Datum */}
+      <div className="absolute top-5 left-6 text-[10px] font-mono text-muted-foreground select-none">
+        {siteConfig.location.city}, {siteConfig.location.country}
       </div>
-      <div className="absolute top-4 right-4 text-[10px] font-mono text-muted-foreground select-none flex items-center gap-2">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-        SYS_ONLINE : {timeStr} IST
+      <div className="absolute top-5 right-6 text-[10px] font-mono text-muted-foreground select-none flex items-center gap-2">
+        <span className="w-1.5 h-1.5 rounded-full bg-sage" />
+        <span>{timeStr} IST</span>
       </div>
-      <div className="absolute bottom-4 left-4 text-[10px] font-mono text-muted-foreground select-none">
-        MOHAN_N.V. // ARCHITECT_KERNEL_v16
+      <div className="absolute bottom-5 left-6 text-[10px] font-mono text-muted-foreground select-none">
+        MOHAN N.V. // SOFTWARE ENGINEER
       </div>
-      <div className="absolute bottom-4 right-4 text-[10px] font-mono text-muted-foreground select-none">
+      <div className="absolute bottom-5 right-6 text-[10px] font-mono text-muted-foreground select-none">
         [ {siteConfig.studio.name} ]
       </div>
 
-      {/* Corner Framing Markers */}
+      {/* Subtle Champagne Corner Datum Markers */}
       <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-border" />
       <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-border" />
       <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-border" />

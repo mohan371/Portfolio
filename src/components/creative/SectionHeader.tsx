@@ -29,8 +29,8 @@ export function SectionHeader({
     >
       {/* Index & Tag Telemetry */}
       <div className="flex items-center gap-3 mb-4">
-        <span className="font-mono text-xs text-muted-foreground tracking-widest">
-          [ {index} ]
+        <span className="font-mono text-xs text-primary font-bold tracking-widest">
+          // {index}
         </span>
         <Badge variant="cyan" dot>
           {tag}

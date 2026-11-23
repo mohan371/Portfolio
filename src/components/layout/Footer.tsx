@@ -154,7 +154,7 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-4">
-            <span>COORDINATES: {siteConfig.location.coordinates}</span>
+            <span>LOCATION: {siteConfig.location.city}, {siteConfig.location.country}</span>
             <span>•</span>
             <span>TIMEZONE: {siteConfig.location.timezone}</span>
           </div>

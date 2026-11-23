@@ -92,26 +92,26 @@ export default function StudioPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
           <div className="p-4 rounded-xl bg-surface border border-border font-mono text-xs shadow-xs">
             <span className="text-muted-foreground uppercase text-[10px] block mb-1">CODE DISCIPLINE</span>
-            <span className="text-foreground font-bold text-sm">100% Strict TypeScript</span>
+            <span className="text-foreground font-bold text-sm">Strict TypeScript</span>
             <span className="text-muted-foreground text-[10px] block mt-0.5">Zod validation boundaries</span>
           </div>
 
           <div className="p-4 rounded-xl bg-surface border border-border font-mono text-xs shadow-xs">
-            <span className="text-muted-foreground uppercase text-[10px] block mb-1">PERFORMANCE TARGET</span>
-            <span className="text-primary font-bold text-sm">Sub-100ms TTFB</span>
-            <span className="text-muted-foreground text-[10px] block mt-0.5">Next.js Server Components</span>
+            <span className="text-primary uppercase text-[10px] block mb-1 font-semibold">SERVER RENDERING</span>
+            <span className="text-primary font-bold text-sm">Next.js App Router</span>
+            <span className="text-muted-foreground text-[10px] block mt-0.5">React 19 Server Components</span>
           </div>
 
           <div className="p-4 rounded-xl bg-surface border border-border font-mono text-xs shadow-xs">
             <span className="text-muted-foreground uppercase text-[10px] block mb-1">DATABASE ARCHITECTURE</span>
-            <span className="text-emerald-600 dark:text-emerald-400 font-bold text-sm">ACID Guaranteed</span>
-            <span className="text-muted-foreground text-[10px] block mt-0.5">PostgreSQL &amp; PostGIS</span>
+            <span className="text-foreground font-bold text-sm">ACID Relational</span>
+            <span className="text-muted-foreground text-[10px] block mt-0.5">PostgreSQL models &amp; indexes</span>
           </div>
 
           <div className="p-4 rounded-xl bg-surface border border-border font-mono text-xs shadow-xs">
-            <span className="text-muted-foreground uppercase text-[10px] block mb-1">INTELLECTUAL PROPERTY</span>
-            <span className="text-foreground font-bold text-sm">100% Code Ownership</span>
-            <span className="text-muted-foreground text-[10px] block mt-0.5">Zero proprietary lock-in</span>
+            <span className="text-muted-foreground uppercase text-[10px] block mb-1">SOURCE DELIVERY</span>
+            <span className="text-foreground font-bold text-sm">Clean Git Repositories</span>
+            <span className="text-muted-foreground text-[10px] block mt-0.5">Zero proprietary vendor lock-in</span>
           </div>
         </div>
       </section>
@@ -407,7 +407,7 @@ export default function StudioPage() {
               <div className="flex flex-wrap gap-6 pt-2 font-mono text-xs">
                 <div className="flex items-center gap-2 text-foreground/90">
                   <MapPin className="w-4 h-4 text-primary" />
-                  <span>Hosur / Bangalore (12.7409° N, 77.8253° E)</span>
+                  <span>Hosur, Tamil Nadu, India</span>
                 </div>
                 <div className="flex items-center gap-2 text-foreground/90">
                   <Mail className="w-4 h-4 text-primary" />

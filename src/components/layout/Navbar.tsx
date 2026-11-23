@@ -9,7 +9,7 @@ import { MagneticButton } from "@/components/creative/MagneticButton";
 import { Button } from "@/components/ui/button";
 import { useAppStore } from "@/store/use-app-store";
 import { playHoverBlip, playTactileClick } from "@/lib/sound";
-import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -38,7 +38,7 @@ export function Navbar() {
   return (
     <>
       <header className="fixed top-4 inset-x-0 z-50 flex justify-center px-4 sm:px-6 pointer-events-none">
-        <nav className="pointer-events-auto flex items-center justify-between w-full max-w-6xl px-4 py-2 sm:py-2.5 rounded-full border border-border bg-white/95 dark:bg-obsidian/90 backdrop-blur-2xl shadow-nav transition-all duration-300 hover:border-slate-300 dark:hover:border-white/20">
+        <nav className="pointer-events-auto flex items-center justify-between w-full max-w-6xl px-4 py-2 sm:py-2.5 rounded-full border border-border bg-[#FFFEFC]/90 dark:bg-[#1C1918]/90 backdrop-blur-2xl shadow-nav transition-all duration-300 hover:border-champagne/50">
           {/* Brand Identity / Monogram */}
           <Link
             href="/"
@@ -46,13 +46,13 @@ export function Navbar() {
             onMouseEnter={handleHover}
             className="flex items-center gap-3 group"
           >
-            <div className="relative w-9 h-9 rounded-full border border-border bg-surface-secondary dark:bg-carbon flex items-center justify-center font-display font-bold text-xs text-foreground group-hover:border-primary group-hover:text-primary transition-all duration-300 shadow-xs">
+            <div className="relative w-9 h-9 rounded-full border border-border bg-surface-secondary flex items-center justify-center font-display font-bold text-xs text-foreground group-hover:border-primary group-hover:text-primary transition-all duration-300 shadow-xs">
               NV
-              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-sage" />
             </div>
             <div className="flex flex-col">
               <span className="text-sm font-display font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                MOHAN<span className="text-primary">.</span>
+                MOHAN<span className="text-primary font-bold">.</span>
               </span>
               <span className="hidden sm:inline-block text-[10px] font-mono text-muted-foreground uppercase tracking-wider">
                 Software Engineer
@@ -72,13 +72,13 @@ export function Navbar() {
                   onMouseEnter={handleHover}
                   className={`px-3.5 py-1.5 rounded-full text-[13px] font-sans font-medium transition-all duration-200 relative ${
                     isActive
-                      ? "text-secondary-foreground bg-secondary font-semibold border border-blue-200/70 shadow-xs dark:text-white dark:bg-white/[0.08] dark:border-white/15"
-                      : "text-muted-foreground hover:text-foreground hover:bg-slate-100/80 dark:hover:bg-white/[0.04]"
+                      ? "text-primary bg-secondary font-semibold border border-border shadow-xs dark:text-[#E5A4AE] dark:bg-[#2C2224]"
+                      : "text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
                   }`}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary shadow-xs" />
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary" />
                   )}
                 </Link>
               );
@@ -115,7 +115,7 @@ export function Navbar() {
 
       {/* Fullscreen Mobile Navigation Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-white/98 dark:bg-black/95 backdrop-blur-3xl flex flex-col justify-between p-6 sm:p-10 md:hidden animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-50 bg-[#FFFEFC]/98 dark:bg-[#141211]/98 backdrop-blur-3xl flex flex-col justify-between p-6 sm:p-10 md:hidden animate-in fade-in duration-200">
           {/* Header row in mobile overlay */}
           <div className="flex items-center justify-between border-b border-border pb-4">
             <div className="flex items-center gap-2.5">
@@ -123,7 +123,7 @@ export function Navbar() {
                 NV
               </div>
               <span className="font-display font-bold text-sm tracking-tight text-foreground">
-                MOHAN<span className="text-primary">.</span>
+                MOHAN<span className="text-primary font-bold">.</span>
               </span>
             </div>
             <button
@@ -138,47 +138,38 @@ export function Navbar() {
           {/* Nav links stack */}
           <div className="flex flex-col gap-2 py-6 overflow-y-auto">
             <span className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest mb-2">
-              Navigation Directory // 10 Sections
+              Navigation
             </span>
-            {siteConfig.navigation.map((item, idx) => {
+            {primaryNavItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={handleNavClick}
-                  className={`text-xl font-display font-semibold uppercase tracking-tight flex items-center justify-between py-2.5 px-3 rounded-xl transition-colors ${
-                    isActive
-                      ? "text-primary bg-secondary/80 font-bold"
-                      : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-white/[0.04]"
+                  className={`text-xl font-display font-bold tracking-tight py-2 border-b border-border/50 flex items-center justify-between ${
+                    isActive ? "text-primary" : "text-foreground hover:text-primary"
                   }`}
                 >
-                  <span className="flex items-center gap-3">
-                    <span className="font-mono text-xs text-muted-foreground">0{idx + 1}</span>
-                    <span>{item.label}</span>
-                  </span>
-                  {isActive && <Sparkles className="w-4 h-4 text-primary" />}
+                  <span>{item.label}</span>
+                  {isActive && <span className="text-xs font-mono text-primary">// ACTIVE</span>}
                 </Link>
               );
             })}
-          </div>
-
-          {/* Footer CTAs in mobile overlay */}
-          <div className="border-t border-border pt-4 flex flex-col gap-3">
             <Link
               href="/contact"
               onClick={handleNavClick}
-              className="w-full py-3 rounded-full bg-primary text-primary-foreground font-semibold text-center text-sm font-sans tracking-wide hover:bg-blue-700 transition-colors shadow-sm"
+              className="text-xl font-display font-bold tracking-tight py-2 text-primary flex items-center justify-between mt-2"
             >
-              Contact Me
+              <span>Let&apos;s Talk</span>
+              <ArrowUpRight className="w-5 h-5" />
             </Link>
-            <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground pt-1">
-              <span>HOSUR, TAMIL NADU, IN</span>
-              <span className="text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5 font-medium">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                AVAILABLE FOR HIRE
-              </span>
-            </div>
+          </div>
+
+          {/* Footer in mobile overlay */}
+          <div className="border-t border-border pt-4 flex items-center justify-between text-xs font-mono text-muted-foreground">
+            <span>{siteConfig.location.city}, {siteConfig.location.country}</span>
+            <span className="text-primary">{siteConfig.availability.status}</span>
           </div>
         </div>
       )}

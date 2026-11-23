@@ -150,7 +150,7 @@ export default function LabPage() {
             className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "geofence"
                 ? "bg-primary text-primary-foreground font-bold shadow-xs"
-                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                : "text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
             }`}
           >
             <Radio className="w-3.5 h-3.5" />
@@ -162,7 +162,7 @@ export default function LabPage() {
             className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "terminal"
                 ? "bg-primary text-primary-foreground font-bold shadow-xs"
-                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                : "text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
             }`}
           >
             <TerminalIcon className="w-3.5 h-3.5" />
@@ -174,7 +174,7 @@ export default function LabPage() {
             className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "api"
                 ? "bg-primary text-primary-foreground font-bold shadow-xs"
-                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                : "text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
             }`}
           >
             <Server className="w-3.5 h-3.5" />
@@ -186,7 +186,7 @@ export default function LabPage() {
             className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "architecture"
                 ? "bg-primary text-primary-foreground font-bold shadow-xs"
-                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                : "text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
             }`}
           >
             <Network className="w-3.5 h-3.5" />
@@ -198,7 +198,7 @@ export default function LabPage() {
             className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "database"
                 ? "bg-primary text-primary-foreground font-bold shadow-xs"
-                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                : "text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
             }`}
           >
             <Database className="w-3.5 h-3.5" />
@@ -210,7 +210,7 @@ export default function LabPage() {
             className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "constellation"
                 ? "bg-primary text-primary-foreground font-bold shadow-xs"
-                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                : "text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
             }`}
           >
             <Share2 className="w-3.5 h-3.5" />
@@ -222,7 +222,7 @@ export default function LabPage() {
             className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "runtime"
                 ? "bg-primary text-primary-foreground font-bold shadow-xs"
-                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                : "text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
             }`}
           >
             <Cpu className="w-3.5 h-3.5" />
@@ -234,7 +234,7 @@ export default function LabPage() {
             className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "directory"
                 ? "bg-primary text-primary-foreground font-bold shadow-xs"
-                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                : "text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
             }`}
           >
             <Layers className="w-3.5 h-3.5" />

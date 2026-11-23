@@ -11,7 +11,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { siteConfig } from "@/content/data/site-config";
 
 export const viewport: Viewport = {
-  themeColor: "#FFFFFF",
+  themeColor: "#F7F5F0",
   width: "device-width",
   initialScale: 1,
 };
@@ -89,7 +89,7 @@ export default function RootLayout({
         ],
         worksFor: {
           "@type": "Organization",
-          name: "Gabriel India Ltd",
+          name: "Veda Scholars",
         },
         knowsAbout: [
           "Java",
@@ -121,11 +121,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="h-full antialiased light" data-theme="studio-light" suppressHydrationWarning>
+    <html lang="en" className="h-full antialiased light" data-theme="warm-pearl" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var s=localStorage.getItem("nv-theme");if(s==="obsidian"||s==="dark"){document.documentElement.setAttribute("data-theme","obsidian");document.documentElement.classList.remove("light");document.documentElement.classList.add("dark");}else{document.documentElement.setAttribute("data-theme","studio-light");document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}}catch(e){document.documentElement.setAttribute("data-theme","studio-light");document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}})();`,
+            __html: `(function(){try{var s=localStorage.getItem("nv-theme");if(s==="obsidian"||s==="dark"){document.documentElement.setAttribute("data-theme","obsidian");document.documentElement.classList.remove("light");document.documentElement.classList.add("dark");}else{document.documentElement.setAttribute("data-theme","warm-pearl");document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}}catch(e){document.documentElement.setAttribute("data-theme","warm-pearl");document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}})();`,
           }}
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />

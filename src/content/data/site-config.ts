@@ -31,7 +31,7 @@ export const siteConfig: SiteConfig = {
     city: "Hosur, Tamil Nadu",
     country: "India",
     timezone: "IST (UTC+5:30)",
-    coordinates: "12.7409° N, 77.8253° E",
+    coordinates: "Hosur, Tamil Nadu, India",
   },
   education: [
     {

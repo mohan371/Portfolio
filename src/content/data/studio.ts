@@ -14,19 +14,18 @@ export const studioConfig = {
   founder: {
     name: "Mohan N.V.",
     role: "Founder & Principal Software Engineer",
-    credentials: "MCA (Adhiyamaan 2026) • BCA (MGR 2022) • Ex-Gabriel India Ltd",
+    credentials: "MCA (Adhiyamaan 2026) • BCA (MGR 2022) • Software Engineer @ Veda Scholars",
     portfolioUrl: "/",
   },
   location: {
-    city: "Hosur / Bangalore",
+    city: "Hosur, Tamil Nadu",
     country: "India",
     timezone: "IST (UTC+5:30)",
-    coordinates: "12.7409° N, 77.8253° E",
   },
   contact: {
     email: "studio@mohannv.dev",
     directEmail: "mohannv.dev@gmail.com",
-    responseTime: "Guaranteed response within 24 business hours",
+    responseTime: "Timely response within standard business hours",
   },
 };
 
@@ -44,7 +43,7 @@ export const studioPhilosophy: StudioPhilosophyPillar[] = [
     title: "Transactional Discipline",
     principle: "Data Integrity is Completely Non-Negotiable",
     description:
-      "Derived from Mohan N.V.'s corporate accounting background at Gabriel India Ltd, our database designs prioritize ACID guarantees, normalized schemas, and zero data discrepancies.",
+      "Derived from Mohan N.V.'s corporate accounting background at Gabriel India Ltd, our database designs prioritize ACID compliance, normalized schemas, and zero data discrepancies.",
     iconName: "Database",
   },
   {
@@ -52,15 +51,15 @@ export const studioPhilosophy: StudioPhilosophyPillar[] = [
     title: "Zero-Overhead Performance",
     principle: "Sub-Second Responses Are a Fundamental Feature",
     description:
-      "We reject gratuitous JavaScript bloat. Utilizing React 19 Server Components, streaming SSR, and indexed database queries, our platforms target 95+ Lighthouse scores.",
+      "We reject gratuitous JavaScript bloat. Utilizing Next.js Server Components, streaming SSR, and indexed database queries, our platforms are engineered for rapid load times.",
     iconName: "Zap",
   },
   {
     number: "04",
-    title: "100% Code Ownership",
-    principle: "You Own Every Line of Software We Write",
+    title: "Direct Source Code Delivery",
+    principle: "Un-Obfuscated Repositories with Full Deployment Freedom",
     description:
-      "No vendor lock-in, proprietary runtime handcuffs, or hostage licenses. Clients receive full repository ownership, documentation, and automated deployment pipelines.",
+      "No proprietary runtime lock-in. Clients receive clean Git repository handoffs, environment configuration files, structured documentation, and automated deployment pipelines.",
     iconName: "GitBranch",
   },
 ];
@@ -74,9 +73,9 @@ export const studioServices: StudioServiceItem[] = [
     description:
       "Lightweight, beautifully typeset static web platforms pre-rendered at build time. Ideal for portfolios, creative studios, and documentation with near-instantaneous global CDN loading.",
     deliverables: [
-      "Prerendered HTML/CSS with sub-100ms global TTFB",
+      "Prerendered HTML/CSS with minimal server latency",
       "Custom responsive design system with dark/light themes",
-      "Perfect Lighthouse SEO, Accessibility, and Performance scores",
+      "Semantic HTML, accessible structure, and performance optimization",
       "Automated Git-triggered CDN deployments",
     ],
     technologies: ["Next.js SSG", "React 19", "Tailwind CSS", "TypeScript"],
@@ -91,12 +90,12 @@ export const studioServices: StudioServiceItem[] = [
     description:
       "Dynamic, database-backed web experiences allowing non-technical teams to author content, publish articles, and manage media without touching code.",
     deliverables: [
-      "Headless CMS integration (Supabase, PostgreSQL, or Markdown)",
+      "Headless CMS integration (PostgreSQL or Markdown)",
       "Dynamic server-side rendering (SSR) and edge caching",
       "Search, tag filtering, and pagination engines",
       "Role-based administrative control panels",
     ],
-    technologies: ["Next.js App Router", "PostgreSQL", "Supabase", "TypeScript"],
+    technologies: ["Next.js App Router", "PostgreSQL", "TypeScript", "Tailwind CSS"],
     estimatedDelivery: "2 — 4 Weeks",
   },
   {
@@ -141,7 +140,7 @@ export const studioServices: StudioServiceItem[] = [
       "High-impact, cinematic landing pages optimized to explain complex value propositions and convert visitors into qualified leads or beta signups.",
     deliverables: [
       "Custom motion design and scroll-triggered visual reveals",
-      "A/B test ready layout structure with analytics tracking",
+      "Clear layout structure with conversion-focused calls to action",
       "Interactive calculator widgets or interactive demos",
       "Mobile-first responsive fluid typography clamps",
     ],
@@ -174,9 +173,9 @@ export const studioServices: StudioServiceItem[] = [
     description:
       "Architecting robust API microservices in Go and Node.js to interconnect third-party platforms, ERP systems, SMS/Email notifications, and spatial telemetry.",
     deliverables: [
-      "RESTful API endpoints with OpenAPI/Swagger contracts",
-      "Payment gateway integration (Stripe, Razorpay) with webhooks",
-      "Token Bucket rate limiting and JWT security middleware",
+      "RESTful API endpoints with structured request/response contracts",
+      "Payment gateway integration (Stripe, Razorpay) with secure webhooks",
+      "Rate limiting and JWT security middleware",
       "Containerized microservices configured via Docker Compose",
     ],
     technologies: ["Go", "Node.js", "Express.js", "Docker", "REST APIs"],
@@ -185,15 +184,15 @@ export const studioServices: StudioServiceItem[] = [
   {
     id: "srv-maintenance",
     slug: "website-maintenance",
-    title: "Website Maintenance & Performance Retainers",
+    title: "Website Maintenance & Engineering Retainers",
     tagline: "Continuous security updates, performance monitoring, and SLA support.",
     description:
       "Dedicated ongoing technical stewardship ensuring your software platform remains fast, secure, compatible with modern browsers, and continuously backed up.",
     deliverables: [
       "Scheduled dependency patching and security vulnerability audits",
       "Database backup verification and query performance tuning",
-      "Lighthouse performance optimization and Core Web Vitals checks",
-      "Priority bug resolution SLA and minor feature iterations",
+      "Performance optimization and Core Web Vitals checks",
+      "Prompt bug resolution and minor feature iterations",
     ],
     technologies: ["Next.js", "PostgreSQL", "Docker", "Git", "CI/CD"],
     estimatedDelivery: "Monthly Ongoing Retainer",
@@ -231,15 +230,15 @@ export const studioProcess: StudioProcessStep[] = [
     timeline: "Week 6",
     summary:
       "We run automated test suites, verify Row Level Security policies, tune database indexes with EXPLAIN ANALYZE, and audit accessibility and mobile performance.",
-    outputs: ["Vitest & E2E Test Suite", "PostgreSQL B-Tree/GiST Indexes", "100/100 Lighthouse Audit"],
+    outputs: ["Vitest & E2E Test Suite", "PostgreSQL B-Tree/GiST Indexes", "Accessibility & Performance Audit"],
   },
   {
     step: "05",
     title: "Deployment, Handoff & Support",
     timeline: "Week 7+",
     summary:
-      "We configure zero-downtime hosting, wire up custom domains, transfer 100% repository ownership, and transition into ongoing maintenance or SLA support.",
-    outputs: ["Production CDN & Cloud Launch", "Complete Repository Handoff", "Maintenance SLA Guide"],
+      "We configure production hosting, wire up custom domains, deliver complete source code repositories, and transition into ongoing maintenance support.",
+    outputs: ["Production CDN & Cloud Launch", "Complete Repository Handoff", "Maintenance Documentation"],
   },
 ];
 
@@ -248,7 +247,7 @@ export const studioFaqs: StudioFaqItem[] = [
     category: "Engagement",
     question: "Who will actually build and architect my software project?",
     answer:
-      "All architecture, software engineering, and code delivery is led directly by Mohan N.V. You work directly with the principal software engineer who writes and reviews the code, eliminating communication layers and ensuring strict engineering rigor.",
+      "All architecture, software engineering, and code delivery is led directly by Mohan N.V. You work directly with the software engineer who writes and reviews the code, eliminating communication layers and ensuring strict engineering rigor.",
   },
   {
     category: "Delivery",
@@ -258,15 +257,15 @@ export const studioFaqs: StudioFaqItem[] = [
   },
   {
     category: "Technical",
-    question: "Do I own the source code, repository, and assets upon project completion?",
+    question: "Do I receive full access to the source code upon project completion?",
     answer:
-      "Yes, 100%. Upon project milestone settlement, you receive complete and irrevocable intellectual property ownership of the Git repository, design assets, database migration scripts, and deployment configurations.",
+      "Yes. Upon project milestone delivery, you receive the full Git repository, design assets, database migration scripts, and deployment configurations without proprietary lock-in.",
   },
   {
     category: "Technical",
     question: "Why do you specialize in Next.js, Go, and PostgreSQL?",
     answer:
-      "Next.js App Router with React 19 Server Components delivers zero-bundle-overhead server rendering. Go provides unmatched sub-millisecond concurrency for real-time services with minimal memory footprint. PostgreSQL guarantees strict ACID relational compliance and rock-solid B-Tree/GiST spatial indexing.",
+      "Next.js App Router with React 19 Server Components delivers efficient server rendering. Go provides unmatched sub-millisecond concurrency for real-time services with minimal memory footprint. PostgreSQL guarantees strict ACID relational compliance and rock-solid B-Tree/GiST spatial indexing.",
   },
   {
     category: "Pricing",

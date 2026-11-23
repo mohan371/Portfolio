@@ -291,7 +291,7 @@ export function StudioEnquiryForm() {
                 className={`p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
                   expectedTimeline === t
                     ? "bg-primary text-primary-foreground font-bold shadow-xs border-primary"
-                    : "bg-surface border-border text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                    : "bg-surface border-border text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
                 }`}
               >
                 {t}

@@ -37,7 +37,7 @@ export function StudioFaqAccordion() {
             className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
               selectedCategory === cat
                 ? "bg-primary text-primary-foreground font-bold shadow-xs"
-                : "bg-card border border-border text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                : "bg-card border border-border text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
             }`}
           >
             {cat}

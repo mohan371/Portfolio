@@ -19,6 +19,17 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
+  /* Warm Pearl Brand Extended Tokens */
+  --color-burgundy: var(--primary);
+  --color-burgundy-hover: var(--primary-hover);
+  --color-burgundy-surface: var(--secondary);
+  --color-rose: var(--rose);
+  --color-champagne: var(--champagne);
+  --color-sage: var(--sage);
+  --color-stone: var(--surface-secondary);
+  --color-paper: var(--surface);
+  --color-ivory: var(--background);
+
   --color-void: var(--void);
   --color-obsidian: var(--obsidian);
   --color-carbon: var(--carbon);
@@ -48,78 +59,85 @@
 
 :root {
   /* =========================================================================
-     DEFAULT THEME: PREMIUM LIGHT (WHITE-FIRST ENTERPRISE SPECIFICATION)
+     DEFAULT THEME: WARM PEARL CORPORATE DESIGN SYSTEM (EDITORIAL LUXURY)
      ========================================================================= */
-  --background: #FFFFFF;
-  --foreground: #111827;
+  --background: #F7F5F0;       /* Warm Ivory */
+  --foreground: #302B2A;       /* Warm Charcoal Primary */
 
-  --surface: #F8FAFC;
-  --surface-secondary: #F1F5F9;
+  --surface: #FFFEFC;          /* Pure Paper */
+  --surface-secondary: #EEEAE3;/* Soft Stone */
 
-  --card: #FFFFFF;
-  --card-foreground: #111827;
-  --popover: #FFFFFF;
-  --popover-foreground: #111827;
+  --card: #FFFEFC;             /* Pure Paper */
+  --card-foreground: #302B2A;
+  --popover: #FFFEFC;
+  --popover-foreground: #302B2A;
 
-  --primary: #2563EB;
+  --primary: #873D49;          /* Deep Burgundy Signature Accent */
+  --primary-hover: #71313C;    /* Burgundy Hover */
   --primary-foreground: #FFFFFF;
 
-  --secondary: #EAF1FF;
-  --secondary-foreground: #1E40AF;
+  --secondary: #F2E5E6;        /* Soft Burgundy Surface */
+  --secondary-foreground: #873D49; /* Deep Burgundy */
 
-  --muted: #F1F5F9;
-  --muted-foreground: #475569;
+  --muted: #EEEAE3;            /* Soft Stone */
+  --muted-foreground: #625A56; /* Secondary Warm Grey */
+  --muted-subtle: #817772;     /* Muted Warm Grey */
 
-  --accent: #0F766E;
+  --accent: #873D49;           /* Deep Burgundy */
   --accent-foreground: #FFFFFF;
 
-  --border: #E2E8F0;
-  --input: #E2E8F0;
-  --ring: #2563EB;
+  --rose: #C58B8B;             /* Muted Rose */
+  --champagne: #B69A72;        /* Champagne */
+  --sage: #829084;             /* Soft Sage */
+
+  --border: #E5DED5;           /* Warm Border */
+  --border-subtle: #EEE8E0;    /* Subtle Border */
+  --input: #E5DED5;
+  --ring: #873D49;
   --radius: 0.75rem;
 
-  /* Architectural Surfaces (Light) */
-  --void: #FFFFFF;
-  --obsidian: #FFFFFF;
-  --carbon: #F8FAFC;
-  --surface-1: #F1F5F9;
-  --surface-2: #E2E8F0;
-  --surface-3: #CBD5E1;
+  /* Architectural Surfaces (Warm Pearl) */
+  --void: #F7F5F0;
+  --obsidian: #FFFEFC;
+  --carbon: #EEEAE3;
+  --surface-1: #EEEAE3;
+  --surface-2: #E5DED5;
+  --surface-3: #DBD3C8;
 
-  /* Hairlines & Technical Separators (Light) */
-  --hairline: #E2E8F0;
-  --hairline-hover: #CBD5E1;
-  --hairline-active: #94A3B8;
+  /* Hairlines & Structural Separators */
+  --hairline: #E5DED5;
+  --hairline-hover: #D8CFC4;
+  --hairline-active: #B69A72;
 
-  /* Typography Stops (Light - Charcoal & Slate) */
-  --silver-bright: #111827;
-  --silver-light: #1E293B;
-  --silver-mid: #475569;
-  --silver-dark: #64748B;
+  /* Typography Stops (Warm Palette) */
+  --silver-bright: #302B2A;
+  --silver-light: #4A4340;
+  --silver-mid: #625A56;
+  --silver-dark: #817772;
 
-  /* Accent Colors (Light) */
-  --accent-cyan: #2563EB;
-  --accent-cyan-dim: rgba(37, 99, 235, 0.08);
-  --accent-violet: #6366F1;
-  --accent-emerald: #059669;
-  --accent-teal: #0F766E;
+  /* Accent Mappings (No Neon - High Taste Warm Hues) */
+  --accent-cyan: #873D49;      /* Replaced with Deep Burgundy */
+  --accent-cyan-dim: #F2E5E6;  /* Soft Burgundy Surface */
+  --accent-violet: #873D49;    /* Burgundy */
+  --accent-emerald: #829084;   /* Soft Sage */
+  --accent-teal: #829084;      /* Soft Sage */
 
   /* Status Colors */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
-  --color-info: #2563EB;
+  --color-success: #829084;    /* Soft Sage */
+  --color-warning: #B69A72;    /* Champagne */
+  --color-error: #9B3944;      /* Deep Muted Red */
+  --color-info: #873D49;       /* Deep Burgundy */
 
   /* Grid & Datum Lines */
-  --grid-line: rgba(15, 23, 42, 0.04);
-  --datum-tick: rgba(15, 23, 42, 0.25);
-  --spotlight-color: rgba(37, 99, 235, 0.06);
+  --grid-line: rgba(48, 43, 42, 0.04);
+  --datum-tick: rgba(182, 154, 114, 0.45);
+  --spotlight-color: rgba(135, 61, 73, 0.05);
 
-  /* Shadows (Multi-layered subtle realistic depth) */
-  --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
-  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-card-hover: 0 10px 25px -3px rgba(37, 99, 235, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
-  --shadow-nav: 0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(226, 232, 240, 0.8);
+  /* Shadows (Warm Multi-Layer Soft Depth) */
+  --shadow-subtle: 0 1px 3px 0 rgba(48, 43, 42, 0.04), 0 1px 2px -1px rgba(48, 43, 42, 0.03);
+  --shadow-card: 0 4px 14px -2px rgba(48, 43, 42, 0.06), 0 2px 4px -2px rgba(48, 43, 42, 0.03);
+  --shadow-card-hover: 0 14px 32px -4px rgba(135, 61, 73, 0.09), 0 4px 8px -2px rgba(48, 43, 42, 0.04);
+  --shadow-nav: 0 8px 24px -4px rgba(48, 43, 42, 0.06), 0 0 0 1px rgba(229, 222, 213, 0.95);
 
   /* Fluid Editorial Scales */
   --type-hero: clamp(3rem, 7.5vw + 1rem, 7.5rem);
@@ -129,79 +147,86 @@
 }
 
 /* =========================================================================
-   DARK THEME: OPTIONAL USER-SELECTABLE OBSIDIAN MODE
+   DARK THEME: OPTIONAL WARM OBSIDIAN / ESPRESSO MODE
    ========================================================================= */
 [data-theme="obsidian"],
 .dark {
-  --background: #050505;
-  --foreground: #F4F4F5;
+  --background: #141211;       /* Deep Warm Obsidian / Espresso */
+  --foreground: #F5F2EB;       /* Warm Off-White / Pearl */
 
-  --surface: #0D0D10;
-  --surface-secondary: #141417;
+  --surface: #1C1918;          /* Warm Dark Surface */
+  --surface-secondary: #24201E;/* Soft Dark Stone */
 
-  --card: #0D0D10;
-  --card-foreground: #FFFFFF;
-  --popover: #0D0D10;
-  --popover-foreground: #FFFFFF;
+  --card: #1C1918;
+  --card-foreground: #F5F2EB;
+  --popover: #1C1918;
+  --popover-foreground: #F5F2EB;
 
-  --primary: #2563EB;
+  --primary: #A35360;          /* Lighter Burgundy for Dark Contrast */
+  --primary-hover: #BA6674;
   --primary-foreground: #FFFFFF;
 
-  --secondary: #18181B;
-  --secondary-foreground: #F4F4F5;
+  --secondary: #2C2224;        /* Dark Warm Burgundy Tint */
+  --secondary-foreground: #E5A4AE;
 
-  --muted: #18181B;
-  --muted-foreground: #A1A1AA;
+  --muted: #24201E;
+  --muted-foreground: #A8A09B;
+  --muted-subtle: #756E69;
 
-  --accent: #00F5FF;
-  --accent-foreground: #050505;
+  --accent: #C9B08B;           /* Champagne Detail Accent */
+  --accent-foreground: #141211;
 
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.12);
-  --ring: #00F5FF;
+  --rose: #D9A0A0;
+  --champagne: #C9B08B;
+  --sage: #98A89A;
 
-  /* Architectural Surfaces (Dark) */
-  --void: #050505;
-  --obsidian: #0D0D10;
-  --carbon: #141417;
-  --surface-1: #1A1A20;
-  --surface-2: #24242C;
-  --surface-3: #32323C;
+  --border: rgba(229, 222, 213, 0.12);
+  --border-subtle: rgba(229, 222, 213, 0.06);
+  --input: rgba(229, 222, 213, 0.14);
+  --ring: #A35360;
 
-  /* Hairlines & Technical Separators (Dark) */
-  --hairline: rgba(255, 255, 255, 0.08);
-  --hairline-hover: rgba(255, 255, 255, 0.22);
-  --hairline-active: rgba(255, 255, 255, 0.4);
+  /* Architectural Surfaces (Dark Warm) */
+  --void: #141211;
+  --obsidian: #1C1918;
+  --carbon: #24201E;
+  --surface-1: #24201E;
+  --surface-2: #2E2927;
+  --surface-3: #3B3532;
 
-  /* Silver Metallic Gradient Stops (Dark) */
-  --silver-bright: #FFFFFF;
-  --silver-light: #E4E4E7;
-  --silver-mid: #A1A1AA;
-  --silver-dark: #71717A;
+  /* Hairlines (Dark Warm) */
+  --hairline: rgba(229, 222, 213, 0.12);
+  --hairline-hover: rgba(229, 222, 213, 0.25);
+  --hairline-active: #C9B08B;
 
-  /* Electric Accents (Dark) */
-  --accent-cyan: #00F5FF;
-  --accent-cyan-dim: rgba(0, 245, 255, 0.15);
-  --accent-violet: #8B5CF6;
-  --accent-emerald: #10B981;
-  --accent-teal: #14B8A6;
+  /* Typography Stops (Dark Warm) */
+  --silver-bright: #F5F2EB;
+  --silver-light: #E0D9D1;
+  --silver-mid: #A8A09B;
+  --silver-dark: #756E69;
+
+  /* Accent Mappings (Dark Warm) */
+  --accent-cyan: #A35360;
+  --accent-cyan-dim: rgba(163, 83, 96, 0.15);
+  --accent-violet: #A35360;
+  --accent-emerald: #98A89A;
+  --accent-teal: #98A89A;
 
   /* Status Colors */
-  --color-success: #10B981;
-  --color-warning: #F59E0B;
-  --color-error: #EF4444;
-  --color-info: #00F5FF;
+  --color-success: #98A89A;
+  --color-warning: #C9B08B;
+  --color-error: #D96A75;
+  --color-info: #A35360;
 
-  /* Grid & Datum Lines */
-  --grid-line: rgba(255, 255, 255, 0.035);
-  --datum-tick: rgba(255, 255, 255, 0.45);
-  --spotlight-color: rgba(0, 245, 255, 0.08);
+  /* Grid & Lines (Dark Warm) */
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --datum-tick: rgba(201, 176, 139, 0.4);
+  --spotlight-color: rgba(163, 83, 96, 0.08);
 
-  /* Shadows (Dark) */
+  /* Shadows (Dark Warm) */
   --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
-  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.6);
-  --shadow-card-hover: 0 12px 36px rgba(0, 0, 0, 0.8);
-  --shadow-nav: 0 12px 40px rgba(0, 0, 0, 0.85);
+  --shadow-card: 0 4px 16px -2px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 14px 36px -4px rgba(0, 0, 0, 0.8);
+  --shadow-nav: 0 8px 32px -4px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(229, 222, 213, 0.12);
 }
 
 /* Base Body Styles */
@@ -222,8 +247,8 @@ body {
 
 /* Custom Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -232,11 +257,11 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--silver-dark);
+  background: var(--champagne);
 }
 
 /* Semantic Utility Fallbacks */
@@ -295,7 +320,7 @@ body {
   font-weight: 400;
 }
 
-/* Metallic & Chrome Gradient Text (Theme-Aware) */
+/* Metallic & Editorial Gradient Text */
 .text-gradient-silver {
   background: linear-gradient(180deg, var(--silver-bright) 15%, var(--silver-mid) 100%);
   -webkit-background-clip: text;
@@ -303,7 +328,7 @@ body {
 }
 
 .text-gradient-chrome {
-  background: linear-gradient(135deg, var(--silver-bright) 0%, var(--silver-light) 45%, var(--silver-dark) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--foreground) 60%, var(--champagne) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -345,12 +370,14 @@ body {
   color: var(--card-foreground);
   border: 1px solid var(--border);
   box-shadow: var(--shadow-subtle);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 1rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .studio-card:hover {
-  border-color: var(--hairline-hover);
+  border-color: var(--champagne);
   box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
 }
 
 /* Subtle Engineering Grid Background */

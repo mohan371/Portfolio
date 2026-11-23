@@ -146,7 +146,7 @@ export function ProjectCatalog({
                 className={`px-3 py-1 rounded-full text-xs font-mono transition-all cursor-pointer ${
                   isSelected
                     ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
+                    : "bg-card border border-border text-muted-foreground hover:text-foreground hover:bg-surface-secondary"
                 }`}
               >
                 {cat}

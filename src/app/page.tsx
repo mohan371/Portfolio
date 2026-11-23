@@ -46,8 +46,8 @@ export default function Home() {
     <div className="relative min-h-screen">
       {/* Background Ambience & Atmospheric Grid */}
       <div className="fixed inset-0 bg-tech-grid opacity-60 dark:opacity-40 pointer-events-none" />
-      <div className="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-blue-500/[0.04] dark:bg-cyan-500/[0.04] blur-[160px] pointer-events-none rounded-full" />
-      <div className="fixed bottom-10 right-10 w-[500px] h-[400px] bg-indigo-500/[0.03] dark:bg-purple-500/[0.03] blur-[140px] pointer-events-none rounded-full" />
+      <div className="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[#873D49]/[0.025] dark:bg-[#A35360]/[0.03] blur-[160px] pointer-events-none rounded-full" />
+      <div className="fixed bottom-10 right-10 w-[500px] h-[400px] bg-[#B69A72]/[0.025] dark:bg-[#C9B08B]/[0.025] blur-[140px] pointer-events-none rounded-full" />
 
       {/* =========================================================================
           SECTION 1: HERO (CINEMATIC EDITORIAL TYPOGRAPHY, 3D CENTERPIECE)
@@ -67,11 +67,11 @@ export default function Home() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3 text-muted-foreground text-[11px] tracking-wider uppercase">
-            <span>{siteConfig.location.coordinates}</span>
-            <span>•</span>
             <span>{siteConfig.location.city}, {siteConfig.location.country}</span>
             <span>•</span>
             <span className="text-primary font-semibold">{siteConfig.location.timezone}</span>
+            <span>•</span>
+            <span className="text-foreground font-semibold">Available for Hire</span>
           </div>
         </div>
 

@@ -56,78 +56,80 @@ function GyroscopicLattice({ isDark }: { isDark: boolean }) {
     if (!groupRef.current) return;
 
     // Smooth pointer damping / orientation shift
-    const targetX = state.pointer.y * 0.45;
-    const targetY = state.pointer.x * 0.65;
-    groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, targetX, 0.05);
-    groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetY, 0.05);
+    const targetX = state.pointer.y * 0.4;
+    const targetY = state.pointer.x * 0.55;
+    groupRef.current.rotation.x = THREE.MathUtils.lerp(groupRef.current.rotation.x, targetX, 0.04);
+    groupRef.current.rotation.y = THREE.MathUtils.lerp(groupRef.current.rotation.y, targetY, 0.04);
 
-    // Continuous smooth idle rotations
+    // Continuous smooth, restrained rotations
     if (coreRef.current) {
-      coreRef.current.rotation.y += delta * 0.25;
-      coreRef.current.rotation.x += delta * 0.15;
+      coreRef.current.rotation.y += delta * 0.2;
+      coreRef.current.rotation.x += delta * 0.12;
     }
-    if (ring1Ref.current) ring1Ref.current.rotation.z += delta * 0.3;
-    if (ring2Ref.current) ring2Ref.current.rotation.x += delta * 0.2;
-    if (ring3Ref.current) ring3Ref.current.rotation.y -= delta * 0.25;
+    if (ring1Ref.current) ring1Ref.current.rotation.z += delta * 0.22;
+    if (ring2Ref.current) ring2Ref.current.rotation.x += delta * 0.16;
+    if (ring3Ref.current) ring3Ref.current.rotation.y -= delta * 0.18;
   });
 
-  // Palette selection
-  const coreColor = isDark ? "#18181b" : "#64748b";
-  const wireframeColor = isDark ? "#00f5ff" : "#2563eb";
-  const ring1Color = isDark ? "#ffffff" : "#334155";
-  const ring2Color = isDark ? "#8b5cf6" : "#2563eb";
-  const ring3Color = isDark ? "#00f5ff" : "#0f766e";
+  // Warm Pearl Palette Selection:
+  // Light: Champagne Metallic Core (#B69A72), Deep Burgundy Wireframe (#873D49), Graphite (#302B2A), Muted Rose (#C58B8B)
+  // Dark: Warm Espresso (#24201E), Champagne Gold (#C9B08B), Soft Rose (#D9A0A0)
+  const coreColor = isDark ? "#2A2422" : "#B69A72";
+  const wireframeColor = isDark ? "#D9A0A0" : "#873D49";
+  const ring1Color = isDark ? "#C9B08B" : "#302B2A";
+  const ring2Color = isDark ? "#A35360" : "#C58B8B";
+  const ring3Color = isDark ? "#C9B08B" : "#B69A72";
 
   return (
     <group ref={groupRef}>
-      {/* Central Inner Solid: Metallic Silver / Obsidian Icosahedron */}
+      {/* Central Solid: Champagne Metallic / Warm Espresso Icosahedron */}
       <mesh ref={coreRef}>
         <icosahedronGeometry args={[1.2, 0]} />
         <meshStandardMaterial
           color={coreColor}
-          roughness={isDark ? 0.15 : 0.2}
-          metalness={isDark ? 0.85 : 0.9}
+          roughness={isDark ? 0.2 : 0.25}
+          metalness={isDark ? 0.75 : 0.85}
         />
       </mesh>
 
-      {/* Inner Wireframe Cage Overlay */}
+      {/* Inner Wireframe Cage: Signature Burgundy */}
       <mesh>
         <icosahedronGeometry args={[1.22, 1]} />
         <meshBasicMaterial
           color={wireframeColor}
           wireframe
           transparent
-          opacity={isDark ? 0.35 : 0.45}
+          opacity={isDark ? 0.45 : 0.55}
         />
       </mesh>
 
-      {/* Middle Gyroscopic Gimbal Ring 1 */}
+      {/* Middle Gyroscopic Gimbal Ring 1: Graphite Charcoal */}
       <mesh ref={ring1Ref}>
         <torusGeometry args={[1.7, 0.02, 16, 64]} />
         <meshStandardMaterial
           color={ring1Color}
-          metalness={0.9}
-          roughness={0.15}
+          metalness={0.85}
+          roughness={0.2}
         />
       </mesh>
 
-      {/* Middle Gyroscopic Gimbal Ring 2 */}
+      {/* Middle Gyroscopic Gimbal Ring 2: Muted Rose */}
       <mesh ref={ring2Ref} rotation={[Math.PI / 3, 0, 0]}>
         <torusGeometry args={[1.95, 0.018, 16, 64]} />
         <meshStandardMaterial
           color={ring2Color}
           metalness={0.8}
-          roughness={0.2}
+          roughness={0.25}
         />
       </mesh>
 
-      {/* Outer Datum Coordinate Ring 3 */}
+      {/* Outer Coordinate Ring 3: Warm Champagne */}
       <mesh ref={ring3Ref} rotation={[0, Math.PI / 4, Math.PI / 4]}>
         <torusGeometry args={[2.2, 0.015, 16, 64]} />
         <meshBasicMaterial
           color={ring3Color}
           transparent
-          opacity={isDark ? 0.4 : 0.6}
+          opacity={isDark ? 0.5 : 0.65}
         />
       </mesh>
 
@@ -135,13 +137,15 @@ function GyroscopicLattice({ isDark }: { isDark: boolean }) {
       {particlePositions.map((pos, idx) => {
         let nodeColor = isDark
           ? idx % 3 === 0
-            ? "#00f5ff"
-            : "#ffffff"
+            ? "#C9B08B"
+            : idx % 3 === 1
+            ? "#D9A0A0"
+            : "#98A89A"
           : idx % 3 === 0
-          ? "#2563eb"
+          ? "#873D49"
           : idx % 3 === 1
-          ? "#0f766e"
-          : "#64748b";
+          ? "#B69A72"
+          : "#829084";
 
         return (
           <mesh key={idx} position={pos}>
@@ -164,26 +168,28 @@ export default function ArchitecturalCore3D() {
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
       >
-        {/* Balanced Engineering Lighting */}
-        <ambientLight intensity={isDark ? 0.6 : 0.85} />
+        {/* Controlled Studio-Style Warm Lighting */}
+        <ambientLight intensity={isDark ? 0.7 : 0.9} color="#FFFBF5" />
         <directionalLight
           position={[5, 6, 5]}
-          intensity={isDark ? 1.5 : 1.8}
-          color="#ffffff"
+          intensity={isDark ? 1.4 : 1.7}
+          color="#FFF8EE"
         />
+        {/* Warm Burgundy Rim Light */}
         <pointLight
           position={[-4, -3, -2]}
-          intensity={isDark ? 2.0 : 2.4}
-          color={isDark ? "#00f5ff" : "#2563eb"}
+          intensity={isDark ? 1.8 : 2.0}
+          color={isDark ? "#A35360" : "#873D49"}
         />
+        {/* Champagne Fill Light */}
         <pointLight
           position={[3, -4, 2]}
-          intensity={isDark ? 1.5 : 1.8}
-          color={isDark ? "#8b5cf6" : "#0f766e"}
+          intensity={isDark ? 1.4 : 1.6}
+          color={isDark ? "#C9B08B" : "#B69A72"}
         />
 
         {/* Gentle Ambient Float */}
-        <Float speed={1.8} rotationIntensity={0.2} floatIntensity={0.4}>
+        <Float speed={1.5} rotationIntensity={0.15} floatIntensity={0.3}>
           <GyroscopicLattice isDark={isDark} />
         </Float>
       </Canvas>

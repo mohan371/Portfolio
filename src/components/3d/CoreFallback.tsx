@@ -8,15 +8,15 @@ export function CoreFallback() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center relative select-none">
       <div className="relative w-48 h-48 sm:w-64 sm:h-64 flex items-center justify-center">
-        {/* Outer Ring */}
-        <div className="absolute inset-0 rounded-full border border-border animate-[spin_30s_linear_infinite]" />
+        {/* Outer Ring: Warm border */}
+        <div className="absolute inset-0 rounded-full border border-border animate-[spin_35s_linear_infinite]" />
         
-        {/* Middle Gimbal Ring */}
-        <div className="absolute inset-4 rounded-full border border-primary/30 border-dashed animate-[spin_20s_linear_infinite_reverse]" />
+        {/* Middle Gimbal Ring: Burgundy dashed */}
+        <div className="absolute inset-4 rounded-full border border-primary/35 border-dashed animate-[spin_24s_linear_infinite_reverse]" />
         
-        {/* Inner Diamond / Core */}
-        <div className="w-24 h-24 sm:w-32 sm:h-32 border border-slate-400/40 dark:border-white/20 rotate-45 flex items-center justify-center">
-          <div className="w-16 h-16 sm:w-20 sm:h-20 border border-primary/40 rotate-12 flex items-center justify-center">
+        {/* Inner Diamond / Core: Champagne detail */}
+        <div className="w-24 h-24 sm:w-32 sm:h-32 border border-[#B69A72]/45 dark:border-[#C9B08B]/35 rotate-45 flex items-center justify-center">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 border border-primary/45 rotate-12 flex items-center justify-center">
             <div className="w-3 h-3 rounded-full bg-primary shadow-sm animate-pulse" />
           </div>
         </div>
