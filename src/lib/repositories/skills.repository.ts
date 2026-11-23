@@ -56,7 +56,7 @@ export async function getSkills(category?: string): Promise<SkillItem[]> {
         name: sk.name,
         slug: sk.name.toLowerCase().replace(/[^a-z0-9]/g, "-"),
         category: cat.title,
-        level: sk.level > 90 ? "Advanced" : "Proficient",
+        level: "Proficient",
         yearsOfExperience: 3,
         iconName: "Code2",
         isFeatured: counter <= 8,

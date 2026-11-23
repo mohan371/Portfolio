@@ -1,28 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-void: #050505;
-  --color-obsidian: #0a0a0a;
-  --color-carbon: #111113;
-  --color-surface-1: #18181b;
-  --color-surface-2: #27272a;
-  --color-surface-3: #3f3f46;
+  --color-void: var(--void);
+  --color-obsidian: var(--obsidian);
+  --color-carbon: var(--carbon);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
 
-  --color-hairline: rgba(255, 255, 255, 0.08);
-  --color-hairline-hover: rgba(255, 255, 255, 0.22);
-  --color-hairline-active: rgba(255, 255, 255, 0.4);
+  --color-hairline: var(--hairline);
+  --color-hairline-hover: var(--hairline-hover);
+  --color-hairline-active: var(--hairline-active);
 
-  --color-silver-bright: #ffffff;
-  --color-silver-light: #e4e4e7;
-  --color-silver-mid: #a1a1aa;
-  --color-silver-dark: #71717a;
+  --color-silver-bright: var(--silver-bright);
+  --color-silver-light: var(--silver-light);
+  --color-silver-mid: var(--silver-mid);
+  --color-silver-dark: var(--silver-dark);
 
-  --color-cyan-accent: #00f5ff;
-  --color-cyan-accent-dim: rgba(0, 245, 255, 0.15);
-  --color-violet-accent: #8b5cf6;
-  --color-violet-accent-dim: rgba(139, 92, 246, 0.15);
-  --color-emerald-accent: #10b981;
-  --color-emerald-accent-dim: rgba(16, 185, 129, 0.15);
+  --color-cyan-accent: var(--accent-cyan);
+  --color-cyan-accent-dim: var(--accent-cyan-dim);
+  --color-violet-accent: var(--accent-violet);
+  --color-emerald-accent: var(--accent-emerald);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
 
   --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-sans: "Inter", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -30,91 +36,120 @@
 }
 
 :root {
-  /* Core Architectural Monochrome Palette */
-  --void: #050505;
-  --obsidian: #0a0a0a;
-  --carbon: #111113;
-  --surface-1: #18181b;
-  --surface-2: #27272a;
-  --surface-3: #3f3f46;
+  /* Default Obsidian Dark Theme */
+  --background: #050505;
+  --foreground: #f4f4f5;
+  --card: #0d0d10;
+  --card-foreground: #ffffff;
+  --popover: #0d0d10;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
+  --primary-foreground: #050505;
+  --secondary: #18181b;
+  --secondary-foreground: #f4f4f5;
+  --muted: #18181b;
+  --muted-foreground: #a1a1aa;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #00f5ff;
+  --radius: 0.75rem;
 
-  /* Hairlines & Technical Separators */
+  /* Architectural Surfaces (Dark) */
+  --void: #050505;
+  --obsidian: #0d0d10;
+  --carbon: #141417;
+  --surface-1: #1a1a20;
+  --surface-2: #24242c;
+  --surface-3: #32323c;
+
+  /* Hairlines & Technical Separators (Dark) */
   --hairline: rgba(255, 255, 255, 0.08);
   --hairline-hover: rgba(255, 255, 255, 0.22);
   --hairline-active: rgba(255, 255, 255, 0.4);
 
-  /* Silver Metallic Gradient Stops */
+  /* Silver Metallic Gradient Stops (Dark) */
   --silver-bright: #ffffff;
   --silver-light: #e4e4e7;
   --silver-mid: #a1a1aa;
   --silver-dark: #71717a;
 
-  /* Restrained Electric Accents (Used only for state & focus) */
+  /* Electric Accents (Dark) */
   --accent-cyan: #00f5ff;
   --accent-cyan-dim: rgba(0, 245, 255, 0.15);
   --accent-violet: #8b5cf6;
-  --accent-violet-dim: rgba(139, 92, 246, 0.15);
   --accent-emerald: #10b981;
-  --accent-emerald-dim: rgba(16, 185, 129, 0.15);
+
+  /* Grid lines */
+  --grid-line: rgba(255, 255, 255, 0.035);
+  --datum-tick: rgba(255, 255, 255, 0.45);
 
   /* Typography Stacks */
   --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-sans: "Inter", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", "Geist Mono", monospace;
 
-  /* Fluid Editorial Type Scales */
+  /* Fluid Editorial Scales */
   --type-hero: clamp(3rem, 7.5vw + 1rem, 7.5rem);
   --type-display: clamp(2.25rem, 4.5vw + 0.5rem, 4.5rem);
   --type-heading: clamp(1.5rem, 2.5vw + 0.5rem, 2.75rem);
   --type-subhead: clamp(1.125rem, 1.3vw + 0.4rem, 1.625rem);
-
-  /* Radix UI & Component Variables */
-  --background: var(--void);
-  --foreground: #ffffff;
-  --card: var(--obsidian);
-  --card-foreground: #ffffff;
-  --popover: var(--obsidian);
-  --popover-foreground: #ffffff;
-  --primary: #ffffff;
-  --primary-foreground: var(--void);
-  --secondary: var(--surface-1);
-  --secondary-foreground: #ffffff;
-  --muted: var(--surface-1);
-  --muted-foreground: var(--silver-mid);
-  --border: var(--hairline);
-  --input: var(--hairline);
-  --ring: var(--accent-cyan);
-  --radius: 0.5rem;
 }
 
-/* Light / Studio High-Contrast Mode */
-[data-theme="studio-light"] {
-  --void: #f4f4f5;
-  --obsidian: #ffffff;
-  --carbon: #e4e4e7;
-  --surface-1: #e4e4e7;
-  --surface-2: #d4d4d8;
-  --surface-3: #a1a1aa;
-  --hairline: rgba(0, 0, 0, 0.1);
-  --hairline-hover: rgba(0, 0, 0, 0.25);
-  --hairline-active: rgba(0, 0, 0, 0.45);
-  --background: var(--void);
+/* Studio Light Mode (High Contrast & Pure Surfaces) */
+[data-theme="studio-light"],
+.light {
+  --background: #fafafa;
   --foreground: #09090b;
   --card: #ffffff;
   --card-foreground: #09090b;
+  --popover: #ffffff;
+  --popover-foreground: #09090b;
+  --primary: #09090b;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #52525b;
+  --border: rgba(0, 0, 0, 0.12);
+  --input: rgba(0, 0, 0, 0.16);
+  --ring: #0284c7;
+
+  /* Architectural Surfaces (Light) */
+  --void: #fafafa;
+  --obsidian: #ffffff;
+  --carbon: #f0f1f4;
+  --surface-1: #e7e9ed;
+  --surface-2: #dcdee3;
+  --surface-3: #cbced5;
+
+  /* Hairlines (Light) */
+  --hairline: rgba(0, 0, 0, 0.12);
+  --hairline-hover: rgba(0, 0, 0, 0.28);
+  --hairline-active: rgba(0, 0, 0, 0.5);
+
+  /* Charcoal / Silver Text Stops (Light) */
   --silver-bright: #09090b;
-  --silver-light: #27272a;
+  --silver-light: #18181b;
   --silver-mid: #52525b;
   --silver-dark: #71717a;
+
+  /* High-Contrast Accents (Light) */
+  --accent-cyan: #0284c7;
+  --accent-cyan-dim: rgba(2, 132, 199, 0.12);
+  --accent-violet: #7c3aed;
+  --accent-emerald: #059669;
+
+  /* Grid lines in Light */
+  --grid-line: rgba(0, 0, 0, 0.045);
+  --datum-tick: rgba(0, 0, 0, 0.4);
 }
 
 /* Base Body Styles */
 html,
 body {
-  background-color: var(--void);
-  color: #ffffff;
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: var(--font-sans);
-  color-scheme: dark;
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -122,7 +157,7 @@ body {
 
 ::selection {
   background: var(--accent-cyan);
-  color: #050505;
+  color: #ffffff;
 }
 
 /* Custom Minimalist Scrollbar */
@@ -132,16 +167,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--void);
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: var(--surface-2);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: var(--silver-dark);
 }
 
 /* Semantic Utility Fallbacks */
@@ -201,13 +236,13 @@ body {
 
 /* Metallic & Chrome Gradient Text */
 .text-gradient-silver {
-  background: linear-gradient(180deg, #ffffff 15%, #a1a1aa 100%);
+  background: linear-gradient(180deg, var(--silver-bright) 15%, var(--silver-mid) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-chrome {
-  background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 45%, #71717a 100%);
+  background: linear-gradient(135deg, var(--silver-bright) 0%, var(--silver-light) 45%, var(--silver-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -224,8 +259,8 @@ body {
   left: -1px;
   width: 7px;
   height: 7px;
-  border-top: 1.5px solid rgba(255, 255, 255, 0.45);
-  border-left: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-top: 1.5px solid var(--datum-tick);
+  border-left: 1.5px solid var(--datum-tick);
   pointer-events: none;
 }
 
@@ -236,8 +271,8 @@ body {
   right: -1px;
   width: 7px;
   height: 7px;
-  border-bottom: 1.5px solid rgba(255, 255, 255, 0.45);
-  border-right: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-bottom: 1.5px solid var(--datum-tick);
+  border-right: 1.5px solid var(--datum-tick);
   pointer-events: none;
 }
 
@@ -257,25 +292,26 @@ body {
   background-color: var(--hairline);
 }
 
-/* Subtle Technical Grid Background (Laboratory Aesthetic) */
+/* Subtle Technical Grid Background */
 .bg-tech-grid {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
 }
 
 .bg-dot-matrix {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-image: radial-gradient(var(--grid-line) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 /* Studio Architectural Card */
 .studio-card {
-  background-color: var(--obsidian);
-  border: 1px solid var(--hairline);
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  color: var(--card-foreground);
   position: relative;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
 }
 
 .studio-card:hover {

@@ -150,9 +150,19 @@ export default function ContactPage() {
                 <span className="text-[10px] font-mono text-silver-dark uppercase">Primary Email</span>
                 <a
                   href={`mailto:${siteConfig.socials.email}`}
-                  className="block text-sm font-mono text-white hover:text-cyan-accent transition-colors mt-0.5"
+                  className="block text-sm font-mono text-foreground hover:text-cyan-accent transition-colors mt-0.5"
                 >
                   {siteConfig.socials.email}
+                </a>
+              </div>
+
+              <div>
+                <span className="text-[10px] font-mono text-silver-dark uppercase">Verified Phone</span>
+                <a
+                  href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, "")}`}
+                  className="block text-sm font-mono text-foreground hover:text-cyan-accent transition-colors mt-0.5"
+                >
+                  {siteConfig.phone}
                 </a>
               </div>
 

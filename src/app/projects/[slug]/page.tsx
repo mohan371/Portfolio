@@ -57,7 +57,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
       {/* Back to Archive */}
       <Link
         href="/projects"
-        className="inline-flex items-center gap-2 text-xs font-mono text-silver-mid hover:text-white transition-colors mb-8"
+        className="inline-flex items-center gap-2 text-xs font-mono text-silver-mid hover:text-foreground transition-colors mb-8"
       >
         <ArrowLeft className="w-3.5 h-3.5" />
         Back to Projects Catalog
@@ -77,7 +77,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
         </span>
       </div>
 
-      <h1 className="font-display text-3xl sm:text-5xl font-bold uppercase text-white tracking-tight leading-tight">
+      <h1 className="font-display text-3xl sm:text-5xl font-bold uppercase text-foreground tracking-tight leading-tight">
         {project.title}
       </h1>
 
@@ -109,7 +109,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
       <div className="mt-12 space-y-12 text-silver-mid font-light leading-relaxed">
         {/* Project Detailed Overview */}
         <section className="space-y-4">
-          <h2 className="font-display font-bold text-white text-2xl uppercase tracking-tight flex items-center gap-2">
+          <h2 className="font-display font-bold text-foreground text-2xl uppercase tracking-tight flex items-center gap-2">
             <span className="text-cyan-accent font-mono text-xs">[ 01 ]</span>
             Project Overview
           </h2>
@@ -120,7 +120,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
 
         {/* The Problem Statement */}
         <section className="p-6 sm:p-8 rounded-2xl bg-obsidian border border-hairline corner-datum space-y-3">
-          <h2 className="font-display font-bold text-white text-xl uppercase tracking-tight flex items-center gap-2">
+          <h2 className="font-display font-bold text-foreground text-xl uppercase tracking-tight flex items-center gap-2">
             <span className="text-cyan-accent font-mono text-xs">[ 02 ]</span>
             The Problem Statement
           </h2>
@@ -131,7 +131,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
 
         {/* The Architectural Solution */}
         <section className="p-6 sm:p-8 rounded-2xl bg-obsidian border border-hairline corner-datum space-y-3">
-          <h2 className="font-display font-bold text-white text-xl uppercase tracking-tight flex items-center gap-2">
+          <h2 className="font-display font-bold text-foreground text-xl uppercase tracking-tight flex items-center gap-2">
             <span className="text-cyan-accent font-mono text-xs">[ 03 ]</span>
             Engineering Solution
           </h2>
@@ -150,7 +150,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
 
         {/* Key Features */}
         <section className="p-6 sm:p-8 rounded-2xl bg-obsidian border border-hairline corner-datum">
-          <h2 className="font-display font-bold text-white text-xl uppercase tracking-tight mb-4 flex items-center gap-2">
+          <h2 className="font-display font-bold text-foreground text-xl uppercase tracking-tight mb-4 flex items-center gap-2">
             <span className="text-cyan-accent font-mono text-xs">[ 04 ]</span>
             Key Technical Features
           </h2>
@@ -166,14 +166,14 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
 
         {/* Engineering Challenges & Resolutions */}
         <section className="space-y-4">
-          <h2 className="font-display font-bold text-white text-2xl uppercase tracking-tight flex items-center gap-2">
+          <h2 className="font-display font-bold text-foreground text-2xl uppercase tracking-tight flex items-center gap-2">
             <span className="text-cyan-accent font-mono text-xs">[ 05 ]</span>
             Engineering Challenges &amp; Resolutions
           </h2>
           <div className="space-y-4">
             {project.engineeringChallenges.map((item, idx) => (
               <div key={idx} className="p-6 rounded-2xl bg-obsidian border border-hairline space-y-3">
-                <div className="flex items-center gap-2 text-sm font-bold text-white font-display uppercase">
+                <div className="flex items-center gap-2 text-sm font-bold text-foreground font-display uppercase">
                   <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
                   <span>{item.title}</span>
                 </div>
@@ -184,7 +184,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
                   </div>
                   <div className="pt-2 border-t border-hairline">
                     <span className="text-emerald-accent uppercase block text-[10px]">Engineering Resolution:</span>
-                    <p className="text-white font-light text-xs font-sans mt-0.5">{item.resolution}</p>
+                    <p className="text-foreground font-light text-xs font-sans mt-0.5">{item.resolution}</p>
                   </div>
                 </div>
               </div>
@@ -194,7 +194,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
 
         {/* Lessons Learned */}
         <section className="p-6 sm:p-8 rounded-2xl bg-obsidian border border-hairline corner-datum space-y-3">
-          <h2 className="font-display font-bold text-white text-xl uppercase tracking-tight flex items-center gap-2">
+          <h2 className="font-display font-bold text-foreground text-xl uppercase tracking-tight flex items-center gap-2">
             <Lightbulb className="w-4 h-4 text-cyan-accent" />
             <span>Lessons Learned</span>
           </h2>
@@ -222,7 +222,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
             {project.technologies.map((t) => (
               <span
                 key={t}
-                className="px-3 py-1.5 rounded-full bg-carbon border border-hairline text-xs font-mono text-white"
+                className="px-3 py-1.5 rounded-full bg-carbon border border-hairline text-xs font-mono text-foreground"
               >
                 {t}
               </span>
@@ -241,13 +241,13 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
               <span className="text-[10px] font-mono text-cyan-accent uppercase tracking-widest">
                 RECOMMENDED CASE STUDIES
               </span>
-              <h2 className="font-display text-2xl font-bold uppercase text-white tracking-tight mt-1">
+              <h2 className="font-display text-2xl font-bold uppercase text-foreground tracking-tight mt-1">
                 Related Engineering Work
               </h2>
             </div>
             <Link
               href="/projects"
-              className="text-xs font-mono text-silver-mid hover:text-white transition-colors"
+              className="text-xs font-mono text-silver-mid hover:text-foreground transition-colors"
             >
               All Projects ({`->`})
             </Link>

@@ -134,7 +134,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-void text-white selection:bg-cyan-accent selection:text-black font-sans">
+      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-cyan-accent selection:text-black font-sans transition-colors duration-200">
         <TooltipProvider delayDuration={150}>
           {/* Real-time Page Progress Line */}
           <PageProgress />

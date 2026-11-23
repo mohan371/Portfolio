@@ -98,12 +98,12 @@ export function ProjectCatalog({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search by project name, technology (e.g. Go, React, PostgreSQL)..."
-              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-carbon border border-hairline text-xs font-mono text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-accent transition-colors"
+              className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-carbon border border-hairline text-xs font-mono text-foreground placeholder:text-silver-dark focus:outline-none focus:border-cyan-accent transition-colors"
             />
             {search && (
               <button
                 onClick={() => setSearch("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-silver-dark hover:text-white"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-silver-dark hover:text-foreground"
                 aria-label="Clear search"
               >
                 <X className="w-4 h-4" />
@@ -117,12 +117,12 @@ export function ProjectCatalog({
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as "featured" | "newest" | "oldest" | "title")}
-                className="bg-transparent text-xs font-mono text-white focus:outline-none cursor-pointer"
+                className="bg-transparent text-xs font-mono text-foreground focus:outline-none cursor-pointer"
               >
-                <option value="featured">Featured First</option>
-                <option value="newest">Newest First</option>
-                <option value="oldest">Oldest First</option>
-                <option value="title">Alphabetical (A-Z)</option>
+                <option value="featured" className="bg-card text-foreground">Featured First</option>
+                <option value="newest" className="bg-card text-foreground">Newest First</option>
+                <option value="oldest" className="bg-card text-foreground">Oldest First</option>
+                <option value="title" className="bg-card text-foreground">Alphabetical (A-Z)</option>
               </select>
             </div>
 
@@ -146,7 +146,7 @@ export function ProjectCatalog({
                 className={`px-3 py-1 rounded-full text-xs font-mono transition-all ${
                   isSelected
                     ? "bg-cyan-950/60 border border-cyan-500/50 text-cyan-accent"
-                    : "bg-carbon border border-hairline text-silver-dark hover:text-white"
+                    : "bg-carbon border border-hairline text-silver-dark hover:text-foreground"
                 }`}
               >
                 {cat}
@@ -162,10 +162,10 @@ export function ProjectCatalog({
             <select
               value={selectedTech}
               onChange={(e) => setSelectedTech(e.target.value)}
-              className="px-2.5 py-1 rounded-lg bg-carbon border border-hairline text-xs font-mono text-white focus:outline-none focus:border-cyan-accent cursor-pointer"
+              className="px-2.5 py-1 rounded-lg bg-carbon border border-hairline text-xs font-mono text-foreground focus:outline-none focus:border-cyan-accent cursor-pointer"
             >
               {technologies.map((t) => (
-                <option key={t} value={t}>
+                <option key={t} value={t} className="bg-card text-foreground">
                   {t}
                 </option>
               ))}
@@ -173,7 +173,7 @@ export function ProjectCatalog({
           </div>
 
           <div className="text-[11px] text-silver-mid">
-            SHOWING <strong className="text-white">{filteredProjects.length}</strong> OF{" "}
+            SHOWING <strong className="text-foreground">{filteredProjects.length}</strong> OF{" "}
             {initialProjects.length} PROJECTS
           </div>
         </div>
@@ -183,7 +183,7 @@ export function ProjectCatalog({
       {filteredProjects.length === 0 ? (
         <div className="p-12 rounded-2xl bg-obsidian border border-hairline text-center flex flex-col items-center">
           <SlidersHorizontal className="w-8 h-8 text-silver-dark mb-3" />
-          <h3 className="font-display font-bold text-lg text-white uppercase">No Projects Found</h3>
+          <h3 className="font-display font-bold text-lg text-foreground uppercase">No Projects Found</h3>
           <p className="text-xs text-silver-mid mt-1 max-w-sm font-light">
             No projects matched your criteria. Try adjusting your search query or resetting active filters.
           </p>

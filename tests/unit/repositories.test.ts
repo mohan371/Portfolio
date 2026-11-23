@@ -7,13 +7,12 @@ import { getExperience } from "@/lib/repositories/experience.repository";
 describe("Repository Offline Fallback & Data Truth Integrity", () => {
   it("returns authentic Mohan N.V. projects when database is offline", async () => {
     const projects = await getProjects();
-    expect(projects.length).toBeGreaterThanOrEqual(3);
+    expect(projects.length).toBeGreaterThanOrEqual(4);
 
-    // Verify key projects
+    // Verify key projects from resume
     const slugs = projects.map((p) => p.slug);
     expect(slugs).toContain("mapup-fleet-geofencing");
     expect(slugs.some((s) => s.includes("veda"))).toBe(true);
-    expect(slugs.some((s) => s.includes("saas"))).toBe(true);
 
     // Check MapUp project content
     const mapup = await getProjectBySlug("mapup-fleet-geofencing");
@@ -23,7 +22,7 @@ describe("Repository Offline Fallback & Data Truth Integrity", () => {
     expect(mapup?.technologies).toContain("PostgreSQL");
   });
 
-  it("returns authentic education data (MCA 2026, BCA 2022)", async () => {
+  it("returns authentic education data (MCA 92%, BCA 78%)", async () => {
     const education = await getEducation();
     expect(education.length).toBeGreaterThanOrEqual(2);
 
@@ -38,10 +37,17 @@ describe("Repository Offline Fallback & Data Truth Integrity", () => {
     expect(bca?.year).toContain("2022");
   });
 
-  it("returns authentic corporate experience (Gabriel India Ltd 2022-2024)", async () => {
+  it("returns authentic employment history including Veda Scholars and Gabriel India Ltd", async () => {
     const experience = await getExperience();
-    expect(experience.length).toBeGreaterThanOrEqual(1);
+    expect(experience.length).toBeGreaterThanOrEqual(2);
 
+    // Current Software Engineer role at Veda Scholars
+    const veda = experience.find((e) => e.company.includes("Veda Scholars"));
+    expect(veda).toBeDefined();
+    expect(veda?.role).toContain("Software Engineer");
+    expect(veda?.period).toContain("Present");
+
+    // Corporate accounting tenure at Gabriel India Ltd
     const gabriel = experience.find((e) => e.company.includes("Gabriel India"));
     expect(gabriel).toBeDefined();
     expect(gabriel?.role).toContain("Accountant");
@@ -49,16 +55,17 @@ describe("Repository Offline Fallback & Data Truth Integrity", () => {
     expect(gabriel?.period).toContain("2024");
   });
 
-  it("returns authentic skill set containing Java, Go, React, Next.js, Docker", async () => {
+  it("returns authentic skill set containing JavaScript, Java, React, Next.js, MongoDB, MySQL, Git", async () => {
     const skills = await getSkills();
     expect(skills.length).toBeGreaterThanOrEqual(10);
 
     const skillNames = skills.map((s) => s.name.toLowerCase());
+    expect(skillNames.some((n) => n.includes("javascript"))).toBe(true);
     expect(skillNames.some((n) => n.includes("java"))).toBe(true);
-    expect(skillNames.some((n) => n.includes("go"))).toBe(true);
     expect(skillNames.some((n) => n.includes("react"))).toBe(true);
     expect(skillNames.some((n) => n.includes("next.js"))).toBe(true);
-    expect(skillNames.some((n) => n.includes("postgresql"))).toBe(true);
-    expect(skillNames.some((n) => n.includes("docker"))).toBe(true);
+    expect(skillNames.some((n) => n.includes("mongodb"))).toBe(true);
+    expect(skillNames.some((n) => n.includes("mysql"))).toBe(true);
+    expect(skillNames.some((n) => n.includes("git"))).toBe(true);
   });
 });

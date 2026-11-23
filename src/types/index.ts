@@ -1,5 +1,6 @@
 /**
  * Scalable Project data model and query interfaces for Mohan N.V. portfolio.
+ * Truthfully aligned with official resume credentials.
  */
 
 export type ProjectStatus = "Completed" | "In Development" | "Production" | "Archived";
@@ -57,7 +58,10 @@ export interface EducationItem {
   id: string;
   degree: string;
   institution: string;
+  location?: string;
+  university?: string;
   year: string;
+  grade?: string;
   field: string;
   highlights: string[];
 }
@@ -70,21 +74,55 @@ export interface ExperienceItem {
   period: string;
   location: string;
   type: "Full-Time" | "Education" | "Project Work" | "Consulting";
+  isCurrent?: boolean;
   description: string;
   achievements: string[];
   technologies: string[];
   metrics: string[];
 }
 
+export interface SkillItem {
+  name: string;
+  category: string;
+  focus: string;
+}
+
 export interface SkillCategory {
   title: string;
   description: string;
-  skills: {
-    name: string;
-    level: number;
-    category: string;
-    focus: string;
-  }[];
+  skills: SkillItem[];
+}
+
+export interface CertificationItem {
+  id: string;
+  title: string;
+  issuer: string;
+  date: string;
+  category?: string;
+}
+
+export interface AchievementItem {
+  id: string;
+  title: string;
+  event: string;
+  date: string;
+  description?: string;
+  category: "Hackathon" | "Conference" | "Academic" | "Certification" | "Community" | "Competitive";
+}
+
+export interface TimelineMilestone {
+  id: string;
+  title: string;
+  subtitle: string;
+  period: string;
+  year: string;
+  type: "career" | "education" | "achievement";
+  isCurrent?: boolean;
+  description: string;
+  details?: string[];
+  skills?: string[];
+  location?: string;
+  metrics?: string;
 }
 
 export interface JournalPost {
@@ -119,6 +157,7 @@ export interface SiteConfig {
   positioning: string;
   tagline: string;
   bio: string;
+  phone: string;
   resumeUrl: string;
   studio: {
     name: string;
@@ -140,6 +179,8 @@ export interface SiteConfig {
     coordinates: string;
   };
   education: EducationItem[];
+  certifications: CertificationItem[];
+  achievements: AchievementItem[];
   socials: {
     github: string;
     linkedin: string;

@@ -96,8 +96,16 @@ export function Footer() {
                 href={`mailto:${siteConfig.socials.email}`}
                 className="hover:text-cyan-accent font-mono transition-colors flex items-center gap-1.5"
               >
-                <Mail className="w-3.5 h-3.5" />
+                <Mail className="w-3.5 h-3.5 text-cyan-accent" />
                 {siteConfig.socials.email}
+              </a>
+
+              <a
+                href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, "")}`}
+                className="hover:text-cyan-accent font-mono transition-colors flex items-center gap-1.5"
+              >
+                <span className="text-cyan-accent text-xs">TEL:</span>
+                {siteConfig.phone}
               </a>
 
               <div className="flex items-center gap-2 text-[10px] font-mono text-silver-dark pt-1">

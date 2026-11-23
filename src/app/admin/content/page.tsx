@@ -36,10 +36,10 @@ export default function AdminContentPage() {
 
   // Flattened initial skills list
   const initialSkills = skillsData.flatMap((cat) =>
-    cat.skills.map((s, idx) => ({
-      id: `skill-${s.name.toLowerCase()}`,
+    cat.skills.map((s) => ({
+      id: `skill-${s.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
       name: s.name,
-      level: s.level > 90 ? "Advanced" : "Proficient",
+      level: "Proficient",
       category: cat.title,
       focus: s.focus,
     }))

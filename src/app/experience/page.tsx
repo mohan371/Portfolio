@@ -1,14 +1,12 @@
 import { Metadata } from "next";
-import { experienceData } from "@/content/data/experience";
 import { siteConfig } from "@/content/data/site-config";
 import { SectionHeader } from "@/components/creative/SectionHeader";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { CheckCircle2, GraduationCap, Briefcase } from "lucide-react";
+import { AnimatedTimeline } from "@/components/creative/AnimatedTimeline";
+import { Award, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Professional Journey",
-  description: "Chronology of Mohan N.V.'s education, corporate experience at Gabriel India Ltd, and software engineering evolution.",
+  description: "Chronology of Mohan N.V.'s software engineering role at Veda Scholars, MCA scholarship, corporate accounting tenure at Gabriel India Ltd, and BCA foundations.",
 };
 
 export default function ExperiencePage() {
@@ -18,61 +16,63 @@ export default function ExperiencePage() {
         index="JOURNEY"
         tag="Career &amp; Education"
         title="Professional Chronology"
-        description="Tracing the intersection of rigorous academic computer science scholarship and corporate enterprise accounting precision."
+        description="Tracing current engineering contributions at Veda Scholars, academic scholarship at Anna University, and corporate enterprise accounting precision."
       />
 
-      {/* Timeline Section */}
-      <div className="relative pl-6 sm:pl-8 border-l border-hairline space-y-14 mb-20">
-        {experienceData.map((item) => (
-          <div key={item.id} className="relative group">
-            {/* Timeline Node */}
-            <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full border-2 border-void bg-cyan-accent shadow-[0_0_10px_#00f5ff]" />
+      {/* Primary Vertical Animated Timeline (Present at Top -> Past at Bottom) */}
+      <AnimatedTimeline />
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-              <h3 className="font-display font-bold text-xl text-white group-hover:text-cyan-accent transition-colors">
-                {item.role}
-              </h3>
-              <Badge variant="cyan" dot className="w-fit">
-                {item.period}
-              </Badge>
+      {/* Additional Accreditations & Hackathons Matrix */}
+      <div className="mt-20 pt-16 border-t border-hairline">
+        <SectionHeader
+          index="CREDENTIALS"
+          tag="Verifiable Learning"
+          title="Certifications &amp; Achievements"
+          description="Verified course credentials from Scaler and Networkz System alongside technical conference presentations and hackathon competitions."
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+          {/* Certifications Card */}
+          <div className="studio-card p-6 rounded-2xl">
+            <div className="flex items-center gap-2 pb-3 mb-4 border-b border-hairline text-xs font-mono text-cyan-accent uppercase">
+              <Award className="w-4 h-4 text-cyan-accent" />
+              <span>Course Accreditations</span>
             </div>
-
-            <div className="text-xs font-mono text-silver-dark mb-4 flex items-center gap-2">
-              <span className="text-silver-mid font-medium">{item.company}</span>
-              <span>•</span>
-              <span>{item.location}</span>
-            </div>
-
-            <p className="text-sm text-silver-mid font-light leading-relaxed mb-4 max-w-3xl">
-              {item.description}
-            </p>
-
-            <div className="p-4 rounded-xl bg-obsidian border border-hairline mb-4 max-w-3xl">
-              <div className="text-[10px] font-mono text-silver-dark uppercase tracking-widest mb-2">
-                KEY ACCOMPLISHMENTS &amp; DELIVERABLES
-              </div>
-              <ul className="space-y-2">
-                {item.achievements.map((ach, i) => (
-                  <li key={i} className="text-xs text-silver-mid flex items-start gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-cyan-accent shrink-0 mt-0.5" />
-                    <span>{ach}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="flex flex-wrap gap-1.5">
-              {item.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-carbon text-silver-dark border border-hairline"
-                >
-                  {tech}
-                </span>
+            <div className="space-y-3">
+              {siteConfig.certifications.map((cert) => (
+                <div key={cert.id} className="p-3.5 rounded-xl bg-carbon/60 border border-hairline flex items-center justify-between">
+                  <div>
+                    <h4 className="font-display font-semibold text-sm text-foreground">{cert.title}</h4>
+                    <span className="text-xs font-mono text-silver-mid">{cert.issuer} • {cert.date}</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-cyan-accent px-2 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">{cert.category}</span>
+                </div>
               ))}
             </div>
           </div>
-        ))}
+
+          {/* Hackathons & Research Card */}
+          <div className="studio-card p-6 rounded-2xl">
+            <div className="flex items-center gap-2 pb-3 mb-4 border-b border-hairline text-xs font-mono text-amber-300 uppercase">
+              <Sparkles className="w-4 h-4 text-amber-300" />
+              <span>Competitions &amp; Presentations</span>
+            </div>
+            <div className="space-y-3">
+              {siteConfig.achievements.slice(0, 4).map((ach) => (
+                <div key={ach.id} className="p-3.5 rounded-xl bg-carbon/60 border border-hairline">
+                  <div className="flex items-center justify-between text-xs font-mono mb-1">
+                    <span className="text-amber-300 font-semibold">{ach.event}</span>
+                    <span className="text-silver-dark">{ach.date}</span>
+                  </div>
+                  <h4 className="font-display font-semibold text-sm text-foreground">{ach.title}</h4>
+                  {ach.description && (
+                    <p className="text-xs text-silver-mid mt-1 font-light">{ach.description}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

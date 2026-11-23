@@ -18,7 +18,7 @@ export function ArchitectureDiagram({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-hairline gap-2">
         <div className="flex items-center gap-2">
           <Layers className="w-4 h-4 text-cyan-accent" />
-          <h3 className="font-display font-bold text-lg text-white uppercase tracking-tight">
+          <h3 className="font-display font-bold text-lg text-foreground uppercase tracking-tight">
             System Architecture Blueprint
           </h3>
         </div>

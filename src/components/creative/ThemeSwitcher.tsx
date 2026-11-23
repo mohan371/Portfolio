@@ -9,11 +9,26 @@ export function ThemeSwitcher() {
   const [theme, setTheme] = useState<"obsidian" | "studio-light">("obsidian");
   const { soundEnabled } = useAppStore();
 
+  const applyTheme = (targetTheme: "obsidian" | "studio-light") => {
+    const root = document.documentElement;
+    root.setAttribute("data-theme", targetTheme);
+    if (targetTheme === "studio-light") {
+      root.classList.remove("dark");
+      root.classList.add("light");
+    } else {
+      root.classList.remove("light");
+      root.classList.add("dark");
+    }
+  };
+
   useEffect(() => {
     const saved = localStorage.getItem("nv-theme") as "obsidian" | "studio-light" | null;
     if (saved) {
       setTheme(saved);
-      document.documentElement.setAttribute("data-theme", saved);
+      applyTheme(saved);
+    } else {
+      // Default to Obsidian Dark
+      applyTheme("obsidian");
     }
   }, []);
 
@@ -22,20 +37,20 @@ export function ThemeSwitcher() {
     const next = theme === "obsidian" ? "studio-light" : "obsidian";
     setTheme(next);
     localStorage.setItem("nv-theme", next);
-    document.documentElement.setAttribute("data-theme", next);
+    applyTheme(next);
   };
 
   return (
     <button
       onClick={toggleTheme}
-      aria-label="Toggle Obsidian Void and Studio Light mode"
-      className="p-2 rounded-full border border-hairline bg-obsidian text-silver-mid hover:text-white hover:border-hairline-hover transition-colors"
-      title={theme === "obsidian" ? "Switch to Titanium Light" : "Switch to Obsidian Void"}
+      aria-label={theme === "obsidian" ? "Switch to Studio Light mode" : "Switch to Obsidian Dark mode"}
+      className="p-2 rounded-full border border-hairline bg-obsidian text-silver-mid hover:text-foreground hover:border-hairline-hover transition-colors cursor-pointer"
+      title={theme === "obsidian" ? "Switch to Studio Light mode" : "Switch to Obsidian Dark mode"}
     >
       {theme === "obsidian" ? (
-        <Sun className="w-3.5 h-3.5" />
+        <Sun className="w-3.5 h-3.5 text-amber-300" />
       ) : (
-        <Moon className="w-3.5 h-3.5" />
+        <Moon className="w-3.5 h-3.5 text-silver-mid" />
       )}
     </button>
   );

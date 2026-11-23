@@ -20,7 +20,7 @@ export function ProjectGallery({ images, title }: ProjectGalleryProps) {
       <div className="flex items-center justify-between pb-3 border-b border-hairline">
         <div className="flex items-center gap-2">
           <ImageIcon className="w-4 h-4 text-cyan-accent" />
-          <span className="font-mono text-xs text-white font-bold uppercase">
+          <span className="font-mono text-xs text-foreground font-bold uppercase">
             Project Visual Artifacts
           </span>
         </div>

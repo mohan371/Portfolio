@@ -3,78 +3,76 @@ import { skillsData } from "@/content/data/skills";
 import { SectionHeader } from "@/components/creative/SectionHeader";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Code2, Layers, Server, Database, Wrench } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Skills & Tech Stack",
-  description: "Detailed breakdown of Mohan N.V.'s technical capabilities across Go, Java, React, Next.js, PostgreSQL, Docker, and REST APIs.",
+  description: "Detailed inventory of Mohan N.V.'s technical capabilities across JavaScript, Java, React.js, Next.js, Node.js, MongoDB, and modern developer tooling.",
 };
 
 export default function SkillsPage() {
-  const allCore = ["Java", "JavaScript", "Go", "React", "Next.js", "Node.js", "Express.js", "REST APIs", "PostgreSQL", "MongoDB", "MySQL", "Docker", "Git"];
+  const getCategoryIcon = (idx: number) => {
+    switch (idx) {
+      case 0:
+        return <Code2 className="w-5 h-5 text-cyan-accent" />;
+      case 1:
+        return <Layers className="w-5 h-5 text-purple-400" />;
+      case 2:
+        return <Server className="w-5 h-5 text-emerald-400" />;
+      case 3:
+        return <Database className="w-5 h-5 text-amber-400" />;
+      default:
+        return <Wrench className="w-5 h-5 text-silver-light" />;
+    }
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <SectionHeader
         index="SKILLS"
-        tag="Engineering Matrix"
+        tag="Technical Competencies"
         title="Technical Arsenal &amp; Ecosystem"
-        description="A comprehensive inventory of programming languages, frameworks, databases, and DevOps tools verified in production environments."
+        description="Authentic technical skills, frameworks, runtime environments, databases, and deployment platforms actively practiced in engineering digital products."
       />
 
-      {/* Verified Skills Grid */}
-      <div className="mb-14">
-        <div className="text-xs font-mono text-cyan-accent uppercase tracking-widest mb-4">
-          PRIMARY CAPABILITIES
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-          {allCore.map((tech) => (
-            <div
-              key={tech}
-              className="p-4 rounded-xl bg-obsidian border border-hairline hover:border-cyan-500/40 hover:bg-carbon transition-colors text-center group cursor-default"
-            >
-              <span className="font-mono text-xs font-bold text-white group-hover:text-cyan-accent transition-colors">
-                {tech}
-              </span>
-              <span className="block text-[9px] font-mono text-silver-dark uppercase mt-1">
-                Verified
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Categorized Detailed Matrix */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
         {skillsData.map((category, idx) => (
-          <Card key={idx} hasDatumCorners className="p-6">
-            <div className="flex items-center justify-between mb-4 pb-3 border-b border-hairline">
-              <h3 className="font-display font-bold text-white text-lg">{category.title}</h3>
-              <Badge variant="cyan" dot className="text-[9px]">ACTIVE</Badge>
-            </div>
-
-            <p className="text-xs text-silver-mid font-light mb-6 leading-relaxed">
-              {category.description}
-            </p>
-
-            <div className="space-y-4">
-              {category.skills.map((skill) => (
-                <div key={skill.name} className="flex flex-col gap-1.5">
-                  <div className="flex justify-between text-xs font-mono">
-                    <span className="text-white font-medium">{skill.name}</span>
-                    <span className="text-silver-dark">{skill.level}%</span>
+          <Card key={category.title} hasDatumCorners className="p-6 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between pb-3 mb-4 border-b border-hairline">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-surface-1 border border-hairline flex items-center justify-center">
+                    {getCategoryIcon(idx)}
                   </div>
-
-                  {/* Meter */}
-                  <div className="w-full h-1.5 bg-surface-1 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-cyan-400 to-white rounded-full"
-                      style={{ width: `${skill.level}%` }}
-                    />
-                  </div>
-
-                  <span className="text-[10px] font-mono text-silver-dark">{skill.focus}</span>
+                  <h3 className="font-display font-bold text-foreground text-base">{category.title}</h3>
                 </div>
-              ))}
+                <Badge variant="outline" className="text-[9px] font-mono">
+                  {category.skills.length} TECHS
+                </Badge>
+              </div>
+
+              <p className="text-xs text-silver-mid font-light mb-6 leading-relaxed">
+                {category.description}
+              </p>
+
+              <div className="space-y-3">
+                {category.skills.map((skill) => (
+                  <div
+                    key={skill.name}
+                    className="p-3 rounded-xl bg-carbon/60 border border-hairline hover:border-cyan-500/30 transition-all duration-200"
+                  >
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="font-sans font-semibold text-xs text-foreground">{skill.name}</span>
+                      <span className="text-[10px] font-mono text-cyan-accent">{skill.category}</span>
+                    </div>
+
+                    <p className="text-[11px] font-sans text-silver-mid leading-relaxed font-light">
+                      {skill.focus}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </Card>
         ))}
