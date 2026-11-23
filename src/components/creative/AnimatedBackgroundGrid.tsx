@@ -43,9 +43,10 @@ export function AnimatedBackgroundGrid() {
       ctx.clearRect(0, 0, width, height);
 
       const isDark = document.documentElement.classList.contains("dark") ||
+                     document.documentElement.getAttribute("data-theme") === "dark" ||
                      document.documentElement.getAttribute("data-theme") === "obsidian";
 
-      ctx.strokeStyle = isDark ? "rgba(229, 222, 213, 0.05)" : "rgba(48, 43, 42, 0.04)";
+      ctx.strokeStyle = isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(20, 43, 74, 0.045)";
       ctx.lineWidth = 1;
 
       points.forEach((pt) => {

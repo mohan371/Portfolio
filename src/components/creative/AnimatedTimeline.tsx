@@ -37,9 +37,9 @@ export function AnimatedTimeline() {
       case "career":
         return <Briefcase className="w-3.5 h-3.5 text-primary" />;
       case "education":
-        return <GraduationCap className="w-3.5 h-3.5 text-champagne" />;
+        return <GraduationCap className="w-3.5 h-3.5 text-indigo-600 dark:text-purple-400" />;
       case "achievement":
-        return <Award className="w-3.5 h-3.5 text-sage" />;
+        return <Award className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />;
       default:
         return <Building2 className="w-3.5 h-3.5 text-muted-foreground" />;
     }
@@ -71,13 +71,13 @@ export function AnimatedTimeline() {
       {/* Animated Upward Connecting Glow Fill */}
       <motion.div
         style={{ scaleY, transformOrigin: "top" }}
-        className="absolute left-4 md:left-1/2 top-4 bottom-4 w-[2px] -translate-x-1/2 bg-gradient-to-b from-primary via-champagne to-sage shadow-xs"
+        className="absolute left-4 md:left-1/2 top-4 bottom-4 w-[2px] -translate-x-1/2 bg-gradient-to-b from-blue-600 via-indigo-500 to-teal-500 shadow-xs"
       />
 
       {/* Timeline Direction Header Datum */}
       <div className="flex justify-center mb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card text-[11px] font-mono text-muted-foreground shadow-xs z-10">
-          <span className="w-2 h-2 rounded-full bg-sage" />
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span className="font-medium">PRESENT POSITION AT TOP — SCROLL DOWN FOR CHRONOLOGY</span>
         </div>
       </div>
@@ -107,11 +107,11 @@ export function AnimatedTimeline() {
                 <div
                   className={`w-9 h-9 rounded-full border-2 bg-card flex items-center justify-center shadow-sm transition-transform duration-300 hover:scale-110 ${
                     milestone.isCurrent
-                      ? "border-primary shadow-[0_0_15px_rgba(135,61,73,0.3)] ring-4 ring-primary/15"
+                      ? "border-primary shadow-[0_0_15px_rgba(37,99,235,0.35)] ring-4 ring-blue-500/15"
                       : milestone.type === "education"
-                      ? "border-champagne shadow-xs"
+                      ? "border-indigo-500 shadow-xs"
                       : milestone.type === "achievement"
-                      ? "border-sage shadow-xs"
+                      ? "border-amber-500 shadow-xs"
                       : "border-border"
                   }`}
                 >
@@ -122,9 +122,9 @@ export function AnimatedTimeline() {
               {/* Content Card (Desktop alternating left/right, mobile right-aligned to spine) */}
               <div className="w-full pl-12 md:pl-0 md:w-[calc(50%-2.5rem)]">
                 <div
-                  className={`studio-card rounded-2xl p-6 transition-all duration-300 group hover:border-champagne/60 hover:shadow-card-hover ${
+                  className={`studio-card rounded-2xl p-6 transition-all duration-300 group hover:border-blue-300 dark:hover:border-white/20 hover:shadow-card-hover ${
                     milestone.isCurrent
-                      ? "border-primary/40 bg-card shadow-[0_8px_30px_rgba(135,61,73,0.08)]"
+                      ? "border-primary/40 bg-card shadow-[0_8px_30px_rgba(37,99,235,0.08)]"
                       : "bg-card"
                   }`}
                 >

@@ -16,11 +16,11 @@ export default function SkillsPage() {
       case 0:
         return <Code2 className="w-5 h-5 text-primary" />;
       case 1:
-        return <Layers className="w-5 h-5 text-rose" />;
+        return <Layers className="w-5 h-5 text-indigo-600 dark:text-purple-400" />;
       case 2:
-        return <Server className="w-5 h-5 text-sage" />;
+        return <Server className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />;
       case 3:
-        return <Database className="w-5 h-5 text-champagne" />;
+        return <Database className="w-5 h-5 text-blue-600 dark:text-cyan-400" />;
       default:
         return <Wrench className="w-5 h-5 text-muted-foreground" />;
     }

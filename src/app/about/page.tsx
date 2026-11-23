@@ -117,7 +117,7 @@ export default function AboutPage() {
 
           {/* Academic Credentials Card */}
           <Card hasDatumCorners className="p-6">
-            <div className="text-xs font-mono text-champagne uppercase tracking-widest mb-4 font-bold">
+            <div className="text-xs font-mono text-indigo-600 dark:text-purple-400 uppercase tracking-widest mb-4 font-bold">
               ACADEMIC CREDENTIALS
             </div>
             <div className="space-y-5">
@@ -125,10 +125,10 @@ export default function AboutPage() {
                 <div key={edu.id} className="pb-4 border-b border-border last:border-b-0 last:pb-0">
                   <div className="flex items-center justify-between text-foreground font-bold text-sm">
                     <span className="flex items-center gap-2">
-                      <GraduationCap className="w-4 h-4 text-champagne shrink-0" />
+                      <GraduationCap className="w-4 h-4 text-indigo-600 dark:text-purple-400 shrink-0" />
                       {edu.degree}
                     </span>
-                    <span className="text-xs font-mono text-champagne font-semibold">{edu.grade}</span>
+                    <span className="text-xs font-mono text-indigo-600 dark:text-purple-400 font-semibold">{edu.grade}</span>
                   </div>
                   <div className="text-xs font-mono text-muted-foreground mt-1">
                     {edu.institution} • {edu.university}
@@ -143,7 +143,7 @@ export default function AboutPage() {
 
           {/* Contact Details Card */}
           <Card hasDatumCorners className="p-6">
-            <div className="text-xs font-mono text-sage uppercase tracking-widest mb-3 font-bold">
+            <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-widest mb-3 font-bold">
               DIRECT VERIFIED CONTACT
             </div>
             <div className="space-y-3 text-xs font-mono">

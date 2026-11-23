@@ -9,19 +9,19 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
 export function Badge({ className, variant = "default", dot = false, children, ...props }: BadgeProps) {
   const variantStyles = {
     default: "bg-surface-secondary border-border text-foreground",
-    outline: "bg-transparent border-border text-muted-foreground hover:border-champagne/60",
-    cyan: "bg-[#F2E5E6] dark:bg-[#2C2224] border-[#E5DED5] dark:border-[#423337] text-[#873D49] dark:text-[#E5A4AE]",
-    violet: "bg-[#F7F3EB] dark:bg-[#2A241C] border-[#E5DDD0] dark:border-[#453B2F] text-[#8B7047] dark:text-[#D5BE98]",
-    emerald: "bg-[#EAEFEA] dark:bg-[#1C261F] border-[#D1DDD2] dark:border-[#2F3F33] text-[#445B47] dark:text-[#A7BAA9]",
+    outline: "bg-transparent border-border text-muted-foreground hover:border-blue-300",
+    cyan: "bg-[#EAF2FF] dark:bg-cyan-950/40 border-[#C8D9F5] dark:border-cyan-500/30 text-[#1D4ED8] dark:text-cyan-accent",
+    violet: "bg-indigo-50 dark:bg-purple-950/40 border-indigo-200 dark:border-purple-500/30 text-indigo-700 dark:text-purple-400",
+    emerald: "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-500/30 text-emerald-700 dark:text-emerald-accent",
     silver: "bg-surface border-border text-foreground",
   };
 
   const dotStyles = {
     default: "bg-muted-foreground",
     outline: "bg-muted-foreground",
-    cyan: "bg-[#873D49] dark:bg-[#E5A4AE]",
-    violet: "bg-[#B69A72] dark:bg-[#C9B08B]",
-    emerald: "bg-[#829084] dark:bg-[#98A89A]",
+    cyan: "bg-primary dark:bg-cyan-accent shadow-[0_0_8px_rgba(37,99,235,0.5)] dark:shadow-[0_0_8px_rgba(0,245,255,0.6)]",
+    violet: "bg-indigo-600 dark:bg-purple-400 shadow-[0_0_8px_rgba(99,102,241,0.5)]",
+    emerald: "bg-emerald-600 dark:bg-emerald-accent shadow-[0_0_8px_rgba(16,185,129,0.5)]",
     silver: "bg-foreground",
   };
 

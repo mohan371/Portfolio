@@ -40,17 +40,17 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-primary text-primary-foreground font-medium hover:bg-burgundy-hover active:scale-[0.98] transition-all shadow-[0_2px_10px_rgba(135,61,73,0.22)] dark:shadow-[0_0_20px_rgba(163,83,96,0.3)]",
+        "bg-primary text-primary-foreground font-medium hover:bg-blue-700 active:scale-[0.98] transition-all shadow-[0_2px_10px_rgba(37,99,235,0.25)] dark:shadow-[0_0_20px_rgba(37,99,235,0.35)]",
       secondary:
-        "bg-secondary text-secondary-foreground border border-border hover:bg-[#EBD8DB] dark:hover:bg-[#382B2E] active:scale-[0.98] transition-all shadow-xs",
+        "bg-secondary text-secondary-foreground border border-[#C8D9F5] dark:border-white/10 hover:bg-blue-100/80 dark:hover:bg-surface-2 active:scale-[0.98] transition-all shadow-xs",
       outline:
-        "bg-card text-foreground border border-border hover:bg-surface-secondary hover:border-champagne/60 active:scale-[0.98] transition-all shadow-xs",
+        "bg-card text-foreground border border-border hover:bg-surface-secondary hover:border-blue-300 dark:hover:border-white/30 active:scale-[0.98] transition-all shadow-xs",
       ghost:
         "bg-transparent text-muted-foreground hover:text-foreground hover:bg-surface-secondary transition-colors",
       cyan:
-        "bg-primary text-primary-foreground font-semibold hover:bg-burgundy-hover shadow-sm active:scale-[0.98] transition-all",
+        "bg-primary text-primary-foreground font-semibold hover:bg-blue-700 shadow-sm active:scale-[0.98] transition-all",
       violet:
-        "bg-[#873D49] text-white font-semibold hover:bg-[#71313C] shadow-sm active:scale-[0.98] transition-all",
+        "bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-sm active:scale-[0.98] transition-all",
       link:
         "bg-transparent text-muted-foreground hover:text-primary underline-offset-4 hover:underline p-0 h-auto font-sans text-xs",
     };

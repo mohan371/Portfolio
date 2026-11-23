@@ -36,7 +36,7 @@ export function GridHUD() {
         {siteConfig.location.city}, {siteConfig.location.country}
       </div>
       <div className="absolute top-5 right-6 text-[10px] font-mono text-muted-foreground select-none flex items-center gap-2">
-        <span className="w-1.5 h-1.5 rounded-full bg-sage" />
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
         <span>{timeStr} IST</span>
       </div>
       <div className="absolute bottom-5 left-6 text-[10px] font-mono text-muted-foreground select-none">
@@ -46,7 +46,7 @@ export function GridHUD() {
         [ {siteConfig.studio.name} ]
       </div>
 
-      {/* Subtle Champagne Corner Datum Markers */}
+      {/* Subtle Corner Datum Markers */}
       <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-border" />
       <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-border" />
       <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-border" />

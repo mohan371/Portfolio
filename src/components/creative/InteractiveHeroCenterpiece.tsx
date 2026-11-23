@@ -39,6 +39,7 @@ export function InteractiveHeroCenterpiece() {
   useEffect(() => {
     const checkTheme = () => {
       const dark = document.documentElement.classList.contains("dark") || 
+                   document.documentElement.getAttribute("data-theme") === "dark" ||
                    document.documentElement.getAttribute("data-theme") === "obsidian";
       setIsDark(dark);
     };
@@ -81,12 +82,12 @@ export function InteractiveHeroCenterpiece() {
       };
     });
 
-    // Ambient background particles in warm champagne / ivory
-    const particles = Array.from({ length: 24 }, () => ({
+    // Ambient background particles
+    const particles = Array.from({ length: 28 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
       radius: Math.random() * 1.5 + 0.5,
     }));
 
@@ -125,7 +126,7 @@ export function InteractiveHeroCenterpiece() {
       ctx.clearRect(0, 0, width, height);
 
       // Draw subtle grid crosshairs in canvas background
-      ctx.strokeStyle = isDark ? "rgba(229, 222, 213, 0.04)" : "rgba(48, 43, 42, 0.04)";
+      ctx.strokeStyle = isDark ? "rgba(255, 255, 255, 0.035)" : "rgba(20, 43, 74, 0.045)";
       ctx.lineWidth = 1;
       for (let x = 40; x < width; x += 40) {
         ctx.beginPath();
@@ -147,7 +148,7 @@ export function InteractiveHeroCenterpiece() {
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        ctx.fillStyle = isDark ? "rgba(201, 176, 139, 0.18)" : "rgba(182, 154, 114, 0.2)";
+        ctx.fillStyle = isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(37, 99, 235, 0.14)";
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
@@ -171,7 +172,7 @@ export function InteractiveHeroCenterpiece() {
         }
       });
 
-      // Draw connecting lines between nodes (Warm Burgundy / Champagne)
+      // Draw connecting lines between nodes
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -179,10 +180,10 @@ export function InteractiveHeroCenterpiece() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < 130) {
-            const alpha = (1 - dist / 130) * (isDark ? 0.35 : 0.3);
+            const alpha = (1 - dist / 130) * (isDark ? 0.28 : 0.35);
             ctx.strokeStyle = isDark
-              ? `rgba(163, 83, 96, ${alpha})`
-              : `rgba(135, 61, 73, ${alpha})`;
+              ? `rgba(0, 245, 255, ${alpha})`
+              : `rgba(37, 99, 235, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -198,7 +199,7 @@ export function InteractiveHeroCenterpiece() {
 
         // Outer ring on selected node
         if (isSelected) {
-          ctx.strokeStyle = isDark ? "rgba(201, 176, 139, 0.8)" : "rgba(135, 61, 73, 0.8)";
+          ctx.strokeStyle = isDark ? "rgba(0, 245, 255, 0.6)" : "rgba(37, 99, 235, 0.6)";
           ctx.lineWidth = 2;
           ctx.beginPath();
           ctx.arc(node.x, node.y, 8, 0, Math.PI * 2);
@@ -207,8 +208,8 @@ export function InteractiveHeroCenterpiece() {
 
         // Inner solid dot
         ctx.fillStyle = isSelected
-          ? isDark ? "#C9B08B" : "#873D49"
-          : isDark ? "#F5F2EB" : "#625A56";
+          ? isDark ? "#00f5ff" : "#2563eb"
+          : isDark ? "#ffffff" : "#475569";
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fill();
@@ -216,8 +217,8 @@ export function InteractiveHeroCenterpiece() {
         // Node Label
         ctx.font = isSelected ? "bold 11px monospace" : "10px monospace";
         ctx.fillStyle = isSelected
-          ? isDark ? "#C9B08B" : "#873D49"
-          : isDark ? "rgba(245, 242, 235, 0.85)" : "#302B2A";
+          ? isDark ? "#00f5ff" : "#2563eb"
+          : isDark ? "rgba(228, 228, 231, 0.85)" : "#142b4a";
         ctx.fillText(node.name, node.x + 8, node.y + 3);
       });
 
@@ -242,7 +243,7 @@ export function InteractiveHeroCenterpiece() {
       {/* HUD Header Bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-surface text-[11px] font-mono text-muted-foreground">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-primary" />
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           <span className="text-foreground font-semibold">TOPOLOGY_KERNEL // ACTIVE</span>
           <span className="hidden sm:inline text-muted-foreground">[{TECH_NODES.length} NODES]</span>
         </div>

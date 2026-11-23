@@ -53,15 +53,15 @@ export default function ExperiencePage() {
 
           {/* Hackathons & Research Card */}
           <div className="studio-card p-6 rounded-2xl">
-            <div className="flex items-center gap-2 pb-3 mb-4 border-b border-border text-xs font-mono text-champagne uppercase font-bold">
-              <Sparkles className="w-4 h-4 text-champagne" />
+            <div className="flex items-center gap-2 pb-3 mb-4 border-b border-border text-xs font-mono text-primary uppercase font-bold">
+              <Sparkles className="w-4 h-4 text-primary" />
               <span>Competitions &amp; Presentations</span>
             </div>
             <div className="space-y-3">
               {siteConfig.achievements.slice(0, 4).map((ach) => (
                 <div key={ach.id} className="p-3.5 rounded-xl bg-surface border border-border">
                   <div className="flex items-center justify-between text-xs font-mono mb-1">
-                    <span className="text-champagne font-semibold">{ach.event}</span>
+                    <span className="text-primary font-semibold">{ach.event}</span>
                     <span className="text-muted-foreground">{ach.date}</span>
                   </div>
                   <h4 className="font-display font-semibold text-sm text-foreground">{ach.title}</h4>

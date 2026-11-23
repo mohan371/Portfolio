@@ -6,13 +6,13 @@ import { playTactileClick } from "@/lib/sound";
 import { Moon, Sun } from "lucide-react";
 
 export function ThemeSwitcher() {
-  const [theme, setTheme] = useState<"obsidian" | "warm-pearl">("warm-pearl");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
   const { soundEnabled } = useAppStore();
 
-  const applyTheme = (targetTheme: "obsidian" | "warm-pearl") => {
+  const applyTheme = (targetTheme: "dark" | "light") => {
     const root = document.documentElement;
     root.setAttribute("data-theme", targetTheme);
-    if (targetTheme === "warm-pearl") {
+    if (targetTheme === "light") {
       root.classList.remove("dark");
       root.classList.add("light");
     } else {
@@ -24,18 +24,18 @@ export function ThemeSwitcher() {
   useEffect(() => {
     const saved = localStorage.getItem("nv-theme");
     if (saved === "obsidian" || saved === "dark") {
-      setTheme("obsidian");
-      applyTheme("obsidian");
+      setTheme("dark");
+      applyTheme("dark");
     } else {
-      // Default to Warm Pearl for first-time visitors
-      setTheme("warm-pearl");
-      applyTheme("warm-pearl");
+      // Default to Corporate Light for first-time visitors
+      setTheme("light");
+      applyTheme("light");
     }
   }, []);
 
   const toggleTheme = () => {
     if (soundEnabled) playTactileClick();
-    const next = theme === "warm-pearl" ? "obsidian" : "warm-pearl";
+    const next = theme === "light" ? "dark" : "light";
     setTheme(next);
     localStorage.setItem("nv-theme", next);
     applyTheme(next);
@@ -44,14 +44,14 @@ export function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      aria-label={theme === "warm-pearl" ? "Switch to Warm Obsidian theme" : "Switch to Warm Pearl theme"}
-      className="p-2 rounded-full border border-border bg-card text-muted-foreground hover:text-foreground hover:border-champagne/60 transition-colors cursor-pointer shadow-xs"
-      title={theme === "warm-pearl" ? "Switch to Warm Obsidian theme" : "Switch to Warm Pearl theme"}
+      aria-label={theme === "light" ? "Switch to Dark theme" : "Switch to Light theme"}
+      className="p-2 rounded-full border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors cursor-pointer shadow-xs"
+      title={theme === "light" ? "Switch to Dark theme" : "Switch to Light theme"}
     >
-      {theme === "warm-pearl" ? (
+      {theme === "light" ? (
         <Moon className="w-3.5 h-3.5 text-foreground" />
       ) : (
-        <Sun className="w-3.5 h-3.5 text-champagne" />
+        <Sun className="w-3.5 h-3.5 text-cyan-accent" />
       )}
     </button>
   );
