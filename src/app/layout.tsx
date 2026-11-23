@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { MohanFmPlayer } from "@/components/music/MohanFmPlayer";
+import { PersistentSpotifyHost } from "@/components/music/PersistentSpotifyHost";
 import { AskMohanAssistant } from "@/components/assistant/AskMohanAssistant";
 import { CustomCursor } from "@/components/creative/CustomCursor";
 import { GridHUD } from "@/components/creative/GridHUD";
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
     "Next.js",
     "PostgreSQL",
     "Docker",
-    "Gabriel India Ltd",
+    "Full-Stack Web Development",
     "Adhiyamaan College of Engineering",
     "Bangalore Software Engineer",
   ],
@@ -162,6 +163,7 @@ export default function RootLayout({
           <Footer />
 
           {/* Interactive Mohan Experiences: FM & AI Assistant */}
+          <PersistentSpotifyHost />
           <MohanFmPlayer />
           <AskMohanAssistant />
         </TooltipProvider>

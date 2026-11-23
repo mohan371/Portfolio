@@ -93,7 +93,7 @@ const CATALOG_ITEMS: LabCatalogItem[] = [
     subtitle: "Schema Entities, Foreign Keys & B-Tree Cost Indexing",
     category: "Storage",
     tech: ["PostgreSQL", "MySQL", "B-Tree Indexes", "Foreign Keys"],
-    description: "Interactive schema visualizer for fleet telemetry and Gabriel India invoice reconciliation, paired with an interactive B-Tree index scan simulator.",
+    description: "Interactive schema visualizer for fleet telemetry and enterprise procurement invoice reconciliation, paired with an interactive B-Tree index scan simulator.",
   },
   {
     id: "constellation",

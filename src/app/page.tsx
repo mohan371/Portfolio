@@ -172,25 +172,25 @@ export default function Home() {
           <div className="flex flex-col border-r border-border pr-4 last:border-r-0">
             <span className="text-2xl sm:text-3xl font-display font-bold text-primary tracking-tight">Present</span>
             <span className="text-xs font-sans font-semibold text-foreground mt-0.5">Software Engineer</span>
-            <span className="text-[11px] font-mono text-muted-foreground mt-1">Veda Scholars (Web + SaaS)</span>
+            <span className="text-[11px] font-mono text-muted-foreground mt-1">Veda Scholars (Nov 2025–Pres)</span>
           </div>
 
           <div className="flex flex-col sm:border-r border-border sm:pr-4 last:border-r-0 pl-2 sm:pl-0">
             <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">92% <span className="text-xs font-mono font-normal text-muted-foreground">MCA</span></span>
-            <span className="text-xs font-sans font-semibold text-foreground mt-0.5">Academic Aggregate</span>
-            <span className="text-[11px] font-mono text-muted-foreground mt-1">Adhiyamaan Coll of Eng &apos;26</span>
+            <span className="text-xs font-sans font-semibold text-foreground mt-0.5">Adhiyamaan Coll of Eng</span>
+            <span className="text-[11px] font-mono text-muted-foreground mt-1">Anna University &apos;26</span>
           </div>
 
           <div className="flex flex-col border-r border-border pr-4 last:border-r-0 pt-4 sm:pt-0">
-            <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">02 <span className="text-xs font-mono font-normal text-muted-foreground">Yrs</span></span>
-            <span className="text-xs font-sans font-semibold text-foreground mt-0.5">Corporate Accounting</span>
-            <span className="text-[11px] font-mono text-muted-foreground mt-1">Gabriel India Ltd (Ledger)</span>
+            <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">06+</span>
+            <span className="text-xs font-sans font-semibold text-foreground mt-0.5">Verified Projects</span>
+            <span className="text-[11px] font-mono text-muted-foreground mt-1">Full-Stack &amp; Systems</span>
           </div>
 
           <div className="flex flex-col pl-2 sm:pl-0 pt-4 sm:pt-0">
             <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">78% <span className="text-xs font-mono font-normal text-muted-foreground">BCA</span></span>
-            <span className="text-xs font-sans font-semibold text-foreground mt-0.5">Foundational Aggregate</span>
-            <span className="text-[11px] font-mono text-muted-foreground mt-1">MGR College of Arts &amp; Sci</span>
+            <span className="text-xs font-sans font-semibold text-foreground mt-0.5">MGR College of Arts &amp; Sci</span>
+            <span className="text-[11px] font-mono text-muted-foreground mt-1">Periyar University &apos;22</span>
           </div>
         </div>
       </section>
@@ -449,16 +449,16 @@ export default function Home() {
                   <span className="text-primary font-semibold">Software Engineer (Veda Scholars)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Highest Degree:</span>
-                  <span className="text-foreground">MCA — 92% (2024 — 2026)</span>
+                  <span>Postgraduate:</span>
+                  <span className="text-foreground">MCA — 92% (Adhiyamaan / Anna Univ &apos;26)</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Undergraduate:</span>
-                  <span className="text-foreground">BCA — 78% (2019 — 2022)</span>
+                  <span className="text-foreground">BCA — 78% (MGR College / Periyar &apos;22)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Corporate Tenure:</span>
-                  <span className="text-foreground">Gabriel India Ltd (2 Yrs)</span>
+                  <span>Engineering Focus:</span>
+                  <span className="text-foreground">Full-Stack Web &amp; Android SaaS</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Location:</span>
@@ -468,18 +468,18 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="lg:col-span-7 flex flex-col gap-6 text-muted-foreground text-sm sm:text-base leading-relaxed font-light">
+          <div className="lg:col-span-7 flex flex-col gap-5 text-muted-foreground text-sm sm:text-base leading-relaxed font-light">
             <p>
-              My path into software engineering is rooted in a unique combination of <strong className="text-foreground font-semibold">analytical financial discipline</strong> and <strong className="text-foreground font-semibold">deep computer science scholarship</strong>.
+              I am an early-career <strong className="text-foreground font-semibold">Software Engineer</strong> passionate about building practical digital products. I continuously strengthen my programming fundamentals, explore modern technologies, and learn by developing real-world applications.
             </p>
             <p>
-              After completing my Bachelor of Computer Applications (BCA) with 78% in 2022, I spent two years as a <strong className="text-foreground font-semibold">Bill Booking Accountant at Gabriel India Ltd</strong>, one of India&apos;s leading automotive manufacturing giants. Auditing tens of thousands of corporate invoices in enterprise ERP systems taught me that software bugs aren&apos;t just abstract errors — they directly disrupt operations and financial integrity.
+              My path in technology progressed from foundational computer science studies in my <strong className="text-foreground font-semibold">Bachelor of Computer Applications (BCA, 78%)</strong> at MGR College of Arts and Science to advanced application architecture during my <strong className="text-foreground font-semibold">Master of Computer Applications (MCA, 92%)</strong> at Adhiyamaan College of Engineering under Anna University.
             </p>
             <p>
-              Driven to build the systems behind digital products, I enrolled in the <strong className="text-foreground font-semibold">Master of Computer Applications (MCA) at Adhiyamaan College of Engineering (Anna University)</strong>, graduating in 2026 with a 92% aggregate.
+              Currently, as a <strong className="text-foreground font-semibold">Software Engineer at Veda Scholars</strong> (November 2025 – Present), I contribute to full-stack Web and Android SaaS application modules using React.js, Next.js, Node.js, and MongoDB, designing secure REST APIs with JWT authentication, implementing real-time Socket.IO features, and automating continuous deployments.
             </p>
             <p>
-              Today, as a <strong className="text-foreground font-semibold">Software Engineer at Veda Scholars</strong>, I build and optimize application modules across React.js, Next.js, Node.js, and MongoDB, design secure role-based REST APIs with JWT authentication, implement real-time communication via Socket.IO, and manage automated deployments on Netlify and Render.
+              I believe in continuous improvement, thoughtful engineering, and building solutions that create real value.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 font-mono text-xs">

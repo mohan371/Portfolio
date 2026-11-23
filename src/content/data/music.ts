@@ -21,6 +21,27 @@ export function toSpotifyEmbedUrl(url: string): string {
   }
 }
 
+/**
+ * Utility to convert any Spotify URL into a standard Spotify URI
+ * for the official Spotify iFrame Controller API.
+ */
+export function toSpotifyUri(url: string): string {
+  try {
+    const trimmed = url.trim();
+    if (trimmed.startsWith("spotify:")) {
+      return trimmed;
+    }
+    const match = trimmed.match(/open\.spotify\.com\/(track|playlist|album|episode)\/([a-zA-Z0-9]+)/);
+    if (match) {
+      const [, type, id] = match;
+      return `spotify:${type}:${id}`;
+    }
+    return trimmed;
+  } catch {
+    return url;
+  }
+}
+
 export const musicCategories: MusicCategory[] = [
   "Deep Focus",
   "Coding Sessions",

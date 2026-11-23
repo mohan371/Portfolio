@@ -32,7 +32,7 @@ const DEFAULT_QUESTIONS = [
   "What is Mohan's current role at Veda Scholars?",
   "Tell me about his verified projects",
   "What are his core technical skills?",
-  "What was his role at Gabriel India Ltd?",
+  "What is his educational background?",
   "How do I contact Mohan?",
 ];
 

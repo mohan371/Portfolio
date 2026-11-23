@@ -38,7 +38,7 @@ const TECH_NODES: TechNode[] = [
     y: 65,
     connections: ["mysql", "postgresql", "docker", "rest"],
     description: "Enterprise OOP language for robust, strongly-typed transaction processing systems.",
-    mohanUsage: "Underpins enterprise transaction and financial reconciliation logic (Gabriel India billing foundation & MCA engineering coursework).",
+    mohanUsage: "Underpins transactional workflows, data integrity, and MCA engineering coursework.",
     primaryProject: "LedgerFlow Enterprise",
   },
   {

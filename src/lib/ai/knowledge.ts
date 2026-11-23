@@ -10,32 +10,32 @@ AUTHORITATIVE KNOWLEDGE BASE FOR MOHAN N.V.
 IDENTITY & PROFESSIONAL ROLE:
 - Name: Mohan N.V.
 - Current Title: Software Engineer | Full-Stack Developer
-- Current Employer: Veda Scholars (Software Engineer)
+- Current Employer: Veda Scholars (Software Engineer, November 2025 — Present)
 - Location: Hosur, Tamil Nadu, India
 - Email: mohan.mca2024@adhiyamaan.in
 - Phone: +91-9597459495
 - GitHub: https://github.com/mohan371
 - LinkedIn: https://linkedin.com/in/mohan-n-v-63617b190
-- Bio: "I am a Software Engineer focused on building practical, scalable digital products through full-stack development. My experience spans web application architecture, system design, database modeling, and real-time APIs. I combine academic rigor with practical software engineering to build robust and maintainable digital solutions."
+- Bio: "I am an early-career Software Engineer passionate about building practical digital products. I continuously strengthen my programming fundamentals, explore modern technologies and learn by developing real-world applications. I believe in continuous improvement, thoughtful engineering and building solutions that create value."
 
 EMPLOYMENT & CHRONOLOGY:
 1. Veda Scholars (Current)
    - Role: Software Engineer
-   - Period: 2024 — Present
-   - Focus: Developing Android SaaS mobile applications, full-stack educational platforms, and student progress tracking microservices using Next.js, React, Node.js, and PostgreSQL.
-2. Gabriel India Ltd (Corporate Industry Tenure)
-   - Role: Bill Booking Accountant (Corporate Finance & Accounting)
-   - Period: 2022 — 2024 (2 Years)
-   - Focus: High-volume invoice audit reconciliation, vendor ledger verification, SAP/ERP ledger entries, and audit compliance. This experience established Mohan's strict discipline in transactional precision, data integrity, and ACID reliability.
+   - Period: November 2025 — Present
+   - Focus: Developing Android SaaS mobile applications, full-stack educational platforms, and student progress tracking microservices using Next.js, React, Node.js, and MongoDB.
+2. Gabriel India Ltd (Earlier Professional Experience)
+   - Role: Bill Booking Accountant
+   - Period: 2022 — 2024
+   - Focus: Earlier non-technical professional experience auditing and booking vendor invoices into enterprise ERP systems, reconciling supplier ledgers, and maintaining records for statutory financial audits.
 
 ACADEMIC FOUNDATIONS:
 1. Master of Computer Applications (MCA)
    - Institution: Adhiyamaan College of Engineering (Autonomous), Anna University
-   - Period: 2024 — 2026 (Final Year)
+   - Period: 2024 — 2026
    - Performance: CGPA 9.2 / 10 (92% First Class with Distinction)
    - Core Areas: Distributed Systems, Advanced Database Design, Object-Oriented Analysis, Network Protocols.
 2. Bachelor of Computer Applications (BCA)
-   - Institution: Periyar University
+   - Institution: MGR College of Arts and Science, Periyar University
    - Period: 2019 — 2022
    - Performance: 78% First Class
    - Core Areas: Data Structures, C/C++, Java, Relational Databases, Web Foundations.
@@ -44,7 +44,7 @@ VERIFIED PROJECTS IN CATALOG:
 1. Veda Scholars Android SaaS: Multi-tenant educational Android application with student attendance, syllabus modules, fee billing, and offline sync.
 2. Veda Scholars Platform: Web LMS with role-based access control, parent dashboard, and administrative reporting.
 3. MapUp Fleet Geofencing & Telemetry Engine: Real-time spatial tracking simulator with Jordan Curve Theorem ray-casting, Go WebSocket server, and live ingress events.
-4. AutoERP Invoice Reconciliation Engine: Automated 3-way invoice matching inspired by Mohan's Gabriel India tenure, reducing ledger discrepancy resolution time.
+4. AutoERP Invoice Reconciliation Engine: Automated 3-way invoice matching and ledger reconciliation workflow.
 5. Distributed Concurrency Task Orchestrator: Go worker pool engine processing parallel telemetry jobs with Redis queues.
 6. IoT Spatial Boundaries Ray-Caster: High-performance computational geometry engine calculating point-in-polygon containment.
 

@@ -9,7 +9,7 @@ import { ArrowUpRight, Download, GraduationCap, Briefcase, CheckCircle2, Award, 
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Mohan N.V., Software Engineer at Veda Scholars, MCA graduate (92%), and former Bill Booking Accountant at Gabriel India Ltd.",
+  description: "Learn about Mohan N.V., early-career Software Engineer at Veda Scholars, with a Master of Computer Applications (92%) and foundational BCA (78%).",
 };
 
 export default function AboutPage() {
@@ -18,8 +18,8 @@ export default function AboutPage() {
       <SectionHeader
         index="ABOUT"
         tag="Professional Profile"
-        title="Practical Full-Stack Engineering &amp; Operational Rigor"
-        description="Software Engineer at Veda Scholars with a disciplined background in web applications, Android SaaS, backend engineering, and corporate financial accounting."
+        title="Practical Software Development &amp; Continuous Learning"
+        description="Early-career Software Engineer at Veda Scholars focused on building practical digital products, strengthening programming fundamentals, and learning through real-world applications."
       />
 
       {/* Main Narrative Grid */}
@@ -58,24 +58,24 @@ export default function AboutPage() {
             </li>
           </ul>
 
-          <h3 className="font-display font-bold text-foreground text-xl mt-4">The Accounting Foundation at Gabriel India Ltd</h3>
+          <h3 className="font-display font-bold text-foreground text-xl mt-4">Academic Foundations &amp; IT Scholarship</h3>
           <p>
-            Before my transition into modern software development, I spent two formative years (2022–2024) as a <strong className="text-foreground font-semibold">Bill Booking Accountant at Gabriel India Ltd</strong>, one of India&apos;s leading automotive manufacturing giants. Auditing tens of thousands of vendor invoices in enterprise ERP systems instilled an uncompromising discipline:
+            I earned my <strong className="text-foreground font-semibold">Master of Computer Applications (MCA)</strong> from <strong className="text-foreground font-semibold">Adhiyamaan College of Engineering (Anna University)</strong> in 2026, graduating with a <strong className="text-foreground font-semibold">92% aggregate</strong>. This advanced training built upon my undergraduate <strong className="text-foreground font-semibold">Bachelor of Computer Applications (BCA)</strong> from <strong className="text-foreground font-semibold">MGR College of Arts and Science (Periyar University)</strong> in 2022, completed with a <strong className="text-foreground font-semibold">78% aggregate</strong>.
           </p>
           <ul className="space-y-2 pl-2">
             <li className="flex items-start gap-2">
               <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-1" />
-              <span><strong className="text-foreground font-semibold">Zero Tolerance for Errors:</strong> A 0.01 mismatch stops an audit. Software endpoints must be built with idempotent safeguards and strict payload validation.</span>
+              <span><strong className="text-foreground font-semibold">Computer Science Fundamentals:</strong> Deep coursework in object-oriented programming, data structures, relational databases, and network protocols.</span>
             </li>
             <li className="flex items-start gap-2">
               <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-1" />
-              <span><strong className="text-foreground font-semibold">ACID Relational Rigor:</strong> Financial transactions cannot rely on eventual consistency; state transitions require atomic integrity.</span>
+              <span><strong className="text-foreground font-semibold">Continuous Improvement:</strong> Regularly building hands-on projects, participating in technical competitions, and studying modern web and systems engineering.</span>
             </li>
           </ul>
 
-          <h3 className="font-display font-bold text-foreground text-xl mt-4">Academic Scholarship &amp; Performance</h3>
+          <h3 className="font-display font-bold text-foreground text-xl mt-4">Earlier Professional Experience</h3>
           <p>
-            I earned my <strong className="text-foreground font-semibold">Master of Computer Applications (MCA)</strong> from <strong className="text-foreground font-semibold">Adhiyamaan College of Engineering (Anna University)</strong> in 2026, graduating with a <strong className="text-foreground font-semibold">92% aggregate</strong>. This advanced training built upon my undergraduate <strong className="text-foreground font-semibold">Bachelor of Computer Applications (BCA)</strong> from <strong className="text-foreground font-semibold">MGR College of Arts and Science (Periyar University)</strong> in 2022, completed with a <strong className="text-foreground font-semibold">78% aggregate</strong>.
+            Prior to completing my MCA, I gained earlier professional experience as a <strong className="text-foreground font-semibold">Bill Booking Accountant at Gabriel India Ltd (2022–2024)</strong>, auditing and booking vendor invoices into enterprise ERP systems, reconciling supplier ledgers, and maintaining records for statutory financial audits.
           </p>
 
           <div className="pt-4 flex flex-wrap gap-4">

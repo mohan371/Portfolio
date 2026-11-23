@@ -95,7 +95,7 @@ const TABLES: TableDef[] = [
     id: "billing_invoices",
     name: "billing_invoices",
     category: "Enterprise Accounting",
-    description: "Enterprise purchase orders and supplier invoices (Gabriel India domain model).",
+    description: "Enterprise purchase orders and supplier invoices (procurement reconciliation domain model).",
     columns: [
       { name: "id", type: "UUID", isPk: true },
       { name: "invoice_number", type: "VARCHAR(32)", isUnique: true },
@@ -161,7 +161,7 @@ export function DatabaseSchemaVisualizer() {
             </h3>
           </div>
           <p className="text-xs text-silver-mid font-light mt-1">
-            Production PostgreSQL schemas modeled for MapUp fleet telemetry and Gabriel India enterprise invoice reconciliation.
+            Production PostgreSQL schemas modeled for MapUp fleet telemetry and enterprise procurement invoice reconciliation.
           </p>
         </div>
         <Badge variant="cyan" dot>Interactive Schema</Badge>

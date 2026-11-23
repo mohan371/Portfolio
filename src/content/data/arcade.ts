@@ -144,7 +144,7 @@ function createSessionConfig(overrides) {
     levelTitle: "Level 2: React & Component Logic",
     category: "React",
     title: "Reconciliation Corruption via Unstable Keys",
-    scenario: "A re-orderable list of Gabriel India invoices loses user input and flickers during filtering. What is the root cause?",
+    scenario: "A re-orderable list of enterprise supplier invoices loses user input and flickers during filtering. What is the root cause?",
     language: "tsx",
     buggyCode: `function InvoiceList({ invoices }: { invoices: Invoice[] }) {
   return (

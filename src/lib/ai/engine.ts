@@ -91,9 +91,9 @@ function runDeterministicEngine(query: string): string {
     query.includes("software engineer")
   ) {
     return (
-      "Mohan N.V. is currently working as a Software Engineer at Veda Scholars (2024–Present). " +
-      "He leads development on Android SaaS mobile applications, full-stack educational platforms, and student progress microservices " +
-      "using Next.js, React, Node.js, and PostgreSQL."
+      "Mohan N.V. is currently working as a Software Engineer at Veda Scholars (November 2025 – Present). " +
+      "He contributes to full-stack Web and Android SaaS application modules " +
+      "using Next.js, React, Node.js, and MongoDB, with real-time Socket.IO features and automated CI/CD deployments."
     );
   }
 
@@ -109,13 +109,13 @@ function runDeterministicEngine(query: string): string {
     query.includes("cgpa")
   ) {
     return (
-      "Mohan holds a Master of Computer Applications (MCA) from Adhiyamaan College of Engineering (Autonomous), Anna University (2024–2026), " +
+      "Mohan holds a Master of Computer Applications (MCA) from Adhiyamaan College of Engineering, Anna University (2024–2026), " +
       "achieving a 9.2 CGPA (92% First Class with Distinction). Prior to this, he earned his Bachelor of Computer Applications (BCA) " +
-      "from Periyar University (2019–2022) with 78% First Class honors."
+      "from MGR College of Arts and Science, Periyar University (2019–2022) with 78% First Class honors."
     );
   }
 
-  // Gabriel India Ltd / Accounting background
+  // Earlier experience: Gabriel India Ltd
   if (
     query.includes("gabriel") ||
     query.includes("accounting") ||
@@ -125,10 +125,9 @@ function runDeterministicEngine(query: string): string {
     query.includes("audit")
   ) {
     return (
-      "Between 2022 and 2024, Mohan worked as a Bill Booking Accountant at Gabriel India Ltd. " +
-      "During this 2-year corporate tenure, he reconciled high-volume vendor ledgers, processed corporate ERP invoices, " +
-      "and ensured strict audit compliance. This experience directly shaped his engineering ethos: absolute transactional rigor, " +
-      "zero margin for data corruption, and ACID database integrity."
+      "Prior to completing his MCA and advancing into full-time software engineering, Mohan gained earlier professional experience " +
+      "as a Bill Booking Accountant at Gabriel India Ltd (2022–2024), where he audited vendor invoices, verified supplier statements, " +
+      "and maintained records in enterprise ERP systems for statutory audits."
     );
   }
 
@@ -220,9 +219,9 @@ function runDeterministicEngine(query: string): string {
   // Default Fallback
   return (
     "I am ASK MOHAN, an official AI Portfolio Assistant for Mohan N.V. " +
-    "Mohan is a Software Engineer at Veda Scholars with a First-Class MCA (9.2 CGPA) and previous corporate accounting experience at Gabriel India Ltd. " +
-    "He specializes in full-stack web applications, Go microservices, and PostgreSQL systems design. " +
-    "You can ask me about his work experience, education, verified projects, skills, or how to get in touch. " +
+    "Mohan is an early-career Software Engineer at Veda Scholars (November 2025 – Present) with a Master of Computer Applications (92% from Adhiyamaan College of Engineering / Anna University, 2026) and a BCA (78% from MGR College of Arts and Science / Periyar University, 2022). " +
+    "He specializes in full-stack web applications, React, Next.js, and Node.js. " +
+    "You can ask me about his current work, education, verified projects, skills, or how to get in touch. " +
     "For direct personal communication, please email mohan.mca2024@adhiyamaan.in or visit /contact."
   );
 }

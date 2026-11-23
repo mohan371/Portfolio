@@ -43,7 +43,7 @@ export const studioPhilosophy: StudioPhilosophyPillar[] = [
     title: "Transactional Discipline",
     principle: "Data Integrity is Completely Non-Negotiable",
     description:
-      "Derived from Mohan N.V.'s corporate accounting background at Gabriel India Ltd, our database designs prioritize ACID compliance, normalized schemas, and zero data discrepancies.",
+      "Our database designs prioritize ACID compliance, clean normalized schemas, indexed queries, and zero data discrepancies.",
     iconName: "Database",
   },
   {

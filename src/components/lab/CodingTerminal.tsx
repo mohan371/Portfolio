@@ -71,7 +71,8 @@ export function CodingTerminal() {
             <p className="text-silver-mid leading-relaxed">{siteConfig.bio}</p>
             <div className="pt-1 text-[11px] text-silver-dark space-y-1">
               <div><strong className="text-white">Education:</strong> MCA (2024–2026), BCA (2019–2022)</div>
-              <div><strong className="text-white">Corporate:</strong> Gabriel India Ltd (Bill Booking Accountant, 2022–2024)</div>
+              <div><strong className="text-white">Current Role:</strong> Software Engineer at Veda Scholars (Nov 2025–Present)</div>
+              <div><strong className="text-white">Earlier Experience:</strong> Bill Booking Accountant, Gabriel India Ltd (2022–2024)</div>
               <div><strong className="text-white">Location:</strong> {siteConfig.location.city}, {siteConfig.location.country}</div>
             </div>
           </div>

@@ -6,7 +6,7 @@ import { Award, Sparkles } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Professional Journey",
-  description: "Chronology of Mohan N.V.'s software engineering role at Veda Scholars, MCA scholarship, corporate accounting tenure at Gabriel India Ltd, and BCA foundations.",
+  description: "Chronology of Mohan N.V.'s software engineering role at Veda Scholars, MCA education, and foundational computer science studies.",
 };
 
 export default function ExperiencePage() {
@@ -16,7 +16,7 @@ export default function ExperiencePage() {
         index="JOURNEY"
         tag="Career &amp; Education"
         title="Professional Chronology"
-        description="Tracing current engineering contributions at Veda Scholars, academic scholarship at Anna University, and corporate enterprise accounting precision."
+        description="Tracing current software engineering contributions at Veda Scholars, postgraduate studies at Anna University, and foundational IT education."
       />
 
       {/* Primary Vertical Animated Timeline (Present at Top -> Past at Bottom) */}
