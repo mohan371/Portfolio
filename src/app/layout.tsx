@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MohanFmPlayer } from "@/components/music/MohanFmPlayer";
+import { AskMohanAssistant } from "@/components/assistant/AskMohanAssistant";
 import { CustomCursor } from "@/components/creative/CustomCursor";
 import { GridHUD } from "@/components/creative/GridHUD";
 import { NoiseOverlay } from "@/components/creative/NoiseOverlay";
@@ -158,6 +160,10 @@ export default function RootLayout({
 
           {/* Architectural Technical Footer */}
           <Footer />
+
+          {/* Interactive Mohan Experiences: FM & AI Assistant */}
+          <MohanFmPlayer />
+          <AskMohanAssistant />
         </TooltipProvider>
       </body>
     </html>

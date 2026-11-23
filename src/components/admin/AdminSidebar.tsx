@@ -14,6 +14,7 @@ import {
   Image as ImageIcon,
   Settings,
   Shield,
+  Sparkles,
   ExternalLink,
   ChevronRight,
 } from "lucide-react";
@@ -30,6 +31,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Projects", href: "/admin/projects", icon: FolderGit2 },
   { label: "Journal Articles", href: "/admin/journal", icon: BookOpen },
   { label: "Content & Chronology", href: "/admin/content", icon: Layers },
+  { label: "Interactive Suite", href: "/admin/interactive", icon: Sparkles, badge: "NEW" },
   { label: "Studio & Services", href: "/admin/studio", icon: Building2 },
   { label: "Contact Enquiries", href: "/admin/enquiries", icon: Mail },
   { label: "Media Assets", href: "/admin/media", icon: ImageIcon },

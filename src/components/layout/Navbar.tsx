@@ -32,6 +32,7 @@ export function Navbar() {
     { label: "Studio", href: "/studio" },
     { label: "Skills", href: "/skills" },
     { label: "Journey", href: "/experience" },
+    { label: "Arcade", href: "/arcade" },
     { label: "Journal", href: "/journal" },
   ];
 
@@ -156,6 +157,33 @@ export function Navbar() {
                 </Link>
               );
             })}
+            <div className="pt-2 pb-1 text-[10px] font-mono text-muted-foreground uppercase tracking-widest">
+              Interactive Experiences
+            </div>
+            <Link
+              href="/command-center"
+              onClick={handleNavClick}
+              className="text-base font-display font-bold tracking-tight py-1.5 text-foreground hover:text-primary flex items-center justify-between"
+            >
+              <span>Command Center</span>
+              <span className="text-xs font-mono text-primary">// HUD</span>
+            </Link>
+            <Link
+              href="/beyond-the-code"
+              onClick={handleNavClick}
+              className="text-base font-display font-bold tracking-tight py-1.5 text-foreground hover:text-primary flex items-center justify-between"
+            >
+              <span>Beyond the Code</span>
+              <span className="text-xs font-mono text-primary">// ESSAYS</span>
+            </Link>
+            <Link
+              href="/listening-room"
+              onClick={handleNavClick}
+              className="text-base font-display font-bold tracking-tight py-1.5 text-foreground hover:text-primary flex items-center justify-between"
+            >
+              <span>MOHAN.FM</span>
+              <span className="text-xs font-mono text-primary">// AUDIO</span>
+            </Link>
             <Link
               href="/contact"
               onClick={handleNavClick}

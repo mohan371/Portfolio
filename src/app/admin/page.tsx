@@ -171,6 +171,40 @@ export default function AdminDashboardPage() {
         </Card>
       </div>
 
+      {/* Interactive Engineering Suite Quick Banner */}
+      <Card hasDatumCorners className="p-6 bg-surface-1 border-hairline flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-accent shrink-0">
+            <Sparkles className="w-5 h-5" />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <h3 className="font-display font-bold text-base text-white">
+                Interactive Engineering Suite Management
+              </h3>
+              <Badge variant="cyan" className="text-[9px] py-0 font-mono">
+                LIVE
+              </Badge>
+            </div>
+            <p className="text-xs text-silver-mid font-light mt-0.5">
+              Manage MOHAN.FM Spotify streams, Beyond the Code reflections, Command Center pipeline metrics, and Engineering Arcade bug challenges.
+            </p>
+          </div>
+        </div>
+
+        <Link href="/admin/interactive">
+          <Button
+            variant="primary"
+            size="sm"
+            onClick={() => playTactileClick()}
+            className="bg-cyan-400 text-obsidian hover:bg-cyan-300 font-mono font-bold text-xs gap-1.5 shrink-0"
+          >
+            <span>LAUNCH SUITE</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Button>
+        </Link>
+      </Card>
+
       {/* Main Grid: Recent Projects & Activity Stream */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Left: Quick Project Status List */}

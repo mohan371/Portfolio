@@ -68,6 +68,7 @@ export function Footer() {
               <Link href="/skills" className="hover:text-primary transition-colors">Skills</Link>
               <Link href="/experience" className="hover:text-primary transition-colors">Experience</Link>
               <Link href="/lab" className="hover:text-primary transition-colors">Lab</Link>
+              <Link href="/arcade" className="hover:text-primary transition-colors">Arcade</Link>
             </div>
           </div>
 
@@ -77,11 +78,13 @@ export function Footer() {
               Platform
             </span>
             <div className="flex flex-col gap-2 text-xs font-mono text-muted-foreground">
-              <Link href="/journal" className="hover:text-primary transition-colors">Journal</Link>
+              <Link href="/command-center" className="hover:text-primary transition-colors">Command Center</Link>
+              <Link href="/beyond-the-code" className="hover:text-primary transition-colors">Beyond the Code</Link>
+              <Link href="/listening-room" className="hover:text-primary transition-colors">MOHAN.FM</Link>
               <Link href="/studio" className="hover:text-primary transition-colors">Studio</Link>
+              <Link href="/journal" className="hover:text-primary transition-colors">Journal</Link>
               <Link href="/resume" className="hover:text-primary transition-colors">Resume</Link>
               <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
-              <Link href="/admin/login" className="hover:text-primary transition-colors">Admin</Link>
             </div>
           </div>
 

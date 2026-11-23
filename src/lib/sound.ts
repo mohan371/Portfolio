@@ -1,14 +1,19 @@
 /**
  * Procedural Web Audio API sound engine.
  * Generates tactile, micro-feedback audio without requiring external .mp3 assets.
+ * Strictly respects user sound preferences (default OFF).
  */
+
+import { useAppStore } from "@/store/use-app-store";
 
 let audioCtx: AudioContext | null = null;
 
 function getAudioContext(): AudioContext | null {
   if (typeof window === "undefined") return null;
   if (!audioCtx) {
-    const AudioContextClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+    const AudioContextClass =
+      window.AudioContext ||
+      (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
     if (AudioContextClass) {
       audioCtx = new AudioContextClass();
     }
@@ -21,6 +26,7 @@ function getAudioContext(): AudioContext | null {
 
 export function playTactileClick() {
   try {
+    if (!useAppStore.getState().soundEnabled) return;
     const ctx = getAudioContext();
     if (!ctx) return;
 
@@ -46,6 +52,7 @@ export function playTactileClick() {
 
 export function playHoverBlip() {
   try {
+    if (!useAppStore.getState().soundEnabled) return;
     const ctx = getAudioContext();
     if (!ctx) return;
 
@@ -71,6 +78,7 @@ export function playHoverBlip() {
 
 export function playChimeSuccess() {
   try {
+    if (!useAppStore.getState().soundEnabled) return;
     const ctx = getAudioContext();
     if (!ctx) return;
 
