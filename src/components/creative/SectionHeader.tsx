@@ -29,7 +29,7 @@ export function SectionHeader({
     >
       {/* Index & Tag Telemetry */}
       <div className="flex items-center gap-3 mb-4">
-        <span className="font-mono text-xs text-silver-dark tracking-widest">
+        <span className="font-mono text-xs text-muted-foreground tracking-widest">
           [ {index} ]
         </span>
         <Badge variant="cyan" dot>
@@ -41,12 +41,12 @@ export function SectionHeader({
       <TextReveal
         text={title}
         as="h2"
-        className="type-display uppercase text-white font-bold tracking-tight"
+        className="type-display uppercase text-foreground font-bold tracking-tight"
       />
 
       {/* Descriptive Paragraph */}
       {description && (
-        <p className="mt-4 text-sm sm:text-base text-silver-mid font-light leading-relaxed max-w-2xl">
+        <p className="mt-4 text-sm sm:text-base text-muted-foreground font-light leading-relaxed max-w-2xl">
           {description}
         </p>
       )}

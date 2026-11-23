@@ -30,9 +30,9 @@ export function InteractiveTiltCard({
   const smoothMouseX = useSpring(mouseX, springConfig);
   const smoothMouseY = useSpring(mouseY, springConfig);
 
-  // Subtle tilt angles (max ~5 degrees for professional stability)
-  const rotateX = useTransform(smoothMouseY, [0, 1], [4.5, -4.5]);
-  const rotateY = useTransform(smoothMouseX, [0, 1], [-4.5, 4.5]);
+  // Subtle tilt angles (max ~4.5 degrees for professional stability)
+  const rotateX = useTransform(smoothMouseY, [0, 1], [4, -4]);
+  const rotateY = useTransform(smoothMouseX, [0, 1], [-4, 4]);
 
   const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
 
@@ -67,9 +67,9 @@ export function InteractiveTiltCard({
         transformStyle: "preserve-3d",
       }}
       className={cn(
-        "relative rounded-2xl bg-obsidian border border-hairline transition-colors duration-300 overflow-hidden",
+        "relative rounded-2xl bg-card border border-border shadow-subtle transition-all duration-300 overflow-hidden",
         hasDatumCorners && "corner-datum",
-        isHovered && "border-hairline-hover shadow-[0_8px_30px_rgba(0,0,0,0.6)]",
+        isHovered && "border-slate-300 dark:border-white/20 shadow-card-hover",
         className
       )}
     >
@@ -79,7 +79,7 @@ export function InteractiveTiltCard({
           aria-hidden="true"
           className="pointer-events-none absolute -inset-px transition-opacity duration-300 opacity-100 z-10"
           style={{
-            background: `radial-gradient(350px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(0, 245, 255, 0.08), transparent 80%)`,
+            background: `radial-gradient(350px circle at ${spotlightPos.x}px ${spotlightPos.y}px, var(--spotlight-color, rgba(37, 99, 235, 0.06)), transparent 80%)`,
           }}
         />
       )}

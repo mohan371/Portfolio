@@ -34,10 +34,10 @@ export function StudioFaqAccordion() {
               setSelectedCategory(cat);
               setOpenIndex(null);
             }}
-            className={`px-3.5 py-1.5 rounded-lg text-xs font-mono transition-all ${
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-mono transition-all cursor-pointer ${
               selectedCategory === cat
-                ? "bg-cyan-950/60 border border-cyan-500/50 text-cyan-accent font-bold"
-                : "bg-surface-1 border border-hairline text-silver-dark hover:text-white"
+                ? "bg-primary text-primary-foreground font-bold shadow-xs"
+                : "bg-card border border-border text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
             }`}
           >
             {cat}
@@ -55,7 +55,7 @@ export function StudioFaqAccordion() {
               key={idx}
               hasDatumCorners
               className={`border transition-all ${
-                isOpen ? "border-cyan-500/40 bg-surface-1" : "border-hairline bg-obsidian"
+                isOpen ? "border-primary/40 bg-surface shadow-xs" : "border-border bg-card shadow-subtle"
               }`}
             >
               <button
@@ -67,21 +67,21 @@ export function StudioFaqAccordion() {
                   <Badge variant="cyan" className="text-[10px] uppercase font-mono">
                     {faq.category}
                   </Badge>
-                  <h4 className="font-display font-bold text-base text-white">
+                  <h4 className="font-display font-bold text-base text-foreground">
                     {faq.question}
                   </h4>
                 </div>
 
                 <ChevronDown
-                  className={`w-4 h-4 text-cyan-accent transition-transform duration-200 flex-shrink-0 ${
+                  className={`w-4 h-4 text-primary transition-transform duration-200 flex-shrink-0 ${
                     isOpen ? "rotate-180" : ""
                   }`}
                 />
               </button>
 
               {isOpen && (
-                <div className="px-5 pb-5 pt-1 text-xs text-silver-mid font-light leading-relaxed border-t border-hairline/40 mt-1">
-                  <p className="p-3 rounded-lg bg-carbon/60 font-sans text-xs text-silver-light leading-relaxed">
+                <div className="px-5 pb-5 pt-1 text-xs text-muted-foreground font-light leading-relaxed border-t border-border mt-1">
+                  <p className="p-3.5 rounded-xl bg-surface-secondary font-sans text-xs text-foreground/90 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

@@ -8,21 +8,21 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function Badge({ className, variant = "default", dot = false, children, ...props }: BadgeProps) {
   const variantStyles = {
-    default: "bg-surface-1 border-hairline text-silver-mid",
-    outline: "bg-transparent border-hairline text-silver-mid hover:border-hairline-hover",
-    cyan: "bg-cyan-500/10 border-cyan-500/30 text-cyan-accent",
-    violet: "bg-purple-500/10 border-purple-500/30 text-violet-accent",
-    emerald: "bg-emerald-500/10 border-emerald-500/30 text-emerald-accent",
-    silver: "bg-surface-2 border-hairline text-silver-bright",
+    default: "bg-surface-secondary border-border text-foreground",
+    outline: "bg-transparent border-border text-muted-foreground hover:border-slate-300",
+    cyan: "bg-blue-50 dark:bg-cyan-950/40 border-blue-200 dark:border-cyan-500/30 text-blue-700 dark:text-cyan-accent",
+    violet: "bg-indigo-50 dark:bg-purple-950/40 border-indigo-200 dark:border-purple-500/30 text-indigo-700 dark:text-purple-400",
+    emerald: "bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-500/30 text-emerald-700 dark:text-emerald-accent",
+    silver: "bg-surface border-border text-foreground",
   };
 
   const dotStyles = {
-    default: "bg-zinc-500",
-    outline: "bg-zinc-400",
-    cyan: "bg-cyan-accent shadow-[0_0_8px_rgba(0,245,255,0.6)]",
-    violet: "bg-violet-accent shadow-[0_0_8px_rgba(139,92,246,0.6)]",
-    emerald: "bg-emerald-accent shadow-[0_0_8px_rgba(16,185,129,0.6)]",
-    silver: "bg-silver-bright",
+    default: "bg-slate-400 dark:bg-zinc-500",
+    outline: "bg-slate-400 dark:bg-zinc-400",
+    cyan: "bg-blue-600 dark:bg-cyan-accent shadow-[0_0_8px_rgba(37,99,235,0.5)] dark:shadow-[0_0_8px_rgba(0,245,255,0.6)]",
+    violet: "bg-indigo-600 dark:bg-purple-400 shadow-[0_0_8px_rgba(99,102,241,0.5)]",
+    emerald: "bg-emerald-600 dark:bg-emerald-accent shadow-[0_0_8px_rgba(16,185,129,0.5)]",
+    silver: "bg-slate-700 dark:bg-white",
   };
 
   return (

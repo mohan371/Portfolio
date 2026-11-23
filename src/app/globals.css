@@ -1,6 +1,24 @@
 @import "tailwindcss";
 
 @theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
   --color-void: var(--void);
   --color-obsidian: var(--obsidian);
   --color-carbon: var(--carbon);
@@ -21,14 +39,7 @@
   --color-cyan-accent-dim: var(--accent-cyan-dim);
   --color-violet-accent: var(--accent-violet);
   --color-emerald-accent: var(--accent-emerald);
-
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
+  --color-teal-accent: var(--accent-teal);
 
   --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-sans: "Inter", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -36,57 +47,79 @@
 }
 
 :root {
-  /* Default Obsidian Dark Theme */
-  --background: #050505;
-  --foreground: #f4f4f5;
-  --card: #0d0d10;
-  --card-foreground: #ffffff;
-  --popover: #0d0d10;
-  --popover-foreground: #ffffff;
-  --primary: #ffffff;
-  --primary-foreground: #050505;
-  --secondary: #18181b;
-  --secondary-foreground: #f4f4f5;
-  --muted: #18181b;
-  --muted-foreground: #a1a1aa;
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.12);
-  --ring: #00f5ff;
+  /* =========================================================================
+     DEFAULT THEME: PREMIUM LIGHT (WHITE-FIRST ENTERPRISE SPECIFICATION)
+     ========================================================================= */
+  --background: #FFFFFF;
+  --foreground: #111827;
+
+  --surface: #F8FAFC;
+  --surface-secondary: #F1F5F9;
+
+  --card: #FFFFFF;
+  --card-foreground: #111827;
+  --popover: #FFFFFF;
+  --popover-foreground: #111827;
+
+  --primary: #2563EB;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #EAF1FF;
+  --secondary-foreground: #1E40AF;
+
+  --muted: #F1F5F9;
+  --muted-foreground: #475569;
+
+  --accent: #0F766E;
+  --accent-foreground: #FFFFFF;
+
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #2563EB;
   --radius: 0.75rem;
 
-  /* Architectural Surfaces (Dark) */
-  --void: #050505;
-  --obsidian: #0d0d10;
-  --carbon: #141417;
-  --surface-1: #1a1a20;
-  --surface-2: #24242c;
-  --surface-3: #32323c;
+  /* Architectural Surfaces (Light) */
+  --void: #FFFFFF;
+  --obsidian: #FFFFFF;
+  --carbon: #F8FAFC;
+  --surface-1: #F1F5F9;
+  --surface-2: #E2E8F0;
+  --surface-3: #CBD5E1;
 
-  /* Hairlines & Technical Separators (Dark) */
-  --hairline: rgba(255, 255, 255, 0.08);
-  --hairline-hover: rgba(255, 255, 255, 0.22);
-  --hairline-active: rgba(255, 255, 255, 0.4);
+  /* Hairlines & Technical Separators (Light) */
+  --hairline: #E2E8F0;
+  --hairline-hover: #CBD5E1;
+  --hairline-active: #94A3B8;
 
-  /* Silver Metallic Gradient Stops (Dark) */
-  --silver-bright: #ffffff;
-  --silver-light: #e4e4e7;
-  --silver-mid: #a1a1aa;
-  --silver-dark: #71717a;
+  /* Typography Stops (Light - Charcoal & Slate) */
+  --silver-bright: #111827;
+  --silver-light: #1E293B;
+  --silver-mid: #475569;
+  --silver-dark: #64748B;
 
-  /* Electric Accents (Dark) */
-  --accent-cyan: #00f5ff;
-  --accent-cyan-dim: rgba(0, 245, 255, 0.15);
-  --accent-violet: #8b5cf6;
-  --accent-emerald: #10b981;
+  /* Accent Colors (Light) */
+  --accent-cyan: #2563EB;
+  --accent-cyan-dim: rgba(37, 99, 235, 0.08);
+  --accent-violet: #6366F1;
+  --accent-emerald: #059669;
+  --accent-teal: #0F766E;
 
-  /* Grid lines */
-  --grid-line: rgba(255, 255, 255, 0.035);
-  --datum-tick: rgba(255, 255, 255, 0.45);
+  /* Status Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #2563EB;
 
-  /* Typography Stacks */
-  --font-display: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-sans: "Inter", "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "JetBrains Mono", "Geist Mono", monospace;
+  /* Grid & Datum Lines */
+  --grid-line: rgba(15, 23, 42, 0.04);
+  --datum-tick: rgba(15, 23, 42, 0.25);
+  --spotlight-color: rgba(37, 99, 235, 0.06);
+
+  /* Shadows (Multi-layered subtle realistic depth) */
+  --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-card-hover: 0 10px 25px -3px rgba(37, 99, 235, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-nav: 0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(226, 232, 240, 0.8);
 
   /* Fluid Editorial Scales */
   --type-hero: clamp(3rem, 7.5vw + 1rem, 7.5rem);
@@ -95,53 +128,80 @@
   --type-subhead: clamp(1.125rem, 1.3vw + 0.4rem, 1.625rem);
 }
 
-/* Studio Light Mode (High Contrast & Pure Surfaces) */
-[data-theme="studio-light"],
-.light {
-  --background: #fafafa;
-  --foreground: #09090b;
-  --card: #ffffff;
-  --card-foreground: #09090b;
-  --popover: #ffffff;
-  --popover-foreground: #09090b;
-  --primary: #09090b;
-  --primary-foreground: #ffffff;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #18181b;
-  --muted: #f4f4f5;
-  --muted-foreground: #52525b;
-  --border: rgba(0, 0, 0, 0.12);
-  --input: rgba(0, 0, 0, 0.16);
-  --ring: #0284c7;
+/* =========================================================================
+   DARK THEME: OPTIONAL USER-SELECTABLE OBSIDIAN MODE
+   ========================================================================= */
+[data-theme="obsidian"],
+.dark {
+  --background: #050505;
+  --foreground: #F4F4F5;
 
-  /* Architectural Surfaces (Light) */
-  --void: #fafafa;
-  --obsidian: #ffffff;
-  --carbon: #f0f1f4;
-  --surface-1: #e7e9ed;
-  --surface-2: #dcdee3;
-  --surface-3: #cbced5;
+  --surface: #0D0D10;
+  --surface-secondary: #141417;
 
-  /* Hairlines (Light) */
-  --hairline: rgba(0, 0, 0, 0.12);
-  --hairline-hover: rgba(0, 0, 0, 0.28);
-  --hairline-active: rgba(0, 0, 0, 0.5);
+  --card: #0D0D10;
+  --card-foreground: #FFFFFF;
+  --popover: #0D0D10;
+  --popover-foreground: #FFFFFF;
 
-  /* Charcoal / Silver Text Stops (Light) */
-  --silver-bright: #09090b;
-  --silver-light: #18181b;
-  --silver-mid: #52525b;
-  --silver-dark: #71717a;
+  --primary: #2563EB;
+  --primary-foreground: #FFFFFF;
 
-  /* High-Contrast Accents (Light) */
-  --accent-cyan: #0284c7;
-  --accent-cyan-dim: rgba(2, 132, 199, 0.12);
-  --accent-violet: #7c3aed;
-  --accent-emerald: #059669;
+  --secondary: #18181B;
+  --secondary-foreground: #F4F4F5;
 
-  /* Grid lines in Light */
-  --grid-line: rgba(0, 0, 0, 0.045);
-  --datum-tick: rgba(0, 0, 0, 0.4);
+  --muted: #18181B;
+  --muted-foreground: #A1A1AA;
+
+  --accent: #00F5FF;
+  --accent-foreground: #050505;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #00F5FF;
+
+  /* Architectural Surfaces (Dark) */
+  --void: #050505;
+  --obsidian: #0D0D10;
+  --carbon: #141417;
+  --surface-1: #1A1A20;
+  --surface-2: #24242C;
+  --surface-3: #32323C;
+
+  /* Hairlines & Technical Separators (Dark) */
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-hover: rgba(255, 255, 255, 0.22);
+  --hairline-active: rgba(255, 255, 255, 0.4);
+
+  /* Silver Metallic Gradient Stops (Dark) */
+  --silver-bright: #FFFFFF;
+  --silver-light: #E4E4E7;
+  --silver-mid: #A1A1AA;
+  --silver-dark: #71717A;
+
+  /* Electric Accents (Dark) */
+  --accent-cyan: #00F5FF;
+  --accent-cyan-dim: rgba(0, 245, 255, 0.15);
+  --accent-violet: #8B5CF6;
+  --accent-emerald: #10B981;
+  --accent-teal: #14B8A6;
+
+  /* Status Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #00F5FF;
+
+  /* Grid & Datum Lines */
+  --grid-line: rgba(255, 255, 255, 0.035);
+  --datum-tick: rgba(255, 255, 255, 0.45);
+  --spotlight-color: rgba(0, 245, 255, 0.08);
+
+  /* Shadows (Dark) */
+  --shadow-subtle: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.6);
+  --shadow-card-hover: 0 12px 36px rgba(0, 0, 0, 0.8);
+  --shadow-nav: 0 12px 40px rgba(0, 0, 0, 0.85);
 }
 
 /* Base Body Styles */
@@ -156,8 +216,8 @@ body {
 }
 
 ::selection {
-  background: var(--accent-cyan);
-  color: #ffffff;
+  background: var(--primary);
+  color: #FFFFFF;
 }
 
 /* Custom Minimalist Scrollbar */
@@ -171,7 +231,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--surface-2);
+  background: var(--border);
   border-radius: 3px;
 }
 
@@ -197,6 +257,7 @@ body {
 .text-cyan-accent { color: var(--accent-cyan); }
 .text-violet-accent { color: var(--accent-violet); }
 .text-emerald-accent { color: var(--accent-emerald); }
+.text-teal-accent { color: var(--accent-teal); }
 
 .font-display { font-family: var(--font-display); }
 .font-sans { font-family: var(--font-sans); }
@@ -234,7 +295,7 @@ body {
   font-weight: 400;
 }
 
-/* Metallic & Chrome Gradient Text */
+/* Metallic & Chrome Gradient Text (Theme-Aware) */
 .text-gradient-silver {
   background: linear-gradient(180deg, var(--silver-bright) 15%, var(--silver-mid) 100%);
   -webkit-background-clip: text;
@@ -255,71 +316,47 @@ body {
 .corner-datum::before {
   content: "";
   position: absolute;
-  top: -1px;
-  left: -1px;
-  width: 7px;
-  height: 7px;
-  border-top: 1.5px solid var(--datum-tick);
-  border-left: 1.5px solid var(--datum-tick);
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid var(--datum-tick);
+  border-left: 1px solid var(--datum-tick);
   pointer-events: none;
+  z-index: 2;
 }
 
 .corner-datum::after {
   content: "";
   position: absolute;
-  bottom: -1px;
-  right: -1px;
-  width: 7px;
-  height: 7px;
-  border-bottom: 1.5px solid var(--datum-tick);
-  border-right: 1.5px solid var(--datum-tick);
+  bottom: 0;
+  right: 0;
+  width: 6px;
+  height: 6px;
+  border-bottom: 1px solid var(--datum-tick);
+  border-right: 1px solid var(--datum-tick);
   pointer-events: none;
+  z-index: 2;
 }
 
-/* Architectural Hairline Divider with Label */
-.datum-divider {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
+/* Studio Surface Card */
+.studio-card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.datum-divider::before,
-.datum-divider::after {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background-color: var(--hairline);
+.studio-card:hover {
+  border-color: var(--hairline-hover);
+  box-shadow: var(--shadow-card-hover);
 }
 
-/* Subtle Technical Grid Background */
+/* Subtle Engineering Grid Background */
 .bg-tech-grid {
   background-size: 40px 40px;
   background-image: 
     linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-}
-
-.bg-dot-matrix {
-  background-image: radial-gradient(var(--grid-line) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* Studio Architectural Card */
-.studio-card {
-  background-color: var(--card);
-  border: 1px solid var(--border);
-  color: var(--card-foreground);
-  position: relative;
-  transition: border-color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
-}
-
-.studio-card:hover {
-  border-color: var(--hairline-hover);
-}
-
-/* Focus States */
-:focus-visible {
-  outline: 2px solid var(--accent-cyan);
-  outline-offset: 2px;
 }

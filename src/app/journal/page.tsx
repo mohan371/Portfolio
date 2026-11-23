@@ -23,35 +23,35 @@ export default function JournalPage() {
       <div className="space-y-6 mb-20">
         {journalData.map((post) => (
           <Link key={post.id} href={`/journal/${post.slug}`} className="block group">
-            <Card hasDatumCorners className="p-6 sm:p-8 hover:border-cyan-500/40 transition-colors">
+            <Card hasDatumCorners className="p-6 sm:p-8 hover:border-primary/40 transition-colors">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono text-cyan-accent">{post.publishedAt}</span>
-                  <span className="text-silver-dark">•</span>
-                  <span className="text-xs font-mono text-silver-dark">{post.readTimeMinutes} min read</span>
+                  <span className="text-xs font-mono text-primary font-semibold">{post.publishedAt}</span>
+                  <span className="text-muted-foreground">•</span>
+                  <span className="text-xs font-mono text-muted-foreground">{post.readTimeMinutes} min read</span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                   {post.tags.map((tag) => (
-                    <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-surface-1 text-silver-mid">
+                    <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-surface-secondary text-muted-foreground border border-border">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <CardTitle className="text-xl sm:text-2xl group-hover:text-cyan-accent transition-colors">
+              <CardTitle className="text-xl sm:text-2xl group-hover:text-primary transition-colors">
                 {post.title}
               </CardTitle>
 
-              <p className="mt-3 text-sm text-silver-mid font-light leading-relaxed">
+              <p className="mt-3 text-sm text-muted-foreground font-light leading-relaxed">
                 {post.excerpt}
               </p>
 
-              <div className="mt-6 pt-4 border-t border-hairline flex items-center justify-between text-xs font-mono">
-                <span className="text-silver-mid group-hover:text-white transition-colors">
+              <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-mono">
+                <span className="text-muted-foreground group-hover:text-foreground transition-colors font-medium">
                   Read Full Publication
                 </span>
-                <ArrowUpRight className="w-4 h-4 text-cyan-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-4 h-4 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
             </Card>
           </Link>

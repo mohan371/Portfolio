@@ -42,8 +42,10 @@ export function AnimatedBackgroundGrid() {
     const render = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Render subtle drifting crosshair datums
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
+      const isDark = document.documentElement.classList.contains("dark") ||
+                     document.documentElement.getAttribute("data-theme") === "obsidian";
+
+      ctx.strokeStyle = isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(15, 23, 42, 0.05)";
       ctx.lineWidth = 1;
 
       points.forEach((pt) => {
@@ -55,7 +57,6 @@ export function AnimatedBackgroundGrid() {
         if (pt.y < 0) pt.y = height;
         if (pt.y > height) pt.y = 0;
 
-        // Draw crosshair '+'
         ctx.beginPath();
         ctx.moveTo(pt.x - pt.size, pt.y);
         ctx.lineTo(pt.x + pt.size, pt.y);
@@ -78,8 +79,8 @@ export function AnimatedBackgroundGrid() {
   return (
     <canvas
       ref={canvasRef}
+      className="pointer-events-none fixed inset-0 z-0 opacity-60"
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 z-0 opacity-40"
     />
   );
 }

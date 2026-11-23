@@ -47,24 +47,24 @@ export default function StudioPage() {
           SECTION 1: STUDIO INTRODUCTION & BRAND POSITIONING
          ========================================================================= */}
       <section className="relative">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-hairline">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-border">
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-3">
               <Badge variant="cyan" dot className="font-mono text-xs uppercase tracking-wider">
                 SOFTWARE STUDIO PLATFORM
               </Badge>
-              <span className="text-xs font-mono text-silver-dark">
+              <span className="text-xs font-mono text-muted-foreground font-medium">
                 // FOUNDED &amp; LED BY MOHAN N.V.
               </span>
             </div>
 
-            <h1 className="font-display font-bold text-4xl sm:text-6xl text-white tracking-tight uppercase leading-none">
+            <h1 className="font-display font-bold text-4xl sm:text-6xl text-foreground tracking-tight uppercase leading-none">
               {studioConfig.name}
             </h1>
-            <p className="text-lg sm:text-xl font-display text-silver-light mt-3 leading-snug">
+            <p className="text-lg sm:text-xl font-display text-foreground/90 mt-3 leading-snug">
               {studioConfig.tagline}
             </p>
-            <p className="text-xs sm:text-sm text-silver-mid font-light leading-relaxed mt-4 max-w-2xl">
+            <p className="text-xs sm:text-sm text-muted-foreground font-light leading-relaxed mt-4 max-w-2xl">
               {studioConfig.mission} Mohan N.V. operates as principal architect and lead software engineer on every client engagement, ensuring enterprise rigor, strict type safety, and zero bloat.
             </p>
           </div>
@@ -74,10 +74,10 @@ export default function StudioPage() {
               <Button
                 variant="primary"
                 size="lg"
-                className="w-full sm:w-auto gap-2 font-mono text-xs font-bold bg-cyan-400 text-obsidian hover:bg-cyan-300"
+                className="w-full sm:w-auto gap-2 font-mono text-xs font-bold shadow-md"
               >
                 <span>INITIATE PROJECT ENQUIRY</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 ml-1" />
               </Button>
             </a>
             <a href="#services">
@@ -90,28 +90,28 @@ export default function StudioPage() {
 
         {/* 4 Studio Trust Indicators */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-          <div className="p-4 rounded-xl bg-surface-1 border border-hairline font-mono text-xs">
-            <span className="text-silver-dark uppercase text-[10px] block mb-1">CODE DISCIPLINE</span>
-            <span className="text-white font-bold text-sm">100% Strict TypeScript</span>
-            <span className="text-silver-dark text-[10px] block mt-0.5">Zod validation boundaries</span>
+          <div className="p-4 rounded-xl bg-surface border border-border font-mono text-xs shadow-xs">
+            <span className="text-muted-foreground uppercase text-[10px] block mb-1">CODE DISCIPLINE</span>
+            <span className="text-foreground font-bold text-sm">100% Strict TypeScript</span>
+            <span className="text-muted-foreground text-[10px] block mt-0.5">Zod validation boundaries</span>
           </div>
 
-          <div className="p-4 rounded-xl bg-surface-1 border border-hairline font-mono text-xs">
-            <span className="text-silver-dark uppercase text-[10px] block mb-1">PERFORMANCE TARGET</span>
-            <span className="text-cyan-accent font-bold text-sm">Sub-100ms TTFB</span>
-            <span className="text-silver-dark text-[10px] block mt-0.5">Next.js Server Components</span>
+          <div className="p-4 rounded-xl bg-surface border border-border font-mono text-xs shadow-xs">
+            <span className="text-muted-foreground uppercase text-[10px] block mb-1">PERFORMANCE TARGET</span>
+            <span className="text-primary font-bold text-sm">Sub-100ms TTFB</span>
+            <span className="text-muted-foreground text-[10px] block mt-0.5">Next.js Server Components</span>
           </div>
 
-          <div className="p-4 rounded-xl bg-surface-1 border border-hairline font-mono text-xs">
-            <span className="text-silver-dark uppercase text-[10px] block mb-1">DATABASE ARCHITECTURE</span>
-            <span className="text-emerald-accent font-bold text-sm">ACID Guaranteed</span>
-            <span className="text-silver-dark text-[10px] block mt-0.5">PostgreSQL &amp; PostGIS</span>
+          <div className="p-4 rounded-xl bg-surface border border-border font-mono text-xs shadow-xs">
+            <span className="text-muted-foreground uppercase text-[10px] block mb-1">DATABASE ARCHITECTURE</span>
+            <span className="text-emerald-600 dark:text-emerald-400 font-bold text-sm">ACID Guaranteed</span>
+            <span className="text-muted-foreground text-[10px] block mt-0.5">PostgreSQL &amp; PostGIS</span>
           </div>
 
-          <div className="p-4 rounded-xl bg-surface-1 border border-hairline font-mono text-xs">
-            <span className="text-silver-dark uppercase text-[10px] block mb-1">INTELLECTUAL PROPERTY</span>
-            <span className="text-white font-bold text-sm">100% Code Ownership</span>
-            <span className="text-silver-dark text-[10px] block mt-0.5">Zero proprietary lock-in</span>
+          <div className="p-4 rounded-xl bg-surface border border-border font-mono text-xs shadow-xs">
+            <span className="text-muted-foreground uppercase text-[10px] block mb-1">INTELLECTUAL PROPERTY</span>
+            <span className="text-foreground font-bold text-sm">100% Code Ownership</span>
+            <span className="text-muted-foreground text-[10px] block mt-0.5">Zero proprietary lock-in</span>
           </div>
         </div>
       </section>
@@ -129,25 +129,25 @@ export default function StudioPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {studioPhilosophy.map((pillar) => (
-            <Card key={pillar.number} hasDatumCorners className="p-6 bg-obsidian border-hairline flex flex-col justify-between">
+            <Card key={pillar.number} hasDatumCorners className="p-6 bg-card border-border shadow-subtle flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono text-cyan-accent font-bold">
+                  <span className="text-xs font-mono text-primary font-bold">
                     // {pillar.number}
                   </span>
-                  {pillar.iconName === "ShieldCheck" && <ShieldCheck className="w-4 h-4 text-cyan-accent" />}
-                  {pillar.iconName === "Database" && <Database className="w-4 h-4 text-emerald-accent" />}
-                  {pillar.iconName === "Zap" && <Zap className="w-4 h-4 text-amber-accent" />}
-                  {pillar.iconName === "GitBranch" && <GitBranch className="w-4 h-4 text-violet-accent" />}
+                  {pillar.iconName === "ShieldCheck" && <ShieldCheck className="w-4 h-4 text-primary" />}
+                  {pillar.iconName === "Database" && <Database className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
+                  {pillar.iconName === "Zap" && <Zap className="w-4 h-4 text-amber-500" />}
+                  {pillar.iconName === "GitBranch" && <GitBranch className="w-4 h-4 text-indigo-500" />}
                 </div>
 
-                <h3 className="font-display font-bold text-lg text-white mb-1">
+                <h3 className="font-display font-bold text-lg text-foreground mb-1">
                   {pillar.title}
                 </h3>
-                <div className="text-[11px] font-mono text-silver-dark mb-3">
+                <div className="text-[11px] font-mono text-muted-foreground mb-3 font-medium">
                   {pillar.principle}
                 </div>
-                <p className="text-xs text-silver-mid font-light leading-relaxed">
+                <p className="text-xs text-muted-foreground font-light leading-relaxed">
                   {pillar.description}
                 </p>
               </div>
@@ -172,44 +172,44 @@ export default function StudioPage() {
             <Card
               key={service.id}
               hasDatumCorners
-              className={`p-6 flex flex-col justify-between transition-all group ${
-                service.featured ? "bg-surface-1 border-cyan-500/40" : "bg-obsidian border-hairline"
+              className={`p-6 flex flex-col justify-between transition-all group shadow-subtle ${
+                service.featured ? "bg-surface border-primary/40 ring-1 ring-primary/20" : "bg-card border-border"
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-3 text-xs font-mono">
-                  <span className="text-cyan-accent font-bold">SERVICE // 0{idx + 1}</span>
+                  <span className="text-primary font-bold">SERVICE // 0{idx + 1}</span>
                   {service.featured && <Badge variant="cyan" dot className="text-[9px]">Featured</Badge>}
                 </div>
 
-                <h3 className="font-display font-bold text-xl text-white group-hover:text-cyan-accent transition-colors mb-2">
+                <h3 className="font-display font-bold text-xl text-foreground group-hover:text-primary transition-colors mb-2">
                   {service.title}
                 </h3>
-                <p className="text-xs text-silver-mid font-light leading-relaxed mb-4">
+                <p className="text-xs text-muted-foreground font-light leading-relaxed mb-4">
                   {service.description}
                 </p>
 
-                <div className="space-y-1.5 pt-3 border-t border-hairline">
-                  <span className="text-[10px] font-mono text-silver-dark uppercase block mb-1">
+                <div className="space-y-1.5 pt-3 border-t border-border">
+                  <span className="text-[10px] font-mono text-muted-foreground uppercase block mb-1 font-medium">
                     KEY DELIVERABLES:
                   </span>
                   {service.deliverables.map((d, i) => (
-                    <div key={i} className="flex items-start gap-1.5 text-[11px] font-mono text-silver-light">
-                      <span className="text-cyan-accent mt-0.5">›</span>
+                    <div key={i} className="flex items-start gap-1.5 text-[11px] font-mono text-foreground/80">
+                      <span className="text-primary mt-0.5">›</span>
                       <span>{d}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-hairline flex items-center justify-between">
-                <span className="text-[10px] font-mono text-silver-dark">
-                  Delivery: <strong className="text-white">{service.estimatedDelivery}</strong>
+              <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
+                <span className="text-[10px] font-mono text-muted-foreground">
+                  Delivery: <strong className="text-foreground">{service.estimatedDelivery}</strong>
                 </span>
 
                 <a
                   href="#client-enquiry"
-                  className="text-xs font-mono text-cyan-accent hover:underline flex items-center gap-0.5"
+                  className="text-xs font-mono text-primary font-bold hover:underline flex items-center gap-0.5"
                 >
                   Select <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
@@ -232,25 +232,25 @@ export default function StudioPage() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 font-mono text-xs">
           {[
-            { name: "Next.js 16", role: "SSR & App Router", color: "text-white" },
-            { name: "React 19", role: "Server Components", color: "text-cyan-accent" },
-            { name: "Go (Golang)", role: "High Concurrency", color: "text-cyan-accent" },
-            { name: "Java 17+", role: "Enterprise Logic", color: "text-amber-accent" },
-            { name: "PostgreSQL 16", role: "ACID Relational", color: "text-emerald-accent" },
-            { name: "TypeScript", role: "Strict Type Safety", color: "text-cyan-accent" },
-            { name: "Docker", role: "Containerization", color: "text-white" },
-            { name: "WebSockets", role: "Real-Time Telemetry", color: "text-cyan-accent" },
-            { name: "Tailwind CSS", role: "Design Tokens", color: "text-white" },
-            { name: "Node.js", role: "Event Runtime", color: "text-emerald-accent" },
-            { name: "MySQL", role: "Relational Modeling", color: "text-white" },
-            { name: "MongoDB", role: "Flexible Documents", color: "text-white" },
+            { name: "Next.js 16", role: "SSR & App Router", color: "text-foreground" },
+            { name: "React 19", role: "Server Components", color: "text-primary" },
+            { name: "Go (Golang)", role: "High Concurrency", color: "text-primary" },
+            { name: "Java 17+", role: "Enterprise Logic", color: "text-amber-600 dark:text-amber-400" },
+            { name: "PostgreSQL 16", role: "ACID Relational", color: "text-emerald-600 dark:text-emerald-400" },
+            { name: "TypeScript", role: "Strict Type Safety", color: "text-primary" },
+            { name: "Docker", role: "Containerization", color: "text-foreground" },
+            { name: "WebSockets", role: "Real-Time Telemetry", color: "text-primary" },
+            { name: "Tailwind CSS", role: "Design Tokens", color: "text-foreground" },
+            { name: "Node.js", role: "Event Runtime", color: "text-emerald-600 dark:text-emerald-400" },
+            { name: "MySQL", role: "Relational Modeling", color: "text-foreground" },
+            { name: "MongoDB", role: "Flexible Documents", color: "text-foreground" },
           ].map((tech) => (
             <div
               key={tech.name}
-              className="p-3.5 rounded-xl bg-surface-1 border border-hairline flex flex-col justify-between hover:border-silver-dark/60 transition-colors"
+              className="p-3.5 rounded-xl bg-card border border-border shadow-xs flex flex-col justify-between hover:border-slate-300 dark:hover:border-white/20 transition-colors"
             >
               <span className={`font-bold text-sm ${tech.color}`}>{tech.name}</span>
-              <span className="text-[10px] text-silver-dark mt-2">{tech.role}</span>
+              <span className="text-[10px] text-muted-foreground mt-2">{tech.role}</span>
             </div>
           ))}
         </div>
@@ -269,27 +269,27 @@ export default function StudioPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {studioProcess.map((proc) => (
-            <Card key={proc.step} hasDatumCorners className="p-5 bg-obsidian border-hairline flex flex-col justify-between">
+            <Card key={proc.step} hasDatumCorners className="p-5 bg-card border-border shadow-subtle flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3 text-xs font-mono">
-                  <span className="w-7 h-7 rounded-lg bg-carbon border border-hairline flex items-center justify-center font-bold text-cyan-accent">
+                  <span className="w-7 h-7 rounded-lg bg-surface-secondary border border-border flex items-center justify-center font-bold text-primary">
                     {proc.step}
                   </span>
                   <Badge variant="violet" className="text-[10px]">{proc.timeline}</Badge>
                 </div>
 
-                <h4 className="font-display font-bold text-base text-white mb-2">
+                <h4 className="font-display font-bold text-base text-foreground mb-2">
                   {proc.title}
                 </h4>
-                <p className="text-xs text-silver-mid font-light leading-relaxed mb-4">
+                <p className="text-xs text-muted-foreground font-light leading-relaxed mb-4">
                   {proc.summary}
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-hairline space-y-1">
-                <span className="text-[9px] font-mono text-silver-dark uppercase block">OUTPUTS:</span>
+              <div className="pt-3 border-t border-border space-y-1">
+                <span className="text-[9px] font-mono text-muted-foreground uppercase block font-medium">OUTPUTS:</span>
                 {proc.outputs.map((out, i) => (
-                  <div key={i} className="text-[10px] font-mono text-silver-light">
+                  <div key={i} className="text-[10px] font-mono text-foreground/80">
                     • {out}
                   </div>
                 ))}
@@ -312,33 +312,33 @@ export default function StudioPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {projectsData.map((project) => (
-            <Card key={project.id} hasDatumCorners className="p-6 bg-surface-1 border-hairline flex flex-col justify-between">
+            <Card key={project.id} hasDatumCorners className="p-6 bg-card border-border shadow-subtle flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between mb-3 text-xs font-mono">
-                  <span className="text-cyan-accent font-bold">{project.category}</span>
+                  <span className="text-primary font-bold">{project.category}</span>
                   <Badge variant="cyan" dot>{project.status}</Badge>
                 </div>
 
-                <h3 className="font-display font-bold text-xl text-white mb-2">
+                <h3 className="font-display font-bold text-xl text-foreground mb-2">
                   {project.title}
                 </h3>
-                <p className="text-xs text-silver-mid font-light leading-relaxed mb-4">
+                <p className="text-xs text-muted-foreground font-light leading-relaxed mb-4">
                   {project.shortDescription}
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {project.technologies.map((t) => (
-                    <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded bg-carbon border border-hairline text-silver-light">
+                    <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-surface-secondary border border-border text-muted-foreground">
                       {t}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-hairline flex items-center justify-between">
+              <div className="pt-4 border-t border-border flex items-center justify-between">
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="text-xs font-mono text-cyan-accent hover:underline flex items-center gap-1 font-bold"
+                  className="text-xs font-mono text-primary hover:underline flex items-center gap-1 font-bold"
                 >
                   Inspect Case Study <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
@@ -348,7 +348,7 @@ export default function StudioPage() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs font-mono text-silver-dark hover:text-white flex items-center gap-1"
+                    className="text-xs font-mono text-muted-foreground hover:text-foreground flex items-center gap-1"
                   >
                     Repository <ExternalLink className="w-3 h-3" />
                   </a>
@@ -391,27 +391,27 @@ export default function StudioPage() {
           SECTION 9: CONTACT & STUDIO HEADQUARTERS
          ========================================================================= */}
       <section>
-        <Card hasDatumCorners className="p-8 sm:p-12 bg-obsidian border-hairline">
+        <Card hasDatumCorners className="p-8 sm:p-12 bg-surface border-border shadow-subtle">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
               <Badge variant="cyan" dot className="font-mono text-xs uppercase">
                 STUDIO HEADQUARTERS
               </Badge>
-              <h2 className="font-display font-bold text-2xl sm:text-4xl text-white">
+              <h2 className="font-display font-bold text-2xl sm:text-4xl text-foreground">
                 Direct Engineering Collaboration
               </h2>
-              <p className="text-xs sm:text-sm text-silver-mid font-light leading-relaxed max-w-xl">
+              <p className="text-xs sm:text-sm text-muted-foreground font-light leading-relaxed max-w-xl">
                 Operating out of the Hosur / Bangalore industrial corridor, we collaborate with clients across India, Southeast Asia, Europe, and the Americas. Let&apos;s build something extraordinary.
               </p>
 
               <div className="flex flex-wrap gap-6 pt-2 font-mono text-xs">
-                <div className="flex items-center gap-2 text-silver-light">
-                  <MapPin className="w-4 h-4 text-cyan-accent" />
+                <div className="flex items-center gap-2 text-foreground/90">
+                  <MapPin className="w-4 h-4 text-primary" />
                   <span>Hosur / Bangalore (12.7409° N, 77.8253° E)</span>
                 </div>
-                <div className="flex items-center gap-2 text-silver-light">
-                  <Mail className="w-4 h-4 text-cyan-accent" />
-                  <a href={`mailto:${studioConfig.contact.email}`} className="text-cyan-accent hover:underline">
+                <div className="flex items-center gap-2 text-foreground/90">
+                  <Mail className="w-4 h-4 text-primary" />
+                  <a href={`mailto:${studioConfig.contact.email}`} className="text-primary hover:underline font-semibold">
                     {studioConfig.contact.email}
                   </a>
                 </div>
@@ -423,7 +423,7 @@ export default function StudioPage() {
                 <Button
                   variant="primary"
                   size="lg"
-                  className="w-full font-mono text-xs font-bold bg-cyan-400 text-obsidian hover:bg-cyan-300"
+                  className="w-full font-mono text-xs font-bold shadow-md"
                 >
                   START A CONVERSATION
                 </Button>

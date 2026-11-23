@@ -35,6 +35,25 @@ export function InteractiveHeroCenterpiece() {
   const [activeNode, setActiveNode] = useState<string>("Go");
   const [activeCategory, setActiveCategory] = useState<string>("Systems & Concurrency");
   const [nodeCount, setNodeCount] = useState<number>(TECH_NODES.length);
+  const [isDark, setIsDark] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const dark = document.documentElement.classList.contains("dark") || 
+                   document.documentElement.getAttribute("data-theme") === "obsidian";
+      setIsDark(dark);
+    };
+
+    checkTheme();
+
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class", "data-theme"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -59,11 +78,11 @@ export function InteractiveHeroCenterpiece() {
         y: height / 2 + Math.sin(angle) * dist + (Math.random() - 0.5) * 40,
         vx: (Math.random() - 0.5) * 0.8,
         vy: (Math.random() - 0.5) * 0.8,
-        radius: 4,
+        radius: 4.5,
       };
     });
 
-    // Extra background ambient particles
+    // Ambient background particles
     const particles = Array.from({ length: 30 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -83,7 +102,6 @@ export function InteractiveHeroCenterpiece() {
       mouse.x = e.clientX - rect.left;
       mouse.y = e.clientY - rect.top;
 
-      // Check hover on nodes
       nodes.forEach((node) => {
         const dx = mouse.x - node.x;
         const dy = mouse.y - node.y;
@@ -108,7 +126,7 @@ export function InteractiveHeroCenterpiece() {
       ctx.clearRect(0, 0, width, height);
 
       // Draw subtle grid crosshairs in canvas background
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.03)";
+      ctx.strokeStyle = isDark ? "rgba(255, 255, 255, 0.03)" : "rgba(15, 23, 42, 0.04)";
       ctx.lineWidth = 1;
       for (let x = 40; x < width; x += 40) {
         ctx.beginPath();
@@ -130,7 +148,7 @@ export function InteractiveHeroCenterpiece() {
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        ctx.fillStyle = "rgba(255, 255, 255, 0.15)";
+        ctx.fillStyle = isDark ? "rgba(255, 255, 255, 0.15)" : "rgba(37, 99, 235, 0.12)";
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
@@ -141,11 +159,9 @@ export function InteractiveHeroCenterpiece() {
         node.x += node.vx;
         node.y += node.vy;
 
-        // Keep inside bounds
         if (node.x < 30 || node.x > width - 30) node.vx *= -1;
         if (node.y < 30 || node.y > height - 30) node.vy *= -1;
 
-        // Gentle mouse interaction
         const dx = mouse.x - node.x;
         const dy = mouse.y - node.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
@@ -156,7 +172,7 @@ export function InteractiveHeroCenterpiece() {
         }
       });
 
-      // Draw connecting lines between nodes within distance threshold
+      // Draw connecting lines between nodes
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
@@ -164,8 +180,10 @@ export function InteractiveHeroCenterpiece() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < 130) {
-            const alpha = (1 - dist / 130) * 0.28;
-            ctx.strokeStyle = `rgba(0, 245, 255, ${alpha})`;
+            const alpha = (1 - dist / 130) * (isDark ? 0.28 : 0.35);
+            ctx.strokeStyle = isDark
+              ? `rgba(0, 245, 255, ${alpha})`
+              : `rgba(37, 99, 235, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -179,24 +197,28 @@ export function InteractiveHeroCenterpiece() {
       nodes.forEach((node) => {
         const isSelected = node.name === activeNode;
 
-        // Outer glow on selected node
+        // Outer ring on selected node
         if (isSelected) {
-          ctx.strokeStyle = "rgba(0, 245, 255, 0.6)";
-          ctx.lineWidth = 1.5;
+          ctx.strokeStyle = isDark ? "rgba(0, 245, 255, 0.6)" : "rgba(37, 99, 235, 0.6)";
+          ctx.lineWidth = 2;
           ctx.beginPath();
           ctx.arc(node.x, node.y, 8, 0, Math.PI * 2);
           ctx.stroke();
         }
 
         // Inner solid dot
-        ctx.fillStyle = isSelected ? "#00f5ff" : "#ffffff";
+        ctx.fillStyle = isSelected
+          ? isDark ? "#00f5ff" : "#2563eb"
+          : isDark ? "#ffffff" : "#475569";
         ctx.beginPath();
         ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fill();
 
         // Node Label
         ctx.font = isSelected ? "bold 11px monospace" : "10px monospace";
-        ctx.fillStyle = isSelected ? "#00f5ff" : "rgba(228, 228, 231, 0.8)";
+        ctx.fillStyle = isSelected
+          ? isDark ? "#00f5ff" : "#2563eb"
+          : isDark ? "rgba(228, 228, 231, 0.85)" : "#334155";
         ctx.fillText(node.name, node.x + 8, node.y + 3);
       });
 
@@ -211,19 +233,19 @@ export function InteractiveHeroCenterpiece() {
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [activeNode]);
+  }, [activeNode, isDark]);
 
   return (
     <div
       ref={containerRef}
-      className="w-full rounded-2xl border border-hairline bg-obsidian/90 backdrop-blur-md overflow-hidden relative"
+      className="w-full rounded-2xl border border-border bg-card shadow-card overflow-hidden relative"
     >
       {/* HUD Header Bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 border-b border-hairline bg-carbon/50 text-[11px] font-mono text-silver-dark">
+      <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-surface text-[11px] font-mono text-muted-foreground">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-cyan-accent animate-pulse" />
-          <span className="text-white font-semibold">TOPOLOGY_KERNEL // ACTIVE</span>
-          <span className="hidden sm:inline text-silver-dark">[{nodeCount} NODES CONNECTED]</span>
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="text-foreground font-semibold">TOPOLOGY_KERNEL // ACTIVE</span>
+          <span className="hidden sm:inline text-muted-foreground">[{nodeCount} NODES CONNECTED]</span>
         </div>
 
         <div className="flex items-center gap-3">
@@ -243,17 +265,17 @@ export function InteractiveHeroCenterpiece() {
         />
 
         {/* Floating Telemetry Pill on Active Node */}
-        <div className="absolute bottom-3 left-3 sm:left-4 z-10 flex items-center gap-3 px-3 py-1.5 rounded-lg bg-carbon/90 border border-hairline backdrop-blur-md font-mono text-xs">
-          <Terminal className="w-3.5 h-3.5 text-cyan-accent" />
+        <div className="absolute bottom-3 left-3 sm:left-4 z-10 flex items-center gap-3 px-3 py-1.5 rounded-lg bg-card/95 border border-border backdrop-blur-md font-mono text-xs shadow-sm">
+          <Terminal className="w-3.5 h-3.5 text-primary" />
           <div className="flex items-center gap-2">
-            <span className="text-white font-bold">{activeNode}</span>
-            <span className="text-silver-dark">•</span>
-            <span className="text-silver-mid text-[11px]">{activeCategory}</span>
+            <span className="text-foreground font-bold">{activeNode}</span>
+            <span className="text-muted-foreground">•</span>
+            <span className="text-muted-foreground text-[11px]">{activeCategory}</span>
           </div>
         </div>
 
         {/* Live Coordinate Crosshair indicator */}
-        <div className="absolute top-3 right-3 text-[10px] font-mono text-silver-dark pointer-events-none hidden sm:block">
+        <div className="absolute top-3 right-3 text-[10px] font-mono text-muted-foreground pointer-events-none hidden sm:block">
           POS: [ACTIVE] // DRAG TO INTERACT
         </div>
       </div>

@@ -18,7 +18,7 @@ export function Card({
       className={cn(
         "studio-card rounded-2xl p-6 relative overflow-hidden",
         hasDatumCorners && "corner-datum",
-        hoverHighlight && "hover:border-hairline-hover hover:shadow-[0_4px_32px_rgba(0,0,0,0.6)]",
+        hoverHighlight && "hover:border-slate-300 dark:hover:border-white/20 hover:shadow-card-hover",
         className
       )}
       {...props}
@@ -61,7 +61,7 @@ export function CardDescription({
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return (
     <p
-      className={cn("text-xs font-mono text-silver-mid leading-relaxed", className)}
+      className={cn("text-xs font-mono text-muted-foreground leading-relaxed", className)}
       {...props}
     />
   );
@@ -80,7 +80,7 @@ export function CardFooter({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("flex items-center pt-4 border-t border-hairline", className)}
+      className={cn("flex items-center pt-4 border-t border-border", className)}
       {...props}
     />
   );

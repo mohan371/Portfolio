@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { siteConfig } from "@/content/data/site-config";
 import { Badge } from "@/components/ui/badge";
-import { Mail, ShieldCheck, Terminal } from "lucide-react";
+import { Mail, ShieldCheck, Terminal, Phone } from "lucide-react";
 
 function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -29,22 +29,21 @@ function TwitterXIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function Footer() {
   return (
-    <footer className="border-t border-hairline bg-void relative z-10 pt-20 pb-14 overflow-hidden">
-      {/* Hairline Grid Accent */}
+    <footer className="border-t border-border bg-surface relative z-10 pt-20 pb-14 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-hairline">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-border">
           {/* Brand Identity & Architectural Stance */}
           <div className="md:col-span-5 flex flex-col gap-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full border border-hairline bg-carbon flex items-center justify-center font-display font-bold text-xs text-white">
+              <div className="w-8 h-8 rounded-full border border-border bg-surface-secondary flex items-center justify-center font-display font-bold text-xs text-foreground">
                 NV
               </div>
-              <span className="font-display font-bold text-white text-base tracking-wider">
+              <span className="font-display font-bold text-foreground text-base tracking-wider">
                 {siteConfig.name}
               </span>
             </div>
 
-            <p className="text-xs sm:text-sm text-silver-mid font-light max-w-sm leading-relaxed">
+            <p className="text-xs sm:text-sm text-muted-foreground font-light max-w-sm leading-relaxed">
               {siteConfig.tagline}
             </p>
 
@@ -52,7 +51,7 @@ export function Footer() {
               <Badge variant="emerald" dot>
                 {siteConfig.availability.status}
               </Badge>
-              <span className="text-[11px] font-mono text-silver-dark">
+              <span className="text-[11px] font-mono text-muted-foreground">
                 {siteConfig.location.city}, {siteConfig.location.country}
               </span>
             </div>
@@ -60,56 +59,56 @@ export function Footer() {
 
           {/* Directory Column 1 */}
           <div className="md:col-span-2 flex flex-col gap-3">
-            <span className="text-[10px] font-mono uppercase text-silver-dark tracking-widest">
+            <span className="text-[10px] font-mono uppercase text-muted-foreground tracking-widest">
               Directory
             </span>
-            <div className="flex flex-col gap-2 text-xs font-mono text-silver-mid">
-              <Link href="/about" className="hover:text-white transition-colors">About</Link>
-              <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
-              <Link href="/skills" className="hover:text-white transition-colors">Skills</Link>
-              <Link href="/experience" className="hover:text-white transition-colors">Experience</Link>
-              <Link href="/lab" className="hover:text-white transition-colors">Lab</Link>
+            <div className="flex flex-col gap-2 text-xs font-mono text-muted-foreground">
+              <Link href="/about" className="hover:text-primary transition-colors">About</Link>
+              <Link href="/projects" className="hover:text-primary transition-colors">Projects</Link>
+              <Link href="/skills" className="hover:text-primary transition-colors">Skills</Link>
+              <Link href="/experience" className="hover:text-primary transition-colors">Experience</Link>
+              <Link href="/lab" className="hover:text-primary transition-colors">Lab</Link>
             </div>
           </div>
 
           {/* Directory Column 2 */}
           <div className="md:col-span-2 flex flex-col gap-3">
-            <span className="text-[10px] font-mono uppercase text-silver-dark tracking-widest">
+            <span className="text-[10px] font-mono uppercase text-muted-foreground tracking-widest">
               Platform
             </span>
-            <div className="flex flex-col gap-2 text-xs font-mono text-silver-mid">
-              <Link href="/journal" className="hover:text-white transition-colors">Journal</Link>
-              <Link href="/studio" className="hover:text-white transition-colors">Studio</Link>
-              <Link href="/resume" className="hover:text-white transition-colors">Resume</Link>
-              <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-              <Link href="/admin/login" className="hover:text-white text-silver-dark transition-colors">Admin</Link>
+            <div className="flex flex-col gap-2 text-xs font-mono text-muted-foreground">
+              <Link href="/journal" className="hover:text-primary transition-colors">Journal</Link>
+              <Link href="/studio" className="hover:text-primary transition-colors">Studio</Link>
+              <Link href="/resume" className="hover:text-primary transition-colors">Resume</Link>
+              <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
+              <Link href="/admin/login" className="hover:text-primary transition-colors">Admin</Link>
             </div>
           </div>
 
           {/* Security & Direct Transmission */}
           <div className="md:col-span-3 flex flex-col gap-3">
-            <span className="text-[10px] font-mono uppercase text-silver-dark tracking-widest">
+            <span className="text-[10px] font-mono uppercase text-muted-foreground tracking-widest">
               Direct Transmission
             </span>
-            <div className="flex flex-col gap-3 text-xs text-silver-mid">
+            <div className="flex flex-col gap-3 text-xs text-muted-foreground">
               <a
                 href={`mailto:${siteConfig.socials.email}`}
-                className="hover:text-cyan-accent font-mono transition-colors flex items-center gap-1.5"
+                className="text-foreground hover:text-primary font-mono transition-colors flex items-center gap-1.5"
               >
-                <Mail className="w-3.5 h-3.5 text-cyan-accent" />
-                {siteConfig.socials.email}
+                <Mail className="w-3.5 h-3.5 text-primary shrink-0" />
+                <span className="truncate">{siteConfig.socials.email}</span>
               </a>
 
               <a
                 href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, "")}`}
-                className="hover:text-cyan-accent font-mono transition-colors flex items-center gap-1.5"
+                className="text-foreground hover:text-primary font-mono transition-colors flex items-center gap-1.5"
               >
-                <span className="text-cyan-accent text-xs">TEL:</span>
-                {siteConfig.phone}
+                <Phone className="w-3.5 h-3.5 text-primary shrink-0" />
+                <span>{siteConfig.phone}</span>
               </a>
 
-              <div className="flex items-center gap-2 text-[10px] font-mono text-silver-dark pt-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-cyan-accent" />
+              <div className="flex items-center gap-2 text-[10px] font-mono text-muted-foreground pt-1">
+                <ShieldCheck className="w-3.5 h-3.5 text-primary" />
                 <span>PGP: 4A7F 92B1 C83E 55E0</span>
               </div>
 
@@ -119,7 +118,7 @@ export function Footer() {
                   href={siteConfig.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full border border-hairline bg-carbon hover:border-white/30 text-silver-mid hover:text-white transition-colors"
+                  className="p-2 rounded-full border border-border bg-card hover:border-primary/40 text-muted-foreground hover:text-primary transition-colors shadow-xs"
                   aria-label="GitHub Profile"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
@@ -128,7 +127,7 @@ export function Footer() {
                   href={siteConfig.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full border border-hairline bg-carbon hover:border-white/30 text-silver-mid hover:text-white transition-colors"
+                  className="p-2 rounded-full border border-border bg-card hover:border-primary/40 text-muted-foreground hover:text-primary transition-colors shadow-xs"
                   aria-label="LinkedIn Profile"
                 >
                   <LinkedinIcon className="w-3.5 h-3.5" />
@@ -137,7 +136,7 @@ export function Footer() {
                   href={siteConfig.socials.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 rounded-full border border-hairline bg-carbon hover:border-white/30 text-silver-mid hover:text-white transition-colors"
+                  className="p-2 rounded-full border border-border bg-card hover:border-primary/40 text-muted-foreground hover:text-primary transition-colors shadow-xs"
                   aria-label="Twitter Profile"
                 >
                   <TwitterXIcon className="w-3.5 h-3.5" />
@@ -148,9 +147,9 @@ export function Footer() {
         </div>
 
         {/* Bottom Coordinates & Engineering Signature */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[10px] font-mono text-silver-dark gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[10px] font-mono text-muted-foreground gap-4">
           <div className="flex items-center gap-2">
-            <Terminal className="w-3 h-3 text-cyan-accent" />
+            <Terminal className="w-3 h-3 text-primary" />
             <span>© {new Date().getFullYear()} {siteConfig.name}. ARCHITECTURAL SYSTEM v16.</span>
           </div>
 
@@ -160,7 +159,7 @@ export function Footer() {
             <span>TIMEZONE: {siteConfig.location.timezone}</span>
           </div>
 
-          <div className="text-silver-dark/80">
+          <div className="text-muted-foreground">
             ENGINEERED WITH ZERO COMPROMISE
           </div>
         </div>

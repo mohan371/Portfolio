@@ -40,19 +40,19 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantStyles = {
       primary:
-        "bg-white text-black font-medium hover:bg-zinc-200 active:scale-[0.98] transition-all shadow-[0_2px_12px_rgba(255,255,255,0.15)]",
+        "bg-primary text-primary-foreground font-medium hover:bg-blue-700 active:scale-[0.98] transition-all shadow-[0_2px_10px_rgba(37,99,235,0.2)] dark:shadow-[0_0_20px_rgba(37,99,235,0.35)]",
       secondary:
-        "bg-carbon text-silver-light border border-hairline hover:border-hairline-hover hover:text-white hover:bg-surface-1 active:scale-[0.98] transition-all shadow-[0_2px_8px_rgba(0,0,0,0.5)]",
+        "bg-secondary text-secondary-foreground border border-blue-200/60 dark:border-white/10 hover:bg-blue-100/80 dark:hover:bg-surface-2 active:scale-[0.98] transition-all shadow-xs",
       outline:
-        "bg-transparent text-silver-light border border-hairline hover:border-white/40 hover:text-white hover:bg-white/[0.04] active:scale-[0.98] transition-all",
+        "bg-card text-foreground border border-border hover:bg-surface hover:border-slate-300 dark:hover:border-white/30 active:scale-[0.98] transition-all shadow-xs",
       ghost:
-        "bg-transparent text-silver-mid hover:text-white hover:bg-white/[0.06] transition-colors",
+        "bg-transparent text-muted-foreground hover:text-foreground hover:bg-muted transition-colors",
       cyan:
-        "bg-cyan-accent text-black font-semibold hover:bg-cyan-400 shadow-[0_0_25px_rgba(0,245,255,0.35)] active:scale-[0.98] transition-all",
+        "bg-primary text-white font-semibold hover:bg-blue-700 shadow-[0_0_20px_rgba(37,99,235,0.25)] active:scale-[0.98] transition-all",
       violet:
-        "bg-violet-accent text-white font-semibold hover:bg-purple-600 shadow-[0_0_25px_rgba(139,92,246,0.35)] active:scale-[0.98] transition-all",
+        "bg-indigo-600 text-white font-semibold hover:bg-indigo-700 shadow-sm active:scale-[0.98] transition-all",
       link:
-        "bg-transparent text-silver-mid hover:text-cyan-accent underline-offset-4 hover:underline p-0 h-auto font-sans text-xs",
+        "bg-transparent text-muted-foreground hover:text-primary underline-offset-4 hover:underline p-0 h-auto font-sans text-xs",
     };
 
     const sizeStyles = {
@@ -69,7 +69,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         onMouseEnter={handleMouseEnter}
         disabled={disabled || isLoading}
         className={cn(
-          "inline-flex items-center justify-center gap-2 select-none disabled:opacity-40 disabled:pointer-events-none cursor-pointer duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-accent focus-visible:ring-offset-2 focus-visible:ring-offset-void",
+          "inline-flex items-center justify-center gap-2 select-none disabled:opacity-40 disabled:pointer-events-none cursor-pointer duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           variantStyles[variant],
           variant !== "link" && sizeStyles[size],
           className

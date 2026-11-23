@@ -11,7 +11,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { siteConfig } from "@/content/data/site-config";
 
 export const viewport: Viewport = {
-  themeColor: "#050505",
+  themeColor: "#FFFFFF",
   width: "device-width",
   initialScale: 1,
 };
@@ -121,8 +121,13 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="h-full antialiased dark">
+    <html lang="en" className="h-full antialiased light" data-theme="studio-light" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem("nv-theme");if(s==="obsidian"||s==="dark"){document.documentElement.setAttribute("data-theme","obsidian");document.documentElement.classList.remove("light");document.documentElement.classList.add("dark");}else{document.documentElement.setAttribute("data-theme","studio-light");document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}}catch(e){document.documentElement.setAttribute("data-theme","studio-light");document.documentElement.classList.remove("dark");document.documentElement.classList.add("light");}})();`,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -134,7 +139,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-cyan-accent selection:text-black font-sans transition-colors duration-200">
+      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary selection:text-white font-sans transition-colors duration-200">
         <TooltipProvider delayDuration={150}>
           {/* Real-time Page Progress Line */}
           <PageProgress />

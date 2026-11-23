@@ -6,7 +6,7 @@ import { playTactileClick } from "@/lib/sound";
 import { Moon, Sun } from "lucide-react";
 
 export function ThemeSwitcher() {
-  const [theme, setTheme] = useState<"obsidian" | "studio-light">("obsidian");
+  const [theme, setTheme] = useState<"obsidian" | "studio-light">("studio-light");
   const { soundEnabled } = useAppStore();
 
   const applyTheme = (targetTheme: "obsidian" | "studio-light") => {
@@ -23,18 +23,19 @@ export function ThemeSwitcher() {
 
   useEffect(() => {
     const saved = localStorage.getItem("nv-theme") as "obsidian" | "studio-light" | null;
-    if (saved) {
-      setTheme(saved);
-      applyTheme(saved);
-    } else {
-      // Default to Obsidian Dark
+    if (saved === "obsidian") {
+      setTheme("obsidian");
       applyTheme("obsidian");
+    } else {
+      // Default to Studio Light for first-time visitors
+      setTheme("studio-light");
+      applyTheme("studio-light");
     }
   }, []);
 
   const toggleTheme = () => {
     if (soundEnabled) playTactileClick();
-    const next = theme === "obsidian" ? "studio-light" : "obsidian";
+    const next = theme === "studio-light" ? "obsidian" : "studio-light";
     setTheme(next);
     localStorage.setItem("nv-theme", next);
     applyTheme(next);
@@ -43,14 +44,14 @@ export function ThemeSwitcher() {
   return (
     <button
       onClick={toggleTheme}
-      aria-label={theme === "obsidian" ? "Switch to Studio Light mode" : "Switch to Obsidian Dark mode"}
-      className="p-2 rounded-full border border-hairline bg-obsidian text-silver-mid hover:text-foreground hover:border-hairline-hover transition-colors cursor-pointer"
-      title={theme === "obsidian" ? "Switch to Studio Light mode" : "Switch to Obsidian Dark mode"}
+      aria-label={theme === "studio-light" ? "Switch to Obsidian Dark theme" : "Switch to Studio Light theme"}
+      className="p-2 rounded-full border border-border bg-card text-muted-foreground hover:text-foreground hover:border-slate-400 transition-colors cursor-pointer shadow-xs"
+      title={theme === "studio-light" ? "Switch to Obsidian Dark theme" : "Switch to Studio Light theme"}
     >
-      {theme === "obsidian" ? (
-        <Sun className="w-3.5 h-3.5 text-amber-300" />
+      {theme === "studio-light" ? (
+        <Moon className="w-3.5 h-3.5 text-slate-700" />
       ) : (
-        <Moon className="w-3.5 h-3.5 text-silver-mid" />
+        <Sun className="w-3.5 h-3.5 text-amber-300" />
       )}
     </button>
   );

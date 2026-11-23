@@ -144,100 +144,100 @@ export default function LabPage() {
 
       {/* Tab Navigation Navigation Pill Matrix */}
       <div className="my-8 overflow-x-auto pb-2">
-        <div className="flex items-center gap-2 min-w-max p-1.5 rounded-xl bg-surface-1 border border-hairline font-mono text-xs">
+        <div className="flex items-center gap-2 min-w-max p-1.5 rounded-2xl bg-surface border border-border font-mono text-xs shadow-xs">
           <button
             onClick={() => handleTabChange("geofence")}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "geofence"
-                ? "bg-cyan-500/20 text-cyan-accent border border-cyan-500/40 font-bold"
-                : "text-silver-mid hover:text-white"
+                ? "bg-primary text-primary-foreground font-bold shadow-xs"
+                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
             }`}
           >
-            <Radio className="w-3.5 h-3.5 text-cyan-accent" />
+            <Radio className="w-3.5 h-3.5" />
             <span>GEOFENCE &amp; SPATIAL</span>
           </button>
 
           <button
             onClick={() => handleTabChange("terminal")}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "terminal"
-                ? "bg-cyan-500/20 text-cyan-accent border border-cyan-500/40 font-bold"
-                : "text-silver-mid hover:text-white"
+                ? "bg-primary text-primary-foreground font-bold shadow-xs"
+                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
             }`}
           >
-            <TerminalIcon className="w-3.5 h-3.5 text-cyan-accent" />
+            <TerminalIcon className="w-3.5 h-3.5" />
             <span>CODING TERMINAL</span>
           </button>
 
           <button
             onClick={() => handleTabChange("api")}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "api"
-                ? "bg-cyan-500/20 text-cyan-accent border border-cyan-500/40 font-bold"
-                : "text-silver-mid hover:text-white"
+                ? "bg-primary text-primary-foreground font-bold shadow-xs"
+                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
             }`}
           >
-            <Server className="w-3.5 h-3.5 text-cyan-accent" />
+            <Server className="w-3.5 h-3.5" />
             <span>API PLAYGROUND</span>
           </button>
 
           <button
             onClick={() => handleTabChange("architecture")}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "architecture"
-                ? "bg-cyan-500/20 text-cyan-accent border border-cyan-500/40 font-bold"
-                : "text-silver-mid hover:text-white"
+                ? "bg-primary text-primary-foreground font-bold shadow-xs"
+                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
             }`}
           >
-            <Network className="w-3.5 h-3.5 text-cyan-accent" />
+            <Network className="w-3.5 h-3.5" />
             <span>SYSTEM ARCHITECTURE</span>
           </button>
 
           <button
             onClick={() => handleTabChange("database")}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "database"
-                ? "bg-cyan-500/20 text-cyan-accent border border-cyan-500/40 font-bold"
-                : "text-silver-mid hover:text-white"
+                ? "bg-primary text-primary-foreground font-bold shadow-xs"
+                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
             }`}
           >
-            <Database className="w-3.5 h-3.5 text-cyan-accent" />
+            <Database className="w-3.5 h-3.5" />
             <span>DATABASE &amp; SQL</span>
           </button>
 
           <button
             onClick={() => handleTabChange("constellation")}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "constellation"
-                ? "bg-cyan-500/20 text-cyan-accent border border-cyan-500/40 font-bold"
-                : "text-silver-mid hover:text-white"
+                ? "bg-primary text-primary-foreground font-bold shadow-xs"
+                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
             }`}
           >
-            <Share2 className="w-3.5 h-3.5 text-cyan-accent" />
+            <Share2 className="w-3.5 h-3.5" />
             <span>TECH CONSTELLATION</span>
           </button>
 
           <button
             onClick={() => handleTabChange("runtime")}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "runtime"
-                ? "bg-cyan-500/20 text-cyan-accent border border-cyan-500/40 font-bold"
-                : "text-silver-mid hover:text-white"
+                ? "bg-primary text-primary-foreground font-bold shadow-xs"
+                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
             }`}
           >
-            <Cpu className="w-3.5 h-3.5 text-cyan-accent" />
+            <Cpu className="w-3.5 h-3.5" />
             <span>JS RUNTIME</span>
           </button>
 
           <button
             onClick={() => handleTabChange("directory")}
-            className={`px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 ${
+            className={`px-3.5 py-2 rounded-xl transition-all flex items-center gap-2 cursor-pointer ${
               activeTab === "directory"
-                ? "bg-violet-500/20 text-violet-accent border border-violet-500/40 font-bold"
-                : "text-silver-mid hover:text-white"
+                ? "bg-primary text-primary-foreground font-bold shadow-xs"
+                : "text-muted-foreground hover:text-foreground hover:bg-slate-100 dark:hover:bg-surface-2"
             }`}
           >
-            <Layers className="w-3.5 h-3.5 text-violet-accent" />
+            <Layers className="w-3.5 h-3.5" />
             <span>ALL PROTOTYPES</span>
           </button>
         </div>
@@ -258,16 +258,16 @@ export default function LabPage() {
             <DatabaseSchemaVisualizer />
 
             {/* B-Tree Index Execution Cost Optimizer */}
-            <Card hasDatumCorners className="p-6 bg-obsidian border-hairline">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-hairline gap-4">
+            <Card hasDatumCorners className="p-6 bg-card border-border shadow-card">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-border gap-4">
                 <div>
                   <div className="flex items-center gap-2">
-                    <Database className="w-4 h-4 text-cyan-accent" />
-                    <h3 className="font-display font-bold text-xl text-white">
+                    <Database className="w-4 h-4 text-primary" />
+                    <h3 className="font-display font-bold text-xl text-foreground">
                       PostgreSQL &amp; MySQL B-Tree Index Execution Simulator
                     </h3>
                   </div>
-                  <p className="text-xs text-silver-mid font-light mt-1">
+                  <p className="text-xs text-muted-foreground font-light mt-1">
                     Simulate how B-Tree index scans eliminate full table sequential scans (Seq Scan) across large datasets.
                   </p>
                 </div>
@@ -277,7 +277,7 @@ export default function LabPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-6">
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-xs font-mono text-silver-dark uppercase mb-1">
+                    <label className="block text-xs font-mono text-muted-foreground uppercase mb-1 font-medium">
                       Table Record Cardinality: {rowCount.toLocaleString()} Rows
                     </label>
                     <input
@@ -287,12 +287,12 @@ export default function LabPage() {
                       step={50000}
                       value={rowCount}
                       onChange={(e) => setRowCount(Number(e.target.value))}
-                      className="w-full accent-cyan-400 bg-carbon cursor-pointer"
+                      className="w-full accent-primary bg-surface-secondary cursor-pointer"
                     />
                   </div>
 
                   <div>
-                    <span className="block text-xs font-mono text-silver-dark uppercase mb-2">
+                    <span className="block text-xs font-mono text-muted-foreground uppercase mb-2 font-medium">
                       Database Index Configuration
                     </span>
                     <div className="flex gap-3">
@@ -301,10 +301,10 @@ export default function LabPage() {
                           playTactileClick();
                           setHasIndex(true);
                         }}
-                        className={`px-4 py-2 rounded-lg text-xs font-mono border transition-all ${
+                        className={`px-4 py-2 rounded-xl text-xs font-mono border transition-all cursor-pointer ${
                           hasIndex
-                            ? "bg-cyan-950/60 border-cyan-500/50 text-cyan-accent font-bold"
-                            : "bg-carbon border-hairline text-silver-dark"
+                            ? "bg-primary text-primary-foreground font-bold shadow-xs border-primary"
+                            : "bg-surface border-border text-muted-foreground hover:text-foreground"
                         }`}
                       >
                         Index Scan (B-Tree Enabled)
@@ -314,10 +314,10 @@ export default function LabPage() {
                           playTactileClick();
                           setHasIndex(false);
                         }}
-                        className={`px-4 py-2 rounded-lg text-xs font-mono border transition-all ${
+                        className={`px-4 py-2 rounded-xl text-xs font-mono border transition-all cursor-pointer ${
                           !hasIndex
-                            ? "bg-red-950/60 border-red-500/50 text-red-400 font-bold"
-                            : "bg-carbon border-hairline text-silver-dark"
+                            ? "bg-red-500 text-white font-bold shadow-xs border-red-500"
+                            : "bg-surface border-border text-muted-foreground hover:text-foreground"
                         }`}
                       >
                         Seq Scan (No Index)
@@ -326,24 +326,24 @@ export default function LabPage() {
                   </div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-carbon/60 border border-hairline font-mono text-xs space-y-3">
-                  <div className="flex justify-between border-b border-hairline pb-2">
-                    <span className="text-silver-dark">Query Method:</span>
-                    <span className={hasIndex ? "text-cyan-accent font-bold" : "text-red-400 font-bold"}>
+                <div className="p-4 rounded-xl bg-surface border border-border font-mono text-xs space-y-3">
+                  <div className="flex justify-between border-b border-border pb-2">
+                    <span className="text-muted-foreground">Query Method:</span>
+                    <span className={hasIndex ? "text-primary font-bold" : "text-red-500 font-bold"}>
                       {hasIndex ? "Index Scan using idx_accounts_id" : "Seq Scan on accounts"}
                     </span>
                   </div>
-                  <div className="flex justify-between border-b border-hairline pb-2">
-                    <span className="text-silver-dark">Disk Blocks Read:</span>
-                    <span className="text-white font-bold">{indexScanBlocks.toLocaleString()} Pages</span>
+                  <div className="flex justify-between border-b border-border pb-2">
+                    <span className="text-muted-foreground">Disk Blocks Read:</span>
+                    <span className="text-foreground font-bold">{indexScanBlocks.toLocaleString()} Pages</span>
                   </div>
-                  <div className="flex justify-between border-b border-hairline pb-2">
-                    <span className="text-silver-dark">Simulated Execution Time:</span>
-                    <span className="text-white font-bold">{executionTimeMs} ms</span>
+                  <div className="flex justify-between border-b border-border pb-2">
+                    <span className="text-muted-foreground">Simulated Execution Time:</span>
+                    <span className="text-foreground font-bold">{executionTimeMs} ms</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-silver-dark">Disk I/O Reduction:</span>
-                    <span className="text-emerald-accent font-bold">
+                    <span className="text-muted-foreground">Disk I/O Reduction:</span>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-bold">
                       {hasIndex ? `+${costReduction}% Efficiency` : "0% (Full Table Scan)"}
                     </span>
                   </div>
@@ -359,11 +359,11 @@ export default function LabPage() {
 
         {activeTab === "directory" && (
           <div className="space-y-6">
-            <div className="p-4 rounded-xl bg-surface-1 border border-hairline flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs">
-              <span className="text-silver-mid">
+            <div className="p-4 rounded-xl bg-surface border border-border flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs shadow-xs">
+              <span className="text-muted-foreground">
                 Showing all 10 verified interactive engineering prototypes running 100% locally on the browser.
               </span>
-              <span className="text-cyan-accent font-bold">ZERO EXTERNAL CLOUD DEPENDENCY</span>
+              <span className="text-primary font-bold">ZERO EXTERNAL CLOUD DEPENDENCY</span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -371,28 +371,28 @@ export default function LabPage() {
                 <Card
                   key={item.id}
                   hasDatumCorners
-                  className="p-6 flex flex-col justify-between group hover:border-cyan-500/50 transition-all cursor-pointer"
+                  className="p-6 flex flex-col justify-between group hover:border-primary/50 transition-all cursor-pointer"
                   onClick={() => handleTabChange(item.id)}
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3 text-xs font-mono">
-                      <span className="text-cyan-accent font-bold">{item.number}</span>
+                      <span className="text-primary font-bold">{item.number}</span>
                       <Badge variant="violet" dot>{item.category}</Badge>
                     </div>
 
-                    <h3 className="font-display font-bold text-lg text-white mb-1 group-hover:text-cyan-accent transition-colors">
+                    <h3 className="font-display font-bold text-lg text-foreground mb-1 group-hover:text-primary transition-colors">
                       {item.title}
                     </h3>
-                    <p className="text-[11px] font-mono text-silver-dark mb-3">{item.subtitle}</p>
-                    <p className="text-xs text-silver-mid font-light leading-relaxed mb-4">
+                    <p className="text-[11px] font-mono text-muted-foreground mb-3">{item.subtitle}</p>
+                    <p className="text-xs text-muted-foreground font-light leading-relaxed mb-4">
                       {item.description}
                     </p>
                   </div>
 
                   <div>
-                    <div className="pt-3 border-t border-hairline flex flex-wrap gap-1.5 mb-4">
+                    <div className="pt-3 border-t border-border flex flex-wrap gap-1.5 mb-4">
                       {item.tech.map((t) => (
-                        <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded bg-surface-1 text-silver-dark">
+                        <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-surface-secondary text-muted-foreground border border-border">
                           {t}
                         </span>
                       ))}
@@ -401,7 +401,7 @@ export default function LabPage() {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="w-full text-xs font-mono gap-1 group-hover:bg-cyan-950/40 group-hover:text-cyan-accent group-hover:border-cyan-500/50"
+                      className="w-full text-xs font-mono gap-1 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors"
                     >
                       <span>LAUNCH PROTOTYPE</span>
                       <ArrowRight className="w-3.5 h-3.5" />

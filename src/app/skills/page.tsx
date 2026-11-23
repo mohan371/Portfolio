@@ -14,15 +14,15 @@ export default function SkillsPage() {
   const getCategoryIcon = (idx: number) => {
     switch (idx) {
       case 0:
-        return <Code2 className="w-5 h-5 text-cyan-accent" />;
+        return <Code2 className="w-5 h-5 text-primary" />;
       case 1:
-        return <Layers className="w-5 h-5 text-purple-400" />;
+        return <Layers className="w-5 h-5 text-indigo-600 dark:text-purple-400" />;
       case 2:
-        return <Server className="w-5 h-5 text-emerald-400" />;
+        return <Server className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />;
       case 3:
-        return <Database className="w-5 h-5 text-amber-400" />;
+        return <Database className="w-5 h-5 text-amber-600 dark:text-amber-400" />;
       default:
-        return <Wrench className="w-5 h-5 text-silver-light" />;
+        return <Wrench className="w-5 h-5 text-muted-foreground" />;
     }
   };
 
@@ -40,9 +40,9 @@ export default function SkillsPage() {
         {skillsData.map((category, idx) => (
           <Card key={category.title} hasDatumCorners className="p-6 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between pb-3 mb-4 border-b border-hairline">
+              <div className="flex items-center justify-between pb-3 mb-4 border-b border-border">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-surface-1 border border-hairline flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-lg bg-surface border border-border flex items-center justify-center">
                     {getCategoryIcon(idx)}
                   </div>
                   <h3 className="font-display font-bold text-foreground text-base">{category.title}</h3>
@@ -52,7 +52,7 @@ export default function SkillsPage() {
                 </Badge>
               </div>
 
-              <p className="text-xs text-silver-mid font-light mb-6 leading-relaxed">
+              <p className="text-xs text-muted-foreground font-light mb-6 leading-relaxed">
                 {category.description}
               </p>
 
@@ -60,14 +60,14 @@ export default function SkillsPage() {
                 {category.skills.map((skill) => (
                   <div
                     key={skill.name}
-                    className="p-3 rounded-xl bg-carbon/60 border border-hairline hover:border-cyan-500/30 transition-all duration-200"
+                    className="p-3 rounded-xl bg-surface border border-border hover:border-primary/40 transition-all duration-200"
                   >
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-sans font-semibold text-xs text-foreground">{skill.name}</span>
-                      <span className="text-[10px] font-mono text-cyan-accent">{skill.category}</span>
+                      <span className="text-[10px] font-mono text-primary font-medium">{skill.category}</span>
                     </div>
 
-                    <p className="text-[11px] font-sans text-silver-mid leading-relaxed font-light">
+                    <p className="text-[11px] font-sans text-muted-foreground leading-relaxed font-light">
                       {skill.focus}
                     </p>
                   </div>

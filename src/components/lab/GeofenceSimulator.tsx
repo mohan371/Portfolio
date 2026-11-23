@@ -334,17 +334,17 @@ export function GeofenceSimulator() {
   const gpsPos = canvasToGps(vehiclePos.x, vehiclePos.y);
 
   return (
-    <Card hasDatumCorners className="p-6 bg-obsidian border-hairline">
+    <Card hasDatumCorners className="p-6 bg-card border-border shadow-card">
       {/* Header */}
-      <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-hairline gap-4">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between pb-6 border-b border-border gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <Radio className="w-4 h-4 text-cyan-accent animate-pulse" />
-            <h3 className="font-display font-bold text-xl text-white">
+            <Radio className="w-4 h-4 text-primary animate-pulse" />
+            <h3 className="font-display font-bold text-xl text-foreground">
               MapUp Fleet Geofencing &amp; WebSocket Engine
             </h3>
           </div>
-          <p className="text-xs text-silver-mid font-light mt-1">
+          <p className="text-xs text-muted-foreground font-light mt-1">
             Real-time simulation of Jordan Curve Theorem Point-in-Polygon (PIP) ray casting, boundary ingress/egress
             detection, and live telemetry broadcast.
           </p>
@@ -362,7 +362,7 @@ export function GeofenceSimulator() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 my-6">
         {/* Left / Top: Interactive Canvas Map */}
         <div className="lg:col-span-8 space-y-4">
-          <div className="relative rounded-xl overflow-hidden border border-hairline bg-surface-1">
+          <div className="relative rounded-xl overflow-hidden border border-border bg-slate-950 shadow-md">
             <canvas
               ref={canvasRef}
               width={640}
@@ -373,30 +373,30 @@ export function GeofenceSimulator() {
             />
 
             {/* Canvas HUD Overlay */}
-            <div className="absolute top-3 left-3 bg-obsidian/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-hairline text-[11px] font-mono text-silver-light space-y-0.5">
+            <div className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700/60 text-[11px] font-mono text-slate-200 space-y-0.5 shadow-lg">
               <div className="flex items-center gap-2">
-                <span className="text-silver-dark">TARGET:</span>
+                <span className="text-slate-400">TARGET:</span>
                 <span className="text-white font-bold">VH-104 [HEAVY HAULER]</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-silver-dark">GPS FIX:</span>
-                <span className="text-cyan-accent">{gpsPos.lat}° N, {gpsPos.lng}° E</span>
+                <span className="text-slate-400">GPS FIX:</span>
+                <span className="text-sky-400">{gpsPos.lat}° N, {gpsPos.lng}° E</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-silver-dark">RAY PARITY:</span>
-                <span className={isInside ? "text-cyan-accent font-bold" : "text-amber-400 font-bold"}>
+                <span className="text-slate-400">RAY PARITY:</span>
+                <span className={isInside ? "text-cyan-400 font-bold" : "text-amber-400 font-bold"}>
                   {crossingsCount} Crossings ({isInside ? "ODD -> INSIDE" : "EVEN -> OUTSIDE"})
                 </span>
               </div>
             </div>
 
-            <div className="absolute bottom-3 right-3 text-[10px] font-mono text-silver-dark bg-obsidian/80 px-2.5 py-1 rounded border border-hairline">
+            <div className="absolute bottom-3 right-3 text-[10px] font-mono text-slate-400 bg-slate-900/80 px-2.5 py-1 rounded border border-slate-800">
               Click anywhere on map to test ray casting
             </div>
           </div>
 
           {/* Interactive Simulation Controls */}
-          <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-surface-1 border border-hairline">
+          <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-surface border border-border">
             <div className="flex items-center gap-2">
               <Button
                 variant={isPlaying ? "outline" : "primary"}
@@ -411,8 +411,8 @@ export function GeofenceSimulator() {
                 {isPlaying ? "PAUSE SIMULATION" : "RESUME ENGINE"}
               </Button>
 
-              <div className="flex items-center gap-1 bg-carbon px-2 py-1 rounded-lg border border-hairline text-xs font-mono">
-                <span className="text-silver-dark mr-1">SPEED:</span>
+              <div className="flex items-center gap-1 bg-surface-secondary px-2 py-1 rounded-lg border border-border text-xs font-mono">
+                <span className="text-muted-foreground mr-1">SPEED:</span>
                 {[1, 2, 4].map((spd) => (
                   <button
                     key={spd}
@@ -420,10 +420,10 @@ export function GeofenceSimulator() {
                       playTactileClick();
                       setSpeedMultiplier(spd);
                     }}
-                    className={`px-2 py-0.5 rounded text-xs transition-colors ${
+                    className={`px-2 py-0.5 rounded text-xs transition-colors cursor-pointer ${
                       speedMultiplier === spd
-                        ? "bg-cyan-500/20 text-cyan-accent font-bold"
-                        : "text-silver-dark hover:text-white"
+                        ? "bg-primary text-primary-foreground font-bold shadow-xs"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     {spd}x
@@ -434,25 +434,25 @@ export function GeofenceSimulator() {
 
             {/* Quick Algorithm Metrics */}
             <div className="flex items-center gap-4 text-xs font-mono">
-              <div className="flex items-center gap-1.5 text-silver-mid">
-                <Zap className="w-3.5 h-3.5 text-amber-accent" />
-                <span>Ray Intersects: <strong className="text-white">{crossingsCount}</strong></span>
+              <div className="flex items-center gap-1.5 text-muted-foreground">
+                <Zap className="w-3.5 h-3.5 text-amber-500" />
+                <span>Ray Intersects: <strong className="text-foreground">{crossingsCount}</strong></span>
               </div>
-              <div className="flex items-center gap-1.5 text-silver-mid">
-                <Activity className="w-3.5 h-3.5 text-cyan-accent" />
-                <span>Engine Latency: <strong className="text-emerald-accent">14ms</strong></span>
+              <div className="flex items-center gap-1.5 text-muted-foreground">
+                <Activity className="w-3.5 h-3.5 text-primary" />
+                <span>Engine Latency: <strong className="text-emerald-600 dark:text-emerald-400">14ms</strong></span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Right / Bottom: Live WebSocket Event Stream */}
-        <div className="lg:col-span-4 flex flex-col h-[440px] rounded-xl bg-carbon/70 border border-hairline overflow-hidden">
+        <div className="lg:col-span-4 flex flex-col h-[440px] rounded-xl bg-surface border border-border overflow-hidden shadow-xs">
           {/* Stream Header */}
-          <div className="p-3 bg-surface-2 border-b border-hairline flex items-center justify-between">
+          <div className="p-3 bg-surface-secondary border-b border-border flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-accent animate-ping" />
-              <span className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+              <span className="text-xs font-mono font-bold text-foreground uppercase tracking-wider">
                 WS EVENT EMITTER
               </span>
             </div>
@@ -462,7 +462,7 @@ export function GeofenceSimulator() {
                 setEvents([]);
               }}
               title="Clear Event Log"
-              className="text-silver-dark hover:text-white transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
             >
               <Trash2 className="w-3.5 h-3.5" />
             </button>
@@ -471,7 +471,7 @@ export function GeofenceSimulator() {
           {/* Event Stream List */}
           <div className="flex-1 overflow-y-auto p-3 space-y-2.5 font-mono text-[11px]">
             {events.length === 0 ? (
-              <div className="h-full flex flex-col items-center justify-center text-silver-dark text-xs text-center p-4">
+              <div className="h-full flex flex-col items-center justify-center text-muted-foreground text-xs text-center p-4">
                 <Radio className="w-6 h-6 mb-2 opacity-40 animate-pulse" />
                 Listening to telemetry pipeline...
               </div>
@@ -481,22 +481,22 @@ export function GeofenceSimulator() {
                   key={evt.id}
                   className={`p-2.5 rounded-lg border transition-all ${
                     evt.type === "GEOFENCE_ENTER"
-                      ? "bg-cyan-950/40 border-cyan-500/50 text-cyan-accent"
+                      ? "bg-blue-50 dark:bg-blue-950/40 border-blue-300 dark:border-blue-700/50 text-blue-800 dark:text-blue-300"
                       : evt.type === "GEOFENCE_EXIT"
-                      ? "bg-amber-950/40 border-amber-500/50 text-amber-300"
-                      : "bg-surface-1 border-hairline text-silver-mid"
+                      ? "bg-amber-50 dark:bg-amber-950/40 border-amber-300 dark:border-amber-700/50 text-amber-800 dark:text-amber-300"
+                      : "bg-card border-border text-foreground"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1 text-[10px]">
                     <span className="font-bold flex items-center gap-1.5">
-                      {evt.type === "GEOFENCE_ENTER" && <ShieldAlert className="w-3 h-3 text-cyan-accent" />}
-                      {evt.type === "GEOFENCE_EXIT" && <ShieldAlert className="w-3 h-3 text-amber-accent" />}
+                      {evt.type === "GEOFENCE_ENTER" && <ShieldAlert className="w-3 h-3 text-blue-600 dark:text-blue-400" />}
+                      {evt.type === "GEOFENCE_EXIT" && <ShieldAlert className="w-3 h-3 text-amber-600 dark:text-amber-400" />}
                       {evt.type}
                     </span>
-                    <span className="text-silver-dark">{evt.timestamp}</span>
+                    <span className="text-muted-foreground">{evt.timestamp}</span>
                   </div>
-                  <p className="text-[11px] leading-tight text-white mb-1">{evt.message}</p>
-                  <div className="flex items-center justify-between text-[9px] text-silver-dark pt-1 border-t border-hairline/40">
+                  <p className="text-[11px] leading-tight font-medium mb-1">{evt.message}</p>
+                  <div className="flex items-center justify-between text-[9px] text-muted-foreground pt-1 border-t border-border/60">
                     <span>ACK: {evt.latencyMs}ms</span>
                     <span>Zone: Sector-A</span>
                   </div>
@@ -507,7 +507,7 @@ export function GeofenceSimulator() {
           </div>
 
           {/* WebSocket Footer */}
-          <div className="p-2.5 bg-surface-1 border-t border-hairline text-[10px] font-mono text-silver-dark flex justify-between">
+          <div className="p-2.5 bg-surface-secondary border-t border-border text-[10px] font-mono text-muted-foreground flex justify-between">
             <span>SOCKET: OPEN</span>
             <span>FRAME PACKETS: {events.length}</span>
           </div>
@@ -515,22 +515,22 @@ export function GeofenceSimulator() {
       </div>
 
       {/* Algorithmic Explanation Accordion */}
-      <div className="p-4 rounded-xl bg-surface-1 border border-hairline grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
+      <div className="p-4 rounded-xl bg-surface border border-border grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
         <div>
-          <span className="text-cyan-accent font-bold block mb-1">01 // JORDAN CURVE THEOREM</span>
-          <p className="text-silver-mid text-[11px] font-light leading-relaxed">
+          <span className="text-primary font-bold block mb-1">01 // JORDAN CURVE THEOREM</span>
+          <p className="text-muted-foreground text-[11px] font-light leading-relaxed">
             A test point P is inside a non-self-intersecting polygon if and only if any ray drawn from P to infinity crosses polygon boundary edges an odd number of times.
           </p>
         </div>
         <div>
-          <span className="text-violet-accent font-bold block mb-1">02 // COMPUTATIONAL COMPLEXITY</span>
-          <p className="text-silver-mid text-[11px] font-light leading-relaxed">
+          <span className="text-indigo-600 dark:text-indigo-400 font-bold block mb-1">02 // COMPUTATIONAL COMPLEXITY</span>
+          <p className="text-muted-foreground text-[11px] font-light leading-relaxed">
             The algorithm operates at O(n) where n is the number of vertices. For n=6, evaluation completes in under 0.02ms in Go or JavaScript, enabling high-frequency vehicle GPS ingestion.
           </p>
         </div>
         <div>
-          <span className="text-emerald-accent font-bold block mb-1">03 // EDGE CASES HANDLED</span>
-          <p className="text-silver-mid text-[11px] font-light leading-relaxed">
+          <span className="text-emerald-600 dark:text-emerald-400 font-bold block mb-1">03 // EDGE CASES HANDLED</span>
+          <p className="text-muted-foreground text-[11px] font-light leading-relaxed">
             Points co-linear with horizontal edges or vertex intersections are correctly evaluated by using half-open intervals on vertical coordinates: yi &le; y &lt; yj.
           </p>
         </div>

@@ -193,17 +193,17 @@ export function CodingTerminal() {
   return (
     <div
       onClick={() => inputRef.current?.focus()}
-      className="w-full rounded-2xl bg-obsidian border border-hairline overflow-hidden corner-datum cursor-text shadow-2xl"
+      className="w-full rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden corner-datum cursor-text shadow-2xl"
     >
       {/* Terminal Title Bar */}
-      <div className="flex items-center justify-between px-4 py-2.5 bg-carbon/80 border-b border-hairline font-mono text-xs">
+      <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-b border-slate-800 font-mono text-xs">
         <div className="flex items-center gap-2">
           <div className="flex gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
             <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
           </div>
-          <span className="text-silver-dark ml-2 text-[11px]">
+          <span className="text-slate-400 ml-2 text-[11px]">
             mohan@terminal: ~ (bash / zsh)
           </span>
         </div>
@@ -214,7 +214,7 @@ export function CodingTerminal() {
               e.stopPropagation();
               setHistory([]);
             }}
-            className="p-1 rounded text-silver-dark hover:text-white transition-colors"
+            className="p-1 rounded text-slate-400 hover:text-white transition-colors cursor-pointer"
             title="Clear buffer"
           >
             <Trash2 className="w-3.5 h-3.5" />
@@ -223,11 +223,11 @@ export function CodingTerminal() {
       </div>
 
       {/* Terminal Output Stream */}
-      <div className="p-4 sm:p-6 max-h-[380px] overflow-y-auto space-y-4 font-mono text-xs">
+      <div className="p-4 sm:p-6 max-h-[380px] overflow-y-auto space-y-4 font-mono text-xs text-slate-200">
         {history.map((entry, idx) => (
           <div key={idx} className="space-y-1.5">
-            <div className="flex items-center gap-2 text-silver-dark">
-              <span className="text-cyan-accent">mohan@kernel:~$</span>
+            <div className="flex items-center gap-2 text-slate-400">
+              <span className="text-sky-400">mohan@kernel:~$</span>
               <span className="text-white font-bold">{entry.command}</span>
             </div>
             <div className="pl-4">{entry.output}</div>
@@ -237,8 +237,8 @@ export function CodingTerminal() {
       </div>
 
       {/* Active Command Input Line */}
-      <div className="px-4 sm:px-6 py-3 bg-carbon/40 border-t border-hairline flex items-center gap-2 font-mono text-xs">
-        <span className="text-cyan-accent shrink-0">mohan@kernel:~$</span>
+      <div className="px-4 sm:px-6 py-3 bg-slate-900/60 border-t border-slate-800 flex items-center gap-2 font-mono text-xs">
+        <span className="text-sky-400 shrink-0">mohan@kernel:~$</span>
         <input
           ref={inputRef}
           type="text"
@@ -248,14 +248,14 @@ export function CodingTerminal() {
           autoFocus
           spellCheck={false}
           autoComplete="off"
-          className="flex-1 bg-transparent text-white focus:outline-none placeholder-zinc-600"
+          className="flex-1 bg-transparent text-white focus:outline-none placeholder-slate-500"
           placeholder="type 'help', 'projects', 'skills'..."
         />
-        <CornerDownLeft className="w-3.5 h-3.5 text-silver-dark shrink-0" />
+        <CornerDownLeft className="w-3.5 h-3.5 text-slate-500 shrink-0" />
       </div>
 
       {/* Quick Command Suggestion Pills */}
-      <div className="px-4 sm:px-6 py-2 border-t border-hairline bg-obsidian flex flex-wrap items-center gap-1.5 text-[10px] font-mono text-silver-dark">
+      <div className="px-4 sm:px-6 py-2 border-t border-slate-800 bg-slate-950 flex flex-wrap items-center gap-1.5 text-[10px] font-mono text-slate-400">
         <span>Suggested:</span>
         {["help", "about", "projects", "skills", "experience", "contact", "clear"].map((cmd) => (
           <button
@@ -264,7 +264,7 @@ export function CodingTerminal() {
               e.stopPropagation();
               handleCommand(cmd);
             }}
-            className="px-2 py-0.5 rounded bg-surface-1 border border-hairline text-silver-mid hover:text-cyan-accent hover:border-cyan-500/40 transition-colors"
+            className="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-300 hover:text-sky-400 hover:border-sky-500/40 transition-colors cursor-pointer"
           >
             {cmd}
           </button>

@@ -45,33 +45,33 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
       {/* Background Ambience & Atmospheric Grid */}
-      <div className="fixed inset-0 bg-tech-grid opacity-40 pointer-events-none" />
-      <div className="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-cyan-500/[0.04] blur-[160px] pointer-events-none rounded-full" />
-      <div className="fixed bottom-10 right-10 w-[500px] h-[400px] bg-purple-500/[0.03] blur-[140px] pointer-events-none rounded-full" />
+      <div className="fixed inset-0 bg-tech-grid opacity-60 dark:opacity-40 pointer-events-none" />
+      <div className="fixed top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-blue-500/[0.04] dark:bg-cyan-500/[0.04] blur-[160px] pointer-events-none rounded-full" />
+      <div className="fixed bottom-10 right-10 w-[500px] h-[400px] bg-indigo-500/[0.03] dark:bg-purple-500/[0.03] blur-[140px] pointer-events-none rounded-full" />
 
       {/* =========================================================================
           SECTION 1: HERO (CINEMATIC EDITORIAL TYPOGRAPHY, 3D CENTERPIECE)
           ========================================================================= */}
       <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-20 md:pt-14 md:pb-28 flex flex-col items-start">
         {/* Top Telemetry & Status Bar */}
-        <div className="w-full flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-hairline text-xs font-mono">
-          <div className="inline-flex items-center gap-2.5 px-3 py-1 rounded-full border border-hairline bg-carbon/80 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-emerald-accent shadow-[0_0_8px_#10b981] animate-pulse" />
-            <span className="text-[11px] uppercase tracking-wider text-foreground font-medium">
+        <div className="w-full flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-border text-xs font-mono">
+          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-border bg-card shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[11px] uppercase tracking-wider text-foreground font-semibold">
               Software Engineer at Veda Scholars
             </span>
-            <span className="text-silver-dark">//</span>
-            <span className="text-[11px] text-silver-mid hidden sm:inline">
+            <span className="text-muted-foreground">//</span>
+            <span className="text-[11px] text-muted-foreground hidden sm:inline">
               Nov 2025 – Present
             </span>
           </div>
 
-          <div className="hidden lg:flex items-center gap-3 text-silver-dark text-[11px] tracking-wider uppercase">
+          <div className="hidden lg:flex items-center gap-3 text-muted-foreground text-[11px] tracking-wider uppercase">
             <span>{siteConfig.location.coordinates}</span>
             <span>•</span>
             <span>{siteConfig.location.city}, {siteConfig.location.country}</span>
             <span>•</span>
-            <span className="text-cyan-accent">{siteConfig.location.timezone}</span>
+            <span className="text-primary font-semibold">{siteConfig.location.timezone}</span>
           </div>
         </div>
 
@@ -79,14 +79,14 @@ export default function Home() {
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-10">
           <div className="lg:col-span-7 flex flex-col">
             {/* Engineering Sub-Badge */}
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-cyan-accent uppercase tracking-widest mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-accent" />
+            <div className="inline-flex items-center gap-2 text-xs font-mono text-primary uppercase tracking-widest mb-3 font-semibold">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               <span>Software Engineer | Full-Stack Developer</span>
             </div>
 
             {/* Massive Editorial MOHAN. Title */}
             <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-display font-extrabold tracking-tight text-foreground uppercase leading-[0.88] select-none">
-              MOHAN<span className="text-cyan-accent">.</span>
+              MOHAN<span className="text-primary">.</span>
             </h1>
 
             {/* Position Headline with Staggered Entrance Animation */}
@@ -94,11 +94,11 @@ export default function Home() {
               text={siteConfig.positioning}
               as="h2"
               delay={0.15}
-              className="text-xl sm:text-2xl lg:text-3xl font-display font-semibold tracking-tight text-silver-bright mt-4 leading-tight"
+              className="text-xl sm:text-2xl lg:text-3xl font-display font-semibold tracking-tight text-foreground mt-4 leading-tight"
             />
 
             {/* Authoritative Narrative Bio */}
-            <p className="mt-5 text-base sm:text-lg text-silver-mid font-sans font-normal leading-relaxed max-w-xl">
+            <p className="mt-5 text-base sm:text-lg text-muted-foreground font-sans font-normal leading-relaxed max-w-xl">
               {siteConfig.bio}
             </p>
 
@@ -106,9 +106,9 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
               <MagneticButton strength={0.25}>
                 <Link href="/projects">
-                  <Button variant="primary" size="lg" className="shadow-lg">
+                  <Button variant="primary" size="lg" className="shadow-md">
                     Explore Projects
-                    <ArrowUpRight className="w-4 h-4 ml-1" />
+                    <ArrowUpRight className="w-4 h-4 ml-1 text-primary-foreground" />
                   </Button>
                 </Link>
               </MagneticButton>
@@ -121,7 +121,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                 >
                   <Button variant="secondary" size="lg">
-                    <Download className="w-4 h-4 mr-1 text-cyan-accent" />
+                    <Download className="w-4 h-4 mr-1 text-primary" />
                     Download Resume
                   </Button>
                 </a>
@@ -129,8 +129,8 @@ export default function Home() {
 
               <MagneticButton strength={0.2}>
                 <Link href="/lab">
-                  <Button variant="outline" size="lg" className="border-hairline hover:border-cyan-accent hover:text-cyan-accent">
-                    <Terminal className="w-4 h-4 mr-1 text-cyan-accent" />
+                  <Button variant="outline" size="lg">
+                    <Terminal className="w-4 h-4 mr-1 text-primary" />
                     Engineering Lab
                   </Button>
                 </Link>
@@ -139,14 +139,14 @@ export default function Home() {
           </div>
 
           {/* 3D Engineering Interactive Object Centerpiece */}
-          <div className="lg:col-span-5 w-full flex flex-col rounded-2xl border border-hairline bg-carbon/60 backdrop-blur-xl p-3 sm:p-4 corner-datum shadow-[0_12px_40px_rgba(0,0,0,0.4)]">
+          <div className="lg:col-span-5 w-full flex flex-col rounded-2xl border border-border bg-card shadow-card p-3 sm:p-4 corner-datum">
             {/* Top HUD Frame Header */}
-            <div className="flex items-center justify-between pb-2 mb-2 border-b border-hairline text-[10px] font-mono text-silver-dark uppercase tracking-wider">
-              <span className="flex items-center gap-1.5 text-silver-mid">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-accent animate-pulse" />
+            <div className="flex items-center justify-between pb-2 mb-2 border-b border-border text-[10px] font-mono text-muted-foreground uppercase tracking-wider">
+              <span className="flex items-center gap-1.5 text-foreground font-semibold">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
                 Gyroscopic Lattice 3D
               </span>
-              <span className="text-silver-dark">WebGL • R3F • Three.js</span>
+              <span className="text-muted-foreground">WebGL • R3F • Three.js</span>
             </div>
 
             {/* 3D Canvas Container */}
@@ -155,9 +155,9 @@ export default function Home() {
             </div>
 
             {/* Bottom HUD Frame Footer */}
-            <div className="flex items-center justify-between pt-2 mt-2 border-t border-hairline text-[10px] font-mono text-silver-dark">
+            <div className="flex items-center justify-between pt-2 mt-2 border-t border-border text-[10px] font-mono text-muted-foreground">
               <span>INTERACTIVE // MOVE CURSOR</span>
-              <span className="text-cyan-accent">DAMPED LERP (0.05)</span>
+              <span className="text-primary font-semibold">DAMPED LERP (0.05)</span>
             </div>
           </div>
         </div>
@@ -168,29 +168,29 @@ export default function Home() {
         </div>
 
         {/* Engineering Metrics Datum Bar */}
-        <div className="mt-12 w-full grid grid-cols-2 md:grid-cols-4 gap-4 p-5 rounded-xl border border-hairline bg-carbon/40 backdrop-blur-md">
-          <div className="flex flex-col border-r border-hairline/60 pr-4 last:border-r-0">
-            <span className="text-2xl sm:text-3xl font-display font-bold text-cyan-accent tracking-tight">Present</span>
-            <span className="text-xs font-sans font-medium text-silver-mid mt-0.5">Software Engineer</span>
-            <span className="text-[11px] font-mono text-silver-dark mt-1">Veda Scholars (Web + SaaS)</span>
+        <div className="mt-12 w-full grid grid-cols-2 md:grid-cols-4 gap-4 p-5 rounded-2xl border border-border bg-surface shadow-subtle">
+          <div className="flex flex-col border-r border-border pr-4 last:border-r-0">
+            <span className="text-2xl sm:text-3xl font-display font-bold text-primary tracking-tight">Present</span>
+            <span className="text-xs font-sans font-semibold text-foreground mt-0.5">Software Engineer</span>
+            <span className="text-[11px] font-mono text-muted-foreground mt-1">Veda Scholars (Web + SaaS)</span>
           </div>
 
-          <div className="flex flex-col sm:border-r border-hairline/60 sm:pr-4 last:border-r-0 pl-2 sm:pl-0">
-            <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">92% <span className="text-xs font-mono font-normal text-silver-dark">MCA</span></span>
-            <span className="text-xs font-sans font-medium text-silver-mid mt-0.5">Academic Aggregate</span>
-            <span className="text-[11px] font-mono text-silver-dark mt-1">Adhiyamaan Coll of Eng &apos;26</span>
+          <div className="flex flex-col sm:border-r border-border sm:pr-4 last:border-r-0 pl-2 sm:pl-0">
+            <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">92% <span className="text-xs font-mono font-normal text-muted-foreground">MCA</span></span>
+            <span className="text-xs font-sans font-semibold text-foreground mt-0.5">Academic Aggregate</span>
+            <span className="text-[11px] font-mono text-muted-foreground mt-1">Adhiyamaan Coll of Eng &apos;26</span>
           </div>
 
-          <div className="flex flex-col border-r border-hairline/60 pr-4 last:border-r-0 pt-4 sm:pt-0">
-            <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">02 <span className="text-xs font-mono font-normal text-silver-dark">Yrs</span></span>
-            <span className="text-xs font-sans font-medium text-silver-mid mt-0.5">Corporate Accounting</span>
-            <span className="text-[11px] font-mono text-silver-dark mt-1">Gabriel India Ltd (Ledger)</span>
+          <div className="flex flex-col border-r border-border pr-4 last:border-r-0 pt-4 sm:pt-0">
+            <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">02 <span className="text-xs font-mono font-normal text-muted-foreground">Yrs</span></span>
+            <span className="text-xs font-sans font-semibold text-foreground mt-0.5">Corporate Accounting</span>
+            <span className="text-[11px] font-mono text-muted-foreground mt-1">Gabriel India Ltd (Ledger)</span>
           </div>
 
           <div className="flex flex-col pl-2 sm:pl-0 pt-4 sm:pt-0">
-            <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">78% <span className="text-xs font-mono font-normal text-silver-dark">BCA</span></span>
-            <span className="text-xs font-sans font-medium text-silver-mid mt-0.5">Foundational Aggregate</span>
-            <span className="text-[11px] font-mono text-silver-dark mt-1">MGR College of Arts &amp; Sci</span>
+            <span className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">78% <span className="text-xs font-mono font-normal text-muted-foreground">BCA</span></span>
+            <span className="text-xs font-sans font-semibold text-foreground mt-0.5">Foundational Aggregate</span>
+            <span className="text-[11px] font-mono text-muted-foreground mt-1">MGR College of Arts &amp; Sci</span>
           </div>
         </div>
       </section>
@@ -198,7 +198,7 @@ export default function Home() {
       {/* =========================================================================
           SECTION 2: SELECTED PROJECTS (FEATURED + ALL AUTHENTIC CASE STUDIES)
           ========================================================================= */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-hairline">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <SectionHeader
             index="01"
@@ -209,7 +209,7 @@ export default function Home() {
           />
           <Link
             href="/projects"
-            className="text-xs font-mono uppercase text-silver-mid hover:text-cyan-accent flex items-center gap-1.5 transition-colors shrink-0 pb-2"
+            className="text-xs font-mono uppercase text-muted-foreground hover:text-primary flex items-center gap-1.5 transition-colors shrink-0 pb-2 font-semibold"
           >
             All Projects ({projectsData.length})
             <MoveRight className="w-4 h-4" />
@@ -225,30 +225,30 @@ export default function Home() {
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <Badge variant="cyan" dot>{project.category}</Badge>
-                      <span className="text-xs font-mono text-silver-dark">{project.completionDate.split("-")[0]}</span>
+                      <span className="text-xs font-mono text-muted-foreground">{project.completionDate.split("-")[0]}</span>
                     </div>
 
-                    <CardTitle className="group-hover:text-cyan-accent transition-colors flex items-center justify-between text-xl leading-snug">
+                    <CardTitle className="group-hover:text-primary transition-colors flex items-center justify-between text-xl leading-snug">
                       {project.title}
-                      <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-cyan-accent" />
+                      <ArrowUpRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-primary" />
                     </CardTitle>
 
-                    <p className="mt-3 text-xs sm:text-sm text-silver-mid font-light leading-relaxed line-clamp-3">
+                    <p className="mt-3 text-xs sm:text-sm text-muted-foreground font-light leading-relaxed line-clamp-3">
                       {project.shortDescription}
                     </p>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-hairline">
-                    <div className="flex items-center justify-between text-[11px] font-mono text-silver-dark mb-3">
+                  <div className="mt-6 pt-4 border-t border-border">
+                    <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground mb-3">
                       <span>Status:</span>
-                      <span className="text-emerald-accent font-semibold">{project.status}</span>
+                      <span className="text-emerald-600 dark:text-emerald-400 font-semibold">{project.status}</span>
                     </div>
 
                     <div className="flex flex-wrap gap-1.5">
                       {project.technologies.slice(0, 4).map((tech) => (
                         <span
                           key={tech}
-                          className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-white/[0.04] text-silver-mid border border-hairline"
+                          className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-surface-secondary text-muted-foreground border border-border"
                         >
                           {tech}
                         </span>
@@ -265,22 +265,22 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
           {otherProjects.map((project) => (
             <Link key={project.id} href={`/projects/${project.slug}`} className="block group">
-              <div className="studio-card p-5 rounded-xl border border-hairline hover:border-hairline-hover transition-all flex flex-col justify-between h-full">
+              <div className="studio-card p-5 rounded-2xl flex flex-col justify-between h-full">
                 <div>
-                  <div className="flex items-center justify-between text-[11px] font-mono text-silver-dark mb-2">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-muted-foreground mb-2">
                     <span>{project.category}</span>
                     <span>{project.completionDate.split("-")[0]}</span>
                   </div>
-                  <h4 className="font-display font-semibold text-base text-foreground group-hover:text-cyan-accent transition-colors">
+                  <h4 className="font-display font-semibold text-base text-foreground group-hover:text-primary transition-colors">
                     {project.title}
                   </h4>
-                  <p className="mt-2 text-xs text-silver-mid line-clamp-2">
+                  <p className="mt-2 text-xs text-muted-foreground line-clamp-2">
                     {project.shortDescription}
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-hairline flex items-center justify-between text-[10px] font-mono text-silver-dark">
+                <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-[10px] font-mono text-muted-foreground">
                   <span>{project.technologies.slice(0, 3).join(" • ")}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-cyan-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </div>
             </Link>
@@ -291,7 +291,7 @@ export default function Home() {
       {/* =========================================================================
           SECTION 3: PROFESSIONAL JOURNEY (ANIMATED TIMELINE - PRESENT AT TOP)
           ========================================================================= */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-hairline">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <SectionHeader
           index="02"
           tag="Professional Journey"
@@ -305,7 +305,7 @@ export default function Home() {
       {/* =========================================================================
           SECTION 4: TECHNICAL SKILLS (TRUTHFUL & ACCREDITED)
           ========================================================================= */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-hairline">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <SectionHeader
           index="03"
           tag="Technical Competencies"
@@ -317,13 +317,13 @@ export default function Home() {
           {skillsData.map((category) => (
             <Card key={category.title} hasDatumCorners className="p-6 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between pb-3 mb-4 border-b border-hairline">
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-border">
                   <h3 className="font-display font-bold text-lg text-foreground">{category.title}</h3>
                   <Badge variant="outline" className="text-[9px] font-mono">
                     {category.skills.length} SKILLS
                   </Badge>
                 </div>
-                <p className="text-xs text-silver-mid font-light leading-relaxed mb-6">
+                <p className="text-xs text-muted-foreground font-light leading-relaxed mb-6">
                   {category.description}
                 </p>
 
@@ -331,13 +331,13 @@ export default function Home() {
                   {category.skills.map((skill) => (
                     <div
                       key={skill.name}
-                      className="p-3 rounded-xl bg-carbon/60 border border-hairline hover:border-cyan-500/30 transition-colors"
+                      className="p-3 rounded-xl bg-surface border border-border hover:border-primary/40 transition-colors"
                     >
                       <div className="flex items-center justify-between mb-1">
                         <span className="font-sans font-semibold text-xs text-foreground">{skill.name}</span>
-                        <span className="text-[10px] font-mono text-cyan-accent">{skill.category}</span>
+                        <span className="text-[10px] font-mono text-primary font-medium">{skill.category}</span>
                       </div>
-                      <p className="text-[11px] text-silver-mid font-sans leading-relaxed">
+                      <p className="text-[11px] text-muted-foreground font-sans leading-relaxed">
                         {skill.focus}
                       </p>
                     </div>
@@ -352,19 +352,19 @@ export default function Home() {
       {/* =========================================================================
           SECTION 5: CERTIFICATIONS & ACHIEVEMENTS
           ========================================================================= */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-hairline">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <SectionHeader
           index="04"
           tag="Certifications &amp; Achievements"
           title="Continuous Learning &amp; Competitive Milestones"
-          description="Professional course accreditations from Scaler & Networkz System, hackathon participations, and research paper presentation."
+          description="Professional course accreditations from Scaler &amp; Networkz System, hackathon participations, and research paper presentation."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Column: Certifications */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="flex items-center gap-2 pb-2 border-b border-hairline text-xs font-mono text-cyan-accent uppercase tracking-wider">
-              <Award className="w-4 h-4 text-cyan-accent" />
+            <div className="flex items-center gap-2 pb-2 border-b border-border text-xs font-mono text-primary uppercase tracking-wider font-semibold">
+              <Award className="w-4 h-4 text-primary" />
               <span>Professional Course Completions</span>
             </div>
 
@@ -375,13 +375,13 @@ export default function Home() {
                   className="p-4 rounded-xl studio-card flex items-center justify-between gap-4"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-surface-1 border border-hairline flex items-center justify-center shrink-0 text-cyan-accent mt-0.5">
+                    <div className="w-8 h-8 rounded-lg bg-surface-secondary border border-border flex items-center justify-center shrink-0 text-primary mt-0.5">
                       <Award className="w-4 h-4" />
                     </div>
                     <div>
                       <h4 className="font-display font-semibold text-sm text-foreground">{cert.title}</h4>
-                      <div className="text-xs font-mono text-silver-mid mt-0.5">
-                        {cert.issuer} • <span className="text-silver-dark">{cert.date}</span>
+                      <div className="text-xs font-mono text-muted-foreground mt-0.5">
+                        {cert.issuer} • <span className="text-muted-foreground/80">{cert.date}</span>
                       </div>
                     </div>
                   </div>
@@ -393,8 +393,8 @@ export default function Home() {
 
           {/* Right Column: Achievements & Hackathons */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="flex items-center gap-2 pb-2 border-b border-hairline text-xs font-mono text-amber-300 uppercase tracking-wider">
-              <Sparkles className="w-4 h-4 text-amber-300" />
+            <div className="flex items-center gap-2 pb-2 border-b border-border text-xs font-mono text-amber-600 dark:text-amber-400 uppercase tracking-wider font-semibold">
+              <Sparkles className="w-4 h-4 text-amber-500" />
               <span>Competitions, Research &amp; Hackathons</span>
             </div>
 
@@ -405,12 +405,12 @@ export default function Home() {
                   className="p-4 rounded-xl studio-card flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between text-xs font-mono mb-1">
-                    <span className="text-amber-300 font-medium">{ach.event}</span>
-                    <span className="text-silver-dark">{ach.date}</span>
+                    <span className="text-amber-600 dark:text-amber-400 font-semibold">{ach.event}</span>
+                    <span className="text-muted-foreground">{ach.date}</span>
                   </div>
                   <h4 className="font-display font-semibold text-sm text-foreground mb-1">{ach.title}</h4>
                   {ach.description && (
-                    <p className="text-xs text-silver-mid leading-relaxed font-light">{ach.description}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed font-light">{ach.description}</p>
                   )}
                 </div>
               ))}
@@ -422,7 +422,7 @@ export default function Home() {
       {/* =========================================================================
           SECTION 6: ABOUT ME & ACCOUNTING LEDGER FOUNDATION
           ========================================================================= */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-hairline">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
             <SectionHeader
@@ -434,52 +434,52 @@ export default function Home() {
 
             <div className="p-6 rounded-2xl studio-card corner-datum">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full border border-hairline bg-carbon flex items-center justify-center font-display font-bold text-sm text-cyan-accent">
+                <div className="w-10 h-10 rounded-full border border-border bg-surface-secondary flex items-center justify-center font-display font-bold text-sm text-primary">
                   NV
                 </div>
                 <div>
                   <div className="font-bold text-foreground text-sm">Mohan N.V.</div>
-                  <div className="text-xs font-mono text-silver-mid">Software Engineer | Full-Stack Developer</div>
+                  <div className="text-xs font-mono text-muted-foreground">Software Engineer | Full-Stack Developer</div>
                 </div>
               </div>
 
-              <div className="space-y-3 text-xs font-mono text-silver-mid border-t border-hairline pt-4">
+              <div className="space-y-3 text-xs font-mono text-muted-foreground border-t border-border pt-4">
                 <div className="flex justify-between">
-                  <span className="text-silver-dark">Current Role:</span>
-                  <span className="text-cyan-accent font-semibold">Software Engineer (Veda Scholars)</span>
+                  <span>Current Role:</span>
+                  <span className="text-primary font-semibold">Software Engineer (Veda Scholars)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-silver-dark">Highest Degree:</span>
+                  <span>Highest Degree:</span>
                   <span className="text-foreground">MCA — 92% (2024 — 2026)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-silver-dark">Undergraduate:</span>
+                  <span>Undergraduate:</span>
                   <span className="text-foreground">BCA — 78% (2019 — 2022)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-silver-dark">Corporate Tenure:</span>
+                  <span>Corporate Tenure:</span>
                   <span className="text-foreground">Gabriel India Ltd (2 Yrs)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-silver-dark">Location:</span>
+                  <span>Location:</span>
                   <span className="text-foreground">Hosur, Tamil Nadu, India</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-7 flex flex-col gap-6 text-silver-mid text-sm sm:text-base leading-relaxed font-light">
+          <div className="lg:col-span-7 flex flex-col gap-6 text-muted-foreground text-sm sm:text-base leading-relaxed font-light">
             <p>
-              My path into software engineering is rooted in a unique combination of <strong>analytical financial discipline</strong> and <strong>deep computer science scholarship</strong>.
+              My path into software engineering is rooted in a unique combination of <strong className="text-foreground font-semibold">analytical financial discipline</strong> and <strong className="text-foreground font-semibold">deep computer science scholarship</strong>.
             </p>
             <p>
-              After completing my Bachelor of Computer Applications (BCA) with 78% in 2022, I spent two years as a <strong>Bill Booking Accountant at Gabriel India Ltd</strong>, one of India&apos;s leading automotive manufacturing giants. Auditing tens of thousands of corporate invoices in enterprise ERP systems taught me that software bugs aren&apos;t just abstract errors — they directly disrupt operations and financial integrity.
+              After completing my Bachelor of Computer Applications (BCA) with 78% in 2022, I spent two years as a <strong className="text-foreground font-semibold">Bill Booking Accountant at Gabriel India Ltd</strong>, one of India&apos;s leading automotive manufacturing giants. Auditing tens of thousands of corporate invoices in enterprise ERP systems taught me that software bugs aren&apos;t just abstract errors — they directly disrupt operations and financial integrity.
             </p>
             <p>
-              Driven to build the systems behind digital products, I enrolled in the <strong>Master of Computer Applications (MCA) at Adhiyamaan College of Engineering (Anna University)</strong>, graduating in 2026 with a 92% aggregate.
+              Driven to build the systems behind digital products, I enrolled in the <strong className="text-foreground font-semibold">Master of Computer Applications (MCA) at Adhiyamaan College of Engineering (Anna University)</strong>, graduating in 2026 with a 92% aggregate.
             </p>
             <p>
-              Today, as a <strong>Software Engineer at Veda Scholars</strong>, I build and optimize application modules across React.js, Next.js, Node.js, and MongoDB, design secure role-based REST APIs with JWT authentication, implement real-time communication via Socket.IO, and manage automated deployments on Netlify and Render.
+              Today, as a <strong className="text-foreground font-semibold">Software Engineer at Veda Scholars</strong>, I build and optimize application modules across React.js, Next.js, Node.js, and MongoDB, design secure role-based REST APIs with JWT authentication, implement real-time communication via Socket.IO, and manage automated deployments on Netlify and Render.
             </p>
 
             <div className="pt-2 flex flex-wrap gap-4 font-mono text-xs">
@@ -497,7 +497,7 @@ export default function Home() {
       {/* =========================================================================
           SECTION 7: ENGINEERING LAB PREVIEW
           ========================================================================= */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-hairline">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <SectionHeader
             index="06"
@@ -508,7 +508,7 @@ export default function Home() {
           />
           <Link
             href="/lab"
-            className="text-xs font-mono uppercase text-silver-mid hover:text-cyan-accent flex items-center gap-1.5 transition-colors shrink-0 pb-2"
+            className="text-xs font-mono uppercase text-muted-foreground hover:text-primary flex items-center gap-1.5 transition-colors shrink-0 pb-2 font-semibold"
           >
             Open Complete Lab ({labData.length})
             <MoveRight className="w-4 h-4" />
@@ -521,21 +521,21 @@ export default function Home() {
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <Badge variant="violet" dot>{exp.category}</Badge>
-                  <span className="text-xs font-mono text-silver-dark">{exp.date}</span>
+                  <span className="text-xs font-mono text-muted-foreground">{exp.date}</span>
                 </div>
                 <h3 className="font-display font-bold text-lg text-foreground mb-2">{exp.title}</h3>
-                <p className="text-xs text-silver-mid leading-relaxed font-light">{exp.description}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed font-light">{exp.description}</p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-hairline flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-border flex items-center justify-between">
                 <div className="flex flex-wrap gap-1.5">
                   {exp.tags.slice(0, 3).map((tag) => (
-                    <span key={tag} className="text-[10px] font-mono text-silver-dark px-2 py-0.5 rounded bg-surface-1">
+                    <span key={tag} className="text-[10px] font-mono text-muted-foreground px-2 py-0.5 rounded-full bg-surface-secondary border border-border">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <Link href="/lab" className="text-xs font-mono text-cyan-accent hover:underline flex items-center gap-1">
+                <Link href="/lab" className="text-xs font-mono text-primary font-semibold hover:underline flex items-center gap-1">
                   Launch Demo
                   <ExternalLink className="w-3 h-3" />
                 </Link>
@@ -548,7 +548,7 @@ export default function Home() {
       {/* =========================================================================
           SECTION 8: JOURNAL PREVIEW
           ========================================================================= */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-hairline">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <SectionHeader
             index="07"
@@ -559,7 +559,7 @@ export default function Home() {
           />
           <Link
             href="/journal"
-            className="text-xs font-mono uppercase text-silver-mid hover:text-cyan-accent flex items-center gap-1.5 transition-colors shrink-0 pb-2"
+            className="text-xs font-mono uppercase text-muted-foreground hover:text-primary flex items-center gap-1.5 transition-colors shrink-0 pb-2 font-semibold"
           >
             Read All Articles ({journalData.length})
             <MoveRight className="w-4 h-4" />
@@ -572,23 +572,23 @@ export default function Home() {
               <Card hasDatumCorners className="h-full p-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-mono text-cyan-accent">{post.publishedAt}</span>
-                    <span className="text-silver-dark">•</span>
-                    <span className="text-xs font-mono text-silver-dark">{post.readTimeMinutes} min read</span>
+                    <span className="text-xs font-mono text-primary font-semibold">{post.publishedAt}</span>
+                    <span className="text-muted-foreground">•</span>
+                    <span className="text-xs font-mono text-muted-foreground">{post.readTimeMinutes} min read</span>
                   </div>
 
-                  <CardTitle className="group-hover:text-cyan-accent transition-colors text-lg leading-snug">
+                  <CardTitle className="group-hover:text-primary transition-colors text-lg leading-snug">
                     {post.title}
                   </CardTitle>
 
-                  <p className="mt-3 text-xs text-silver-mid font-light leading-relaxed line-clamp-3">
+                  <p className="mt-3 text-xs text-muted-foreground font-light leading-relaxed line-clamp-3">
                     {post.excerpt}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-hairline flex items-center justify-between text-xs font-mono">
-                  <span className="text-silver-dark">Read Publication</span>
-                  <ArrowUpRight className="w-4 h-4 text-cyan-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs font-mono">
+                  <span className="text-muted-foreground group-hover:text-foreground transition-colors font-medium">Read Publication</span>
+                  <ArrowUpRight className="w-4 h-4 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </Card>
             </Link>
@@ -599,8 +599,8 @@ export default function Home() {
       {/* =========================================================================
           SECTION 9: CONTACT CTA
           ========================================================================= */}
-      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-hairline">
-        <Card hasDatumCorners className="p-8 sm:p-14 text-center flex flex-col items-center border-hairline">
+      <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
+        <Card hasDatumCorners className="p-8 sm:p-14 text-center flex flex-col items-center border-border bg-surface shadow-subtle">
           <Badge variant="cyan" dot className="mb-4">
             INITIATE COMMUNICATION
           </Badge>
@@ -609,33 +609,33 @@ export default function Home() {
             Let&apos;s Build Practical, Scalable Software Together.
           </h2>
 
-          <p className="mt-4 text-sm sm:text-base text-silver-mid font-light max-w-xl leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-muted-foreground font-light max-w-xl leading-relaxed">
             I am currently working as a Software Engineer at Veda Scholars and am open to high-impact software engineering opportunities, full-stack development, and technical collaboration.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <MagneticButton strength={0.3}>
               <Link href="/contact">
-                <Button variant="primary" size="lg">
+                <Button variant="primary" size="lg" className="shadow-md">
                   Send a Direct Message
-                  <ArrowUpRight className="w-4 h-4 ml-1" />
+                  <ArrowUpRight className="w-4 h-4 ml-1 text-primary-foreground" />
                 </Button>
               </Link>
             </MagneticButton>
 
             <a
               href={`mailto:${siteConfig.socials.email}`}
-              className="px-6 py-3 rounded-full border border-hairline bg-carbon text-xs font-mono text-foreground hover:border-hairline-hover transition-colors flex items-center gap-2"
+              className="px-6 py-3 rounded-full border border-border bg-card text-xs font-mono text-foreground hover:border-primary/40 shadow-xs transition-colors flex items-center gap-2"
             >
-              <Mail className="w-3.5 h-3.5 text-cyan-accent" />
+              <Mail className="w-3.5 h-3.5 text-primary" />
               {siteConfig.socials.email}
             </a>
 
             <a
               href={`tel:${siteConfig.phone.replace(/[^0-9+]/g, "")}`}
-              className="px-6 py-3 rounded-full border border-hairline bg-carbon text-xs font-mono text-foreground hover:border-hairline-hover transition-colors flex items-center gap-2"
+              className="px-6 py-3 rounded-full border border-border bg-card text-xs font-mono text-foreground hover:border-primary/40 shadow-xs transition-colors flex items-center gap-2"
             >
-              <span className="text-cyan-accent font-bold">TEL:</span>
+              <span className="text-primary font-bold">TEL:</span>
               {siteConfig.phone}
             </a>
 
@@ -644,7 +644,7 @@ export default function Home() {
               download="Mohan_NV_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-full border border-hairline text-xs font-mono text-silver-mid hover:text-foreground hover:border-hairline-hover transition-colors flex items-center gap-2"
+              className="px-6 py-3 rounded-full border border-border bg-card text-xs font-mono text-muted-foreground hover:text-foreground hover:border-slate-400 shadow-xs transition-colors flex items-center gap-2"
             >
               <Download className="w-3.5 h-3.5" />
               Resume PDF

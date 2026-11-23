@@ -57,7 +57,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
       {/* Back to Archive */}
       <Link
         href="/projects"
-        className="inline-flex items-center gap-2 text-xs font-mono text-silver-mid hover:text-foreground transition-colors mb-8"
+        className="inline-flex items-center gap-2 text-xs font-mono text-muted-foreground hover:text-foreground transition-colors mb-8"
       >
         <ArrowLeft className="w-3.5 h-3.5" />
         Back to Projects Catalog
@@ -71,8 +71,8 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
         <Badge variant={project.status === "Completed" ? "emerald" : "outline"}>
           {project.status.toUpperCase()}
         </Badge>
-        <span className="text-xs font-mono text-silver-dark flex items-center gap-1">
-          <Calendar className="w-3 h-3 text-silver-dark" />
+        <span className="text-xs font-mono text-muted-foreground flex items-center gap-1">
+          <Calendar className="w-3 h-3 text-muted-foreground" />
           {project.startDate} — {project.completionDate}
         </span>
       </div>
@@ -81,12 +81,12 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
         {project.title}
       </h1>
 
-      <p className="mt-4 text-base sm:text-xl text-silver-mid font-light leading-relaxed">
+      <p className="mt-4 text-base sm:text-xl text-muted-foreground font-light leading-relaxed">
         {project.shortDescription}
       </p>
 
       {/* Action Buttons */}
-      <div className="mt-6 flex flex-wrap gap-3 pb-8 border-b border-hairline">
+      <div className="mt-6 flex flex-wrap gap-3 pb-8 border-b border-border">
         {project.liveDemoUrl && (
           <a href={project.liveDemoUrl} target="_blank" rel="noopener noreferrer">
             <Button variant="primary" size="md">
@@ -106,36 +106,36 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
       </div>
 
       {/* Main Narrative Stack */}
-      <div className="mt-12 space-y-12 text-silver-mid font-light leading-relaxed">
+      <div className="mt-12 space-y-12 text-muted-foreground font-light leading-relaxed">
         {/* Project Detailed Overview */}
         <section className="space-y-4">
           <h2 className="font-display font-bold text-foreground text-2xl uppercase tracking-tight flex items-center gap-2">
-            <span className="text-cyan-accent font-mono text-xs">[ 01 ]</span>
+            <span className="text-primary font-mono text-xs font-semibold">[ 01 ]</span>
             Project Overview
           </h2>
-          <p className="text-sm sm:text-base leading-relaxed text-silver-light">
+          <p className="text-sm sm:text-base leading-relaxed text-foreground/90">
             {project.detailedDescription}
           </p>
         </section>
 
         {/* The Problem Statement */}
-        <section className="p-6 sm:p-8 rounded-2xl bg-obsidian border border-hairline corner-datum space-y-3">
+        <section className="p-6 sm:p-8 rounded-2xl bg-card border border-border shadow-subtle corner-datum space-y-3">
           <h2 className="font-display font-bold text-foreground text-xl uppercase tracking-tight flex items-center gap-2">
-            <span className="text-cyan-accent font-mono text-xs">[ 02 ]</span>
+            <span className="text-primary font-mono text-xs font-semibold">[ 02 ]</span>
             The Problem Statement
           </h2>
-          <p className="text-sm leading-relaxed text-silver-mid">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             {project.problemStatement}
           </p>
         </section>
 
         {/* The Architectural Solution */}
-        <section className="p-6 sm:p-8 rounded-2xl bg-obsidian border border-hairline corner-datum space-y-3">
+        <section className="p-6 sm:p-8 rounded-2xl bg-card border border-border shadow-subtle corner-datum space-y-3">
           <h2 className="font-display font-bold text-foreground text-xl uppercase tracking-tight flex items-center gap-2">
-            <span className="text-cyan-accent font-mono text-xs">[ 03 ]</span>
+            <span className="text-primary font-mono text-xs font-semibold">[ 03 ]</span>
             Engineering Solution
           </h2>
-          <p className="text-sm leading-relaxed text-silver-mid">
+          <p className="text-sm leading-relaxed text-muted-foreground">
             {project.solution}
           </p>
         </section>
@@ -149,15 +149,15 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
         </section>
 
         {/* Key Features */}
-        <section className="p-6 sm:p-8 rounded-2xl bg-obsidian border border-hairline corner-datum">
+        <section className="p-6 sm:p-8 rounded-2xl bg-card border border-border shadow-subtle corner-datum">
           <h2 className="font-display font-bold text-foreground text-xl uppercase tracking-tight mb-4 flex items-center gap-2">
-            <span className="text-cyan-accent font-mono text-xs">[ 04 ]</span>
+            <span className="text-primary font-mono text-xs font-semibold">[ 04 ]</span>
             Key Technical Features
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {project.keyFeatures.map((feat, idx) => (
-              <div key={idx} className="flex items-start gap-2 text-xs text-silver-light">
-                <CheckCircle2 className="w-4 h-4 text-cyan-accent shrink-0 mt-0.5" />
+              <div key={idx} className="flex items-start gap-2 text-xs text-foreground/90">
+                <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                 <span>{feat}</span>
               </div>
             ))}
@@ -167,24 +167,24 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
         {/* Engineering Challenges & Resolutions */}
         <section className="space-y-4">
           <h2 className="font-display font-bold text-foreground text-2xl uppercase tracking-tight flex items-center gap-2">
-            <span className="text-cyan-accent font-mono text-xs">[ 05 ]</span>
+            <span className="text-primary font-mono text-xs font-semibold">[ 05 ]</span>
             Engineering Challenges &amp; Resolutions
           </h2>
           <div className="space-y-4">
             {project.engineeringChallenges.map((item, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-obsidian border border-hairline space-y-3">
+              <div key={idx} className="p-6 rounded-2xl bg-card border border-border shadow-subtle space-y-3">
                 <div className="flex items-center gap-2 text-sm font-bold text-foreground font-display uppercase">
-                  <AlertTriangle className="w-4 h-4 text-amber-400 shrink-0" />
+                  <AlertTriangle className="w-4 h-4 text-amber-500 shrink-0" />
                   <span>{item.title}</span>
                 </div>
                 <div className="space-y-2 text-xs font-mono">
                   <div>
-                    <span className="text-silver-dark uppercase block text-[10px]">Challenge:</span>
-                    <p className="text-silver-mid font-light text-xs font-sans mt-0.5">{item.challenge}</p>
+                    <span className="text-muted-foreground uppercase block text-[10px]">Challenge:</span>
+                    <p className="text-muted-foreground font-light text-xs font-sans mt-0.5">{item.challenge}</p>
                   </div>
-                  <div className="pt-2 border-t border-hairline">
-                    <span className="text-emerald-accent uppercase block text-[10px]">Engineering Resolution:</span>
-                    <p className="text-foreground font-light text-xs font-sans mt-0.5">{item.resolution}</p>
+                  <div className="pt-2 border-t border-border">
+                    <span className="text-emerald-600 dark:text-emerald-400 uppercase block text-[10px] font-semibold">Engineering Resolution:</span>
+                    <p className="text-foreground font-medium text-xs font-sans mt-0.5">{item.resolution}</p>
                   </div>
                 </div>
               </div>
@@ -193,15 +193,15 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
         </section>
 
         {/* Lessons Learned */}
-        <section className="p-6 sm:p-8 rounded-2xl bg-obsidian border border-hairline corner-datum space-y-3">
+        <section className="p-6 sm:p-8 rounded-2xl bg-card border border-border shadow-subtle corner-datum space-y-3">
           <h2 className="font-display font-bold text-foreground text-xl uppercase tracking-tight flex items-center gap-2">
-            <Lightbulb className="w-4 h-4 text-cyan-accent" />
+            <Lightbulb className="w-4 h-4 text-primary" />
             <span>Lessons Learned</span>
           </h2>
-          <ul className="space-y-2 text-xs text-silver-mid font-light">
+          <ul className="space-y-2 text-xs text-muted-foreground font-light">
             {project.lessonsLearned.map((lesson, idx) => (
               <li key={idx} className="flex items-start gap-2">
-                <span className="text-cyan-accent font-mono">•</span>
+                <span className="text-primary font-mono font-bold">•</span>
                 <span>{lesson}</span>
               </li>
             ))}
@@ -214,15 +214,15 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
         </section>
 
         {/* Technologies Deployed */}
-        <section className="pt-4 border-t border-hairline">
-          <h3 className="font-mono text-xs text-silver-dark uppercase tracking-widest mb-3">
+        <section className="pt-4 border-t border-border">
+          <h3 className="font-mono text-xs text-muted-foreground uppercase tracking-widest mb-3">
             VERIFIED TECHNOLOGIES IN THIS PROJECT
           </h3>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((t) => (
               <span
                 key={t}
-                className="px-3 py-1.5 rounded-full bg-carbon border border-hairline text-xs font-mono text-foreground"
+                className="px-3 py-1.5 rounded-full bg-surface-secondary border border-border text-xs font-mono text-foreground"
               >
                 {t}
               </span>
@@ -235,10 +235,10 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
           RELATED PROJECTS SECTION
           ========================================================================= */}
       {relatedProjects.length > 0 && (
-        <section className="mt-20 pt-12 border-t border-hairline space-y-6">
+        <section className="mt-20 pt-12 border-t border-border space-y-6">
           <div className="flex items-center justify-between">
             <div>
-              <span className="text-[10px] font-mono text-cyan-accent uppercase tracking-widest">
+              <span className="text-[10px] font-mono text-primary font-semibold uppercase tracking-widest">
                 RECOMMENDED CASE STUDIES
               </span>
               <h2 className="font-display text-2xl font-bold uppercase text-foreground tracking-tight mt-1">
@@ -247,7 +247,7 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
             </div>
             <Link
               href="/projects"
-              className="text-xs font-mono text-silver-mid hover:text-foreground transition-colors"
+              className="text-xs font-mono text-muted-foreground hover:text-primary transition-colors font-semibold"
             >
               All Projects ({`->`})
             </Link>
@@ -260,21 +260,21 @@ export default async function ProjectDetailsPage({ params }: ProjectDetailsProps
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <Badge variant="cyan" dot>{rel.category}</Badge>
-                      <span className="text-xs font-mono text-silver-dark">
+                      <span className="text-xs font-mono text-muted-foreground">
                         {rel.completionDate.split("-")[0]}
                       </span>
                     </div>
-                    <CardTitle className="group-hover:text-cyan-accent transition-colors text-lg">
+                    <CardTitle className="group-hover:text-primary transition-colors text-lg">
                       {rel.title}
                     </CardTitle>
-                    <p className="mt-2 text-xs text-silver-mid line-clamp-2 font-light">
+                    <p className="mt-2 text-xs text-muted-foreground line-clamp-2 font-light">
                       {rel.shortDescription}
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-3 border-t border-hairline flex items-center justify-between text-xs font-mono text-silver-dark">
+                  <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs font-mono text-muted-foreground">
                     <span>Inspect Case Study</span>
-                    <ArrowUpRight className="w-4 h-4 text-cyan-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    <ArrowUpRight className="w-4 h-4 text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
                 </InteractiveTiltCard>
               </Link>
