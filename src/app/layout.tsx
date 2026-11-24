@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { MohanFmPlayer } from "@/components/music/MohanFmPlayer";
 import { PersistentSpotifyHost } from "@/components/music/PersistentSpotifyHost";
 import { AskMohanAssistant } from "@/components/assistant/AskMohanAssistant";
+import { MitraController } from "@/components/mitra/MitraController";
 import { CustomCursor } from "@/components/creative/CustomCursor";
 import { GridHUD } from "@/components/creative/GridHUD";
 import { NoiseOverlay } from "@/components/creative/NoiseOverlay";
@@ -162,10 +163,11 @@ export default function RootLayout({
           {/* Architectural Technical Footer */}
           <Footer />
 
-          {/* Interactive Mohan Experiences: FM & AI Assistant */}
+          {/* Interactive Mohan Experiences: FM, AI Assistant & Mitra Companion */}
           <PersistentSpotifyHost />
           <MohanFmPlayer />
           <AskMohanAssistant />
+          <MitraController />
         </TooltipProvider>
       </body>
     </html>
