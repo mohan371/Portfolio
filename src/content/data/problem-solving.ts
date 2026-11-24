@@ -8,6 +8,7 @@ export interface ProblemSolvingData {
   currentDay: number;
   totalSolved: number;
   currentStreak: number;
+  totalActiveDays: number;
   maxStreak: number;
   breakdown: {
     easy: number;
@@ -37,11 +38,12 @@ export const problemSolvingData: ProblemSolvingData = {
   startDate: "November 24, 2026",
   targetGoalDays: 100,
   currentDay: 1,
-  totalSolved: 0,
-  currentStreak: 0,
-  maxStreak: 0,
+  totalSolved: 5,
+  currentStreak: 1,
+  totalActiveDays: 5,
+  maxStreak: 1,
   breakdown: {
-    easy: 0,
+    easy: 5,
     medium: 0,
     hard: 0,
   },

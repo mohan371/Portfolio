@@ -1,12 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { problemSolvingData } from "@/content/data/problem-solving";
 import { siteConfig } from "@/content/data/site-config";
+import { fetchLeetCodeStats } from "@/lib/leetcode/client";
 
 describe("Problem-Solving Journey (LeetCode 100-Day Challenge) Suite", () => {
-  it("1. Verifies authentic initial problem-solving metrics (zero fabrication)", () => {
-    expect(problemSolvingData.totalSolved).toBe(0);
-    expect(problemSolvingData.currentStreak).toBe(0);
-    expect(problemSolvingData.breakdown.easy).toBe(0);
+  it("1. Verifies authentic problem-solving baseline metrics (zero fabrication)", () => {
+    expect(problemSolvingData.totalSolved).toBe(5);
+    expect(problemSolvingData.currentStreak).toBe(1);
+    expect(problemSolvingData.totalActiveDays).toBe(5);
+    expect(problemSolvingData.breakdown.easy).toBe(5);
     expect(problemSolvingData.breakdown.medium).toBe(0);
     expect(problemSolvingData.breakdown.hard).toBe(0);
   });
@@ -28,5 +30,14 @@ describe("Problem-Solving Journey (LeetCode 100-Day Challenge) Suite", () => {
     expect(problemSolvingData.focusPillars.length).toBeGreaterThanOrEqual(4);
     const activePillars = problemSolvingData.focusPillars.filter((p) => p.status === "Active");
     expect(activePillars.length).toBeGreaterThan(0);
+  });
+
+  it("5. Verifies LeetCode client fallback is resilient and structured", async () => {
+    // Calling with a non-existent user or network-safe fallback returns valid LeetCodeLiveStats shape
+    const stats = await fetchLeetCodeStats("Mohannv123");
+    expect(stats).toHaveProperty("totalSolved");
+    expect(stats).toHaveProperty("currentStreak");
+    expect(stats).toHaveProperty("totalActiveDays");
+    expect(stats.totalSolved).toBeGreaterThanOrEqual(5);
   });
 });

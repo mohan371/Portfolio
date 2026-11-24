@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { problemSolvingData } from "@/content/data/problem-solving";
 import { SectionHeader } from "@/components/creative/SectionHeader";
 import { Card } from "@/components/ui/card";
@@ -14,10 +14,8 @@ import {
   Calendar,
   Target,
   Code2,
-  CheckCircle2,
-  Sparkles,
   ShieldCheck,
-  TrendingUp,
+  RefreshCw,
 } from "lucide-react";
 
 function LeetCodeIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -32,9 +30,54 @@ export function ProblemSolvingSection() {
   const { soundEnabled } = useAppStore();
   const data = problemSolvingData;
 
+  const [stats, setStats] = useState({
+    totalSolved: data.totalSolved,
+    easySolved: data.breakdown.easy,
+    mediumSolved: data.breakdown.medium,
+    hardSolved: data.breakdown.hard,
+    currentStreak: data.currentStreak,
+    totalActiveDays: data.totalActiveDays,
+    isLive: false,
+    syncTime: "",
+  });
+
+  useEffect(() => {
+    let isMounted = true;
+    async function loadLiveStats() {
+      try {
+        const res = await fetch(`/api/leetcode?username=${encodeURIComponent(data.username)}`);
+        if (!res.ok) return;
+        const json = await res.json();
+        if (json.success && json.data && isMounted) {
+          setStats({
+            totalSolved: json.data.totalSolved,
+            easySolved: json.data.easySolved,
+            mediumSolved: json.data.mediumSolved,
+            hardSolved: json.data.hardSolved,
+            currentStreak: json.data.currentStreak,
+            totalActiveDays: json.data.totalActiveDays || json.data.currentStreak,
+            isLive: json.data.isLive,
+            syncTime: new Date(json.data.lastUpdated).toLocaleTimeString([], {
+              hour: "2-digit",
+              minute: "2-digit",
+            }),
+          });
+        }
+      } catch {
+        // Retains authoritative fallback values from problem-solving.ts
+      }
+    }
+
+    loadLiveStats();
+    return () => {
+      isMounted = false;
+    };
+  }, [data.username]);
+
+  // Actual active days completed towards 100-day target (cumulative, not resetting streak)
   const progressPercent = Math.min(
     100,
-    Math.round((data.currentStreak / data.targetGoalDays) * 100)
+    Math.round((stats.totalActiveDays / data.targetGoalDays) * 100)
   );
 
   return (
@@ -68,9 +111,15 @@ export function ProblemSolvingSection() {
                   <Badge variant="cyan" dot className="text-[10px] uppercase font-mono py-0">
                     {data.status}
                   </Badge>
+                  {stats.isLive && (
+                    <span className="hidden sm:inline-flex items-center gap-1 text-[10px] font-mono text-emerald-600 dark:text-emerald-400">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      Live Sync
+                    </span>
+                  )}
                 </div>
                 <p className="text-xs font-mono text-muted-foreground mt-0.5">
-                  Target: 100 Consecutive Days of Problem Solving
+                  Target: 100 Active Days of Algorithmic Practice • @{data.username}
                 </p>
               </div>
             </div>
@@ -102,7 +151,7 @@ export function ProblemSolvingSection() {
               </div>
               <div>
                 <div className="font-display text-3xl sm:text-4xl font-bold text-foreground">
-                  {data.totalSolved}
+                  {stats.totalSolved}
                 </div>
                 <div className="text-[11px] font-mono text-muted-foreground mt-1">
                   Verified Solutions
@@ -110,7 +159,7 @@ export function ProblemSolvingSection() {
               </div>
             </div>
 
-            {/* Metric 2: Current Streak */}
+            {/* Metric 2: Current Consecutive Streak */}
             <div className="p-4 rounded-xl bg-surface border border-border flex flex-col justify-between">
               <div className="flex items-center justify-between text-muted-foreground mb-2">
                 <span className="text-[10px] font-mono uppercase tracking-wider">Current Streak</span>
@@ -118,28 +167,30 @@ export function ProblemSolvingSection() {
               </div>
               <div>
                 <div className="font-display text-3xl sm:text-4xl font-bold text-foreground flex items-baseline gap-1">
-                  <span>{data.currentStreak}</span>
-                  <span className="text-xs font-mono font-normal text-muted-foreground">days</span>
+                  <span>{stats.currentStreak}</span>
+                  <span className="text-xs font-mono font-normal text-muted-foreground">
+                    {stats.currentStreak === 1 ? "day" : "days"}
+                  </span>
                 </div>
                 <div className="text-[11px] font-mono text-muted-foreground mt-1">
-                  Active Streak
+                  Consecutive Streak
                 </div>
               </div>
             </div>
 
-            {/* Metric 3: Target Goal */}
+            {/* Metric 3: Target Goal (Active Days Completed towards 100 days) */}
             <div className="p-4 rounded-xl bg-surface border border-border flex flex-col justify-between">
               <div className="flex items-center justify-between text-muted-foreground mb-2">
-                <span className="text-[10px] font-mono uppercase tracking-wider">Goal Progress</span>
+                <span className="text-[10px] font-mono uppercase tracking-wider">Sprint Goal</span>
                 <Target className="w-4 h-4 text-cyan-500" />
               </div>
               <div>
                 <div className="font-display text-3xl sm:text-4xl font-bold text-foreground flex items-baseline gap-1">
-                  <span>{data.currentDay}</span>
+                  <span>{stats.totalActiveDays}</span>
                   <span className="text-xs font-mono font-normal text-muted-foreground">/ {data.targetGoalDays}d</span>
                 </div>
                 <div className="text-[11px] font-mono text-muted-foreground mt-1">
-                  {progressPercent}% Goal Reached
+                  {progressPercent}% Active Days Reached
                 </div>
               </div>
             </div>
@@ -156,7 +207,7 @@ export function ProblemSolvingSection() {
                 </div>
                 <div className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 mt-1 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  Day 1 Active
+                  Active Challenge
                 </div>
               </div>
             </div>
@@ -165,8 +216,10 @@ export function ProblemSolvingSection() {
           {/* Progress Bar towards 100-Day Target */}
           <div className="pt-6 pb-2 space-y-2">
             <div className="flex items-center justify-between text-xs font-mono">
-              <span className="text-muted-foreground">100-Day Sprint Progress Tracker</span>
-              <span className="font-semibold text-primary">{data.currentStreak} / {data.targetGoalDays} Days ({progressPercent}%)</span>
+              <span className="text-muted-foreground">100-Day Active Challenge Progress</span>
+              <span className="font-semibold text-primary">
+                {stats.totalActiveDays} / {data.targetGoalDays} Active Days ({progressPercent}%)
+              </span>
             </div>
             <div className="w-full h-2 rounded-full bg-surface border border-border overflow-hidden">
               <div
@@ -183,12 +236,14 @@ export function ProblemSolvingSection() {
                 <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold uppercase text-[11px]">
                   Easy Problems
                 </span>
-                <span className="font-mono font-bold text-foreground">{data.breakdown.easy}</span>
+                <span className="font-mono font-bold text-foreground">{stats.easySolved}</span>
               </div>
               <div className="w-full h-1.5 rounded-full bg-card border border-border overflow-hidden">
                 <div
                   className="h-full bg-emerald-500 rounded-full"
-                  style={{ width: data.totalSolved > 0 ? `${(data.breakdown.easy / data.totalSolved) * 100}%` : "0%" }}
+                  style={{
+                    width: stats.totalSolved > 0 ? `${(stats.easySolved / stats.totalSolved) * 100}%` : "0%",
+                  }}
                 />
               </div>
             </div>
@@ -198,12 +253,14 @@ export function ProblemSolvingSection() {
                 <span className="font-mono text-amber-600 dark:text-amber-400 font-semibold uppercase text-[11px]">
                   Medium Problems
                 </span>
-                <span className="font-mono font-bold text-foreground">{data.breakdown.medium}</span>
+                <span className="font-mono font-bold text-foreground">{stats.mediumSolved}</span>
               </div>
               <div className="w-full h-1.5 rounded-full bg-card border border-border overflow-hidden">
                 <div
                   className="h-full bg-amber-500 rounded-full"
-                  style={{ width: data.totalSolved > 0 ? `${(data.breakdown.medium / data.totalSolved) * 100}%` : "0%" }}
+                  style={{
+                    width: stats.totalSolved > 0 ? `${(stats.mediumSolved / stats.totalSolved) * 100}%` : "0%",
+                  }}
                 />
               </div>
             </div>
@@ -213,12 +270,14 @@ export function ProblemSolvingSection() {
                 <span className="font-mono text-rose-600 dark:text-rose-400 font-semibold uppercase text-[11px]">
                   Hard Problems
                 </span>
-                <span className="font-mono font-bold text-foreground">{data.breakdown.hard}</span>
+                <span className="font-mono font-bold text-foreground">{stats.hardSolved}</span>
               </div>
               <div className="w-full h-1.5 rounded-full bg-card border border-border overflow-hidden">
                 <div
                   className="h-full bg-rose-500 rounded-full"
-                  style={{ width: data.totalSolved > 0 ? `${(data.breakdown.hard / data.totalSolved) * 100}%` : "0%" }}
+                  style={{
+                    width: stats.totalSolved > 0 ? `${(stats.hardSolved / stats.totalSolved) * 100}%` : "0%",
+                  }}
                 />
               </div>
             </div>
@@ -265,7 +324,7 @@ export function ProblemSolvingSection() {
             <ShieldCheck className="w-4 h-4 text-primary shrink-0 mt-0.5" />
             <div>
               <strong className="text-foreground font-semibold">Authenticity Commitment: </strong>
-              Zero fabricated ratings, problems, or simulated contest achievements. This tracker marks the start of a genuine 100-day daily problem-solving routine initiated on November 24, 2026. You can audit daily submissions directly on LeetCode at{" "}
+              Zero fabricated ratings, problems, or simulated contest achievements. This tracker marks a genuine 100-day daily problem-solving routine initiated on November 24, 2026. Live submission activity is synced directly from LeetCode at{" "}
               <a
                 href={data.profileUrl}
                 target="_blank"
