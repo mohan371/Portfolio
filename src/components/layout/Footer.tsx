@@ -27,6 +27,14 @@ function TwitterXIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+function LeetCodeIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" {...props}>
+      <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 9.355l4.316-4.624a1.374 1.374 0 0 0-.963-2.731zm-3.267 8.243a1.376 1.376 0 0 0-.97 2.35l3.86 3.86a1.377 1.377 0 1 0 1.947-1.948l-3.86-3.86a1.37 1.37 0 0 0-.977-.402z" />
+    </svg>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="border-t border-border bg-surface relative z-10 pt-20 pb-14 overflow-hidden">
@@ -66,6 +74,7 @@ export function Footer() {
               <Link href="/about" className="hover:text-primary transition-colors">About</Link>
               <Link href="/projects" className="hover:text-primary transition-colors">Projects</Link>
               <Link href="/skills" className="hover:text-primary transition-colors">Skills</Link>
+              <Link href="/#problem-solving" className="hover:text-primary transition-colors">Problem-Solving</Link>
               <Link href="/experience" className="hover:text-primary transition-colors">Experience</Link>
               <Link href="/lab" className="hover:text-primary transition-colors">Lab</Link>
               <Link href="/arcade" className="hover:text-primary transition-colors">Arcade</Link>
@@ -144,6 +153,18 @@ export function Footer() {
                 >
                   <TwitterXIcon className="w-3.5 h-3.5" />
                 </a>
+                {siteConfig.socials.leetcode && (
+                  <a
+                    href={siteConfig.socials.leetcode}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-full border border-border bg-card hover:border-primary/40 text-muted-foreground hover:text-amber-500 transition-colors shadow-xs"
+                    aria-label="LeetCode Profile"
+                    title="LeetCode Problem-Solving Profile"
+                  >
+                    <LeetCodeIcon className="w-3.5 h-3.5" />
+                  </a>
+                )}
               </div>
             </div>
           </div>

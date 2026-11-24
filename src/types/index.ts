@@ -186,6 +186,7 @@ export interface SiteConfig {
     linkedin: string;
     twitter: string;
     email: string;
+    leetcode?: string;
   };
   navigation: {
     label: string;

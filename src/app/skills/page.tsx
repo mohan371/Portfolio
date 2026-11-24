@@ -4,6 +4,7 @@ import { SectionHeader } from "@/components/creative/SectionHeader";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code2, Layers, Server, Database, Wrench } from "lucide-react";
+import { ProblemSolvingSection } from "@/components/home/ProblemSolvingSection";
 
 export const metadata: Metadata = {
   title: "Skills & Tech Stack",
@@ -77,6 +78,9 @@ export default function SkillsPage() {
           </Card>
         ))}
       </div>
+
+      {/* Problem-Solving Journey Section */}
+      <ProblemSolvingSection />
     </div>
   );
 }

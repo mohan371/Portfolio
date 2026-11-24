@@ -15,6 +15,7 @@ import { InteractiveHeroCenterpiece } from "@/components/creative/InteractiveHer
 import { SceneContainer } from "@/components/3d/SceneContainer";
 import { InteractiveTiltCard } from "@/components/creative/InteractiveTiltCard";
 import { AnimatedTimeline } from "@/components/creative/AnimatedTimeline";
+import { ProblemSolvingSection } from "@/components/home/ProblemSolvingSection";
 import {
   ArrowUpRight,
   Download,
@@ -350,11 +351,16 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          SECTION 5: CERTIFICATIONS & ACHIEVEMENTS
+          SECTION 5: PROBLEM-SOLVING JOURNEY (LEETCODE 100-DAY SPRINT)
+          ========================================================================= */}
+      <ProblemSolvingSection />
+
+      {/* =========================================================================
+          SECTION 6: CERTIFICATIONS & ACHIEVEMENTS
           ========================================================================= */}
       <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <SectionHeader
-          index="04"
+          index="05"
           tag="Certifications &amp; Achievements"
           title="Continuous Learning &amp; Competitive Milestones"
           description="Professional course accreditations from Scaler &amp; Networkz System, hackathon participations, and research paper presentation."
@@ -420,13 +426,13 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          SECTION 6: ABOUT ME & ACCOUNTING LEDGER FOUNDATION
+          SECTION 7: ABOUT ME & ACCOUNTING LEDGER FOUNDATION
           ========================================================================= */}
       <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
             <SectionHeader
-              index="05"
+              index="06"
               tag="Personal Narrative"
               title="From Financial Ledgers to Resilient Software"
               className="mb-6"
@@ -495,12 +501,12 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          SECTION 7: ENGINEERING LAB PREVIEW
+          SECTION 8: ENGINEERING LAB PREVIEW
           ========================================================================= */}
       <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <SectionHeader
-            index="06"
+            index="07"
             tag="Engineering Lab"
             title="Interactive Prototypes &amp; Practical Curiosity"
             description="Working local simulations: Geofencing Ray-Casting calculation, WebSocket alerts, terminal commands, and database architecture visualizer."
@@ -546,12 +552,12 @@ export default function Home() {
       </section>
 
       {/* =========================================================================
-          SECTION 8: JOURNAL PREVIEW
+          SECTION 9: JOURNAL PREVIEW
           ========================================================================= */}
       <section className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-24 border-t border-border">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
           <SectionHeader
-            index="07"
+            index="08"
             tag="Engineering Journal"
             title="Technical Essays &amp; Architecture Insights"
             description="Reflections on double-entry accounting shaping distributed software rigor, high-throughput Go APIs, and React 19 Server Components."
