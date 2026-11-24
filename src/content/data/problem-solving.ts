@@ -31,8 +31,8 @@ export interface ProblemSolvingData {
  */
 export const problemSolvingData: ProblemSolvingData = {
   platform: "LeetCode",
-  profileUrl: "https://leetcode.com/u/mohan371",
-  username: "mohan371",
+  profileUrl: "https://leetcode.com/u/Mohannv123/",
+  username: "Mohannv123",
   status: "In Progress",
   startDate: "November 24, 2026",
   targetGoalDays: 100,

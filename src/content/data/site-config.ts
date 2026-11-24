@@ -166,7 +166,7 @@ export const siteConfig: SiteConfig = {
     linkedin: "https://linkedin.com/in/mohan-n-v-63617b190",
     twitter: "https://x.com/mohannv",
     email: "mohan.mca2024@adhiyamaan.in",
-    leetcode: "https://leetcode.com/u/mohan371",
+    leetcode: "https://leetcode.com/u/Mohannv123/",
   },
   navigation: [
     { label: "Overview", href: "/" },

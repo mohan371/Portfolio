@@ -19,7 +19,8 @@ describe("Problem-Solving Journey (LeetCode 100-Day Challenge) Suite", () => {
   });
 
   it("3. Verifies configurable profile URL structure", () => {
-    expect(problemSolvingData.profileUrl).toContain("leetcode.com");
+    expect(problemSolvingData.username).toBe("Mohannv123");
+    expect(problemSolvingData.profileUrl).toBe("https://leetcode.com/u/Mohannv123/");
     expect(siteConfig.socials.leetcode).toBe(problemSolvingData.profileUrl);
   });
 
