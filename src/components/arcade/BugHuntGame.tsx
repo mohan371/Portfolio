@@ -68,6 +68,16 @@ export function BugHuntGame() {
     }
   }, []);
 
+  const handleTimeout = useCallback(() => {
+    setIsAnswerSubmitted(true);
+    setIsCorrect(false);
+    setStats((prev) => ({
+      ...prev,
+      streak: 0,
+      totalAttempts: prev.totalAttempts + 1,
+    }));
+  }, []);
+
   // Timer Countdown Effect
   useEffect(() => {
     if (!timerEnabled || isAnswerSubmitted) return;
@@ -82,17 +92,7 @@ export function BugHuntGame() {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [timerEnabled, timeLeft, isAnswerSubmitted]);
-
-  const handleTimeout = () => {
-    setIsAnswerSubmitted(true);
-    setIsCorrect(false);
-    setStats((prev) => ({
-      ...prev,
-      streak: 0,
-      totalAttempts: prev.totalAttempts + 1,
-    }));
-  };
+  }, [timerEnabled, timeLeft, isAnswerSubmitted, handleTimeout]);
 
   const handleSelectOption = (id: string) => {
     if (isAnswerSubmitted) return;
